@@ -1,10 +1,11 @@
 #include<iostream>
 using namespace std;
 template <class T>
-struct stacknode // Structure declaration of stack
+class stacknode // class declaration of stack
 {
+    public:
     T data;
-    stacknode<T> *next;
+    class stacknode<T> *next;
 };
 
 

@@ -1,10 +1,11 @@
 #include<iostream>
 using namespace std;
 template <class T>
-struct Queuenode // Structure declaration of queue
+class Queuenode // class declaration of queue
 {
+    public:
     T data;
-    struct Queuenode *next;
+    class Queuenode *next;
 };
 
 ///////////////////////////////////

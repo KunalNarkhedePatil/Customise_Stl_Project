@@ -1,39 +1,44 @@
 #include <iostream>
 using namespace std;
 template <class T>
-struct node // Structure declaration of singly linked list
+class node // class declaration of singly linked list
 {
+    public:
     T data;
-    node<T> *next;
+    class node<T> *next;
 };
 
 template <class T>
-struct node1 // Structure declaration of doubly linked list
+class node1 // class declaration of doubly linked list
 {
+    public:
     T data;
-    struct node1 *next;
-    struct node1 *prev;
+    class node1 *next;
+    class node1 *prev;
 };
 
 template <class T>
-struct stacknode // Structure declaration of stack
+class stacknode // class declaration of stack
 {
+    public:
     T data;
-    stacknode<T> *next;
+    class stacknode<T> *next;
 };
 
 template <class T>
-struct Queuenode // Structure declaration of queue
+class Queuenode // class declaration of queue
 {
+    public:
     T data;
-    struct Queuenode *next;
+    class Queuenode *next;
 };
 
 template <class T>
-struct dequenode // Structure declaration of deque(Double Ended Queue)
+class dequenode // class declaration of deque(Double Ended Queue)
 {
+    public:
     T data;
-    dequenode<T> *next;
+    class dequenode<T> *next;
 };
 
 ////////////////////////////////////////

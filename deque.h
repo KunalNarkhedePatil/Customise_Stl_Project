@@ -1,10 +1,11 @@
 #include<iostream>
 using namespace std;
 template <class T>
-struct dequenode // Structure declaration of deque(Double Ended Queue)
+class dequenode // class declaration of deque(Double Ended Queue)
 {
+    public:
     T data;
-    dequenode<T> *next;
+    class dequenode<T> *next;
 };
 
 ///////////////////////////////////
