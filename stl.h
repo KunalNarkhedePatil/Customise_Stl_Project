@@ -1930,8 +1930,3 @@ void vector<T>::set(int index, T data)
 {
     Arr[index] = data;
 }
-int main()
-{
-
-    return 0;
-}
