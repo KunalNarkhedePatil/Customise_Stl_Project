@@ -3,43 +3,73 @@ using namespace std;
 template <class T>
 class node // class declaration of singly linked list
 {
-    public:
+public:
     T data;
     class node<T> *next;
+
+    node(T data)
+    {
+        this->data=data;
+        this->next=NULL;
+    }
 };
 
 template <class T>
 class node1 // class declaration of doubly linked list
 {
-    public:
+public:
     T data;
     class node1 *next;
     class node1 *prev;
+    node1(T data)
+    {
+        this->data = data;
+        this->next = NULL;
+        this->prev = NULL;
+    }
 };
 
 template <class T>
 class stacknode // class declaration of stack
 {
-    public:
+public:
     T data;
     class stacknode<T> *next;
+
+    stacknode(T data)
+    {
+        this->data = data;
+        this->next = NULL;
+    }
 };
 
 template <class T>
 class Queuenode // class declaration of queue
 {
-    public:
+public:
     T data;
     class Queuenode *next;
-};
 
+    Queuenode(T val)
+    {
+        this->data = val;
+        this->next = NULL;
+    }
+};
 template <class T>
 class dequenode // class declaration of deque(Double Ended Queue)
 {
-    public:
+public:
     T data;
     class dequenode<T> *next;
+
+    dequenode(T data)
+    {
+        this->data=data;
+        this->next=NULL;
+    }
 };
+
 
 ////////////////////////////////////////
 //     SINGLY LINEAR LINKED LIST      //                                        //
@@ -120,11 +150,8 @@ int singlyllist<T>::size()
 template <class T>
 void singlyllist<T>::insertfirst(T val)
 {
-    node<T> *newn = new node<T>; // newn = (PNODE)malloc(sizeof(NODE))
+    node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
                                  // Allocate the memory
-
-    newn->data = val;  // Initialise the data
-    newn->next = NULL; // Initialise the Pointer
 
     if (first == NULL) // Linked list is empty
     {
@@ -148,13 +175,10 @@ void singlyllist<T>::insertfirst(T val)
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void singlyllist<T>::insertlast(T no)
+void singlyllist<T>::insertlast(T val)
 {
-    node<T> *newn = new node<T>; // newn = (PNODE)malloc(sizeof(NODE))
+    node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
                                  // Allocate the memory
-
-    newn->data = no;   // Initialise the data
-    newn->next = NULL; // Initialise the Pointer
 
     if (first == NULL)
     {
@@ -185,11 +209,6 @@ void singlyllist<T>::insertlast(T no)
 template <class T>
 void singlyllist<T>::insertatpos(T val, int ipos)
 {
-
-    node<T> *newn = new node<T>; // newn = (PNODE)malloc(sizeof(NODE))
-
-    newn->data = val;
-    newn->next = NULL;
     if (ipos < 1 || ipos > isize + 1)
     {
         cout << "Invalid Position" << endl;
@@ -206,6 +225,7 @@ void singlyllist<T>::insertatpos(T val, int ipos)
     }
     else
     {
+        node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
         node<T> *temp = first;
 
         for (int i = 1; i < ipos - 1; i++)
@@ -410,10 +430,7 @@ int singlyclist<T>::size()
 template <class T>
 void singlyclist<T>::insertfirst(T val)
 {
-    node<T> *newn = new struct node<T>;
-
-    newn->data = val;
-    newn->next = NULL;
+    node<T> *newn = new node<T>(val);
 
     if ((first == NULL) && (last == NULL))
     {
@@ -443,10 +460,7 @@ void singlyclist<T>::insertfirst(T val)
 template <class T>
 void singlyclist<T>::insertlast(T val)
 {
-    node<T> *newn = new struct node<T>;
-
-    newn->data = val;
-    newn->next = NULL;
+    node<T> *newn = new node<T>(val);
 
     if ((first == NULL) && (last == NULL))
     {
@@ -490,11 +504,7 @@ void singlyclist<T>::insertatpos(T val, int ipos)
     }
     else
     {
-        node<T> *newn = new struct node<T>;
-
-        newn->data = val;
-        newn->next = NULL;
-
+        node<T> *newn = new node<T>(val);
         node<T> *temp = first;
 
         for (int i = 1; i < ipos - 1; i++)
@@ -708,10 +718,7 @@ void doublyllist<T>::display()
 template <class T>
 void doublyllist<T>::insertfirst(T val)
 {
-    node1<T> *newn = new node1<T>;
-    newn->data = val;
-    newn->next = NULL;
-    newn->prev = NULL;
+    node1<T> *newn = new node1<T>(val);
 
     if (isize == 0)
     {
@@ -738,10 +745,8 @@ void doublyllist<T>::insertfirst(T val)
 template <class T>
 void doublyllist<T>::insertlast(T val)
 {
-    node1<T> *newn = new node1<T>;
-    newn->data = val;
-    newn->next = NULL;
-    newn->prev = NULL;
+    node1<T> *newn = new node1<T>(val);
+
     if (isize == 0)
     {
         first = newn;
@@ -795,10 +800,7 @@ void doublyllist<T>::insertatpos(T val, int ipos)
     {
         node1<T> *temp = first;
 
-        node1<T> *newn = new node1<T>;
-        newn->data = val;
-        newn->next = NULL;
-        newn->prev = NULL;
+        node1<T> *newn = new node1<T>(val);
 
         for (int i = 1; i < ipos - 1; i++)
         {
@@ -920,20 +922,6 @@ void doublyllist<T>::deleteatpos(int ipos)
         temp->next->prev = temp;
     }
 }
-template <class T>
-class node1 // class declaration of doubly linked list
-{
-public:
-    T data;
-    class node1 *next;
-    class node1 *prev;
-    node1(T data)
-    {
-        this->data = data;
-        this->next = NULL;
-        this->prev = NULL;
-    }
-};
 ////////////////////////////////////////
 //     DOUBLY CIRCULAR LINKED LIST    //                                        //
 ////////////////////////////////////////
@@ -958,8 +946,8 @@ public:
     void deletenode(int ipos);
     T front();
     T back();
-    node1<T>* begin();
-    node1<T>* end();
+    node1<T> *begin();
+    node1<T> *end();
 };
 
 template <class T>
@@ -1268,11 +1256,10 @@ T list<T>::back()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-node1<T> * list<T>::begin()
+node1<T> *list<T>::begin()
 {
     return first;
 }
-
 
 ////////////////////////////////////////////////////////////////////
 //
@@ -1285,7 +1272,7 @@ node1<T> * list<T>::begin()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-node1<T> * list<T>::end()
+node1<T> *list<T>::end()
 {
     return last;
 }
@@ -1320,7 +1307,7 @@ stack<T>::stack()
 //
 // Function Name : display
 // Description   : It is stack Data Structure and This function is used
-//                 to display the element  of stack
+//                 to display the element of stack
 // Parameter     :
 // Return Value  : void
 //
@@ -1349,7 +1336,7 @@ void stack<T>::display()
 //
 // Function Name : size
 // Description   : It is stack Data Structure and This function is used
-//                 to size the element  of linked list
+//                 to size the element of linked list
 // Parameter     :
 // Return Value  : int
 //
@@ -1373,10 +1360,7 @@ int stack<T>::size()
 template <class T>
 void stack<T>::push(T Val)
 {
-    stacknode<T> *newn = new struct stacknode<T>;
-
-    newn->data = Val;
-    newn->next = NULL;
+    stacknode<T> *newn = new stacknode<T>(Val);
 
     if ((first == NULL) && (last == NULL))
     {
@@ -1517,10 +1501,7 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    Queuenode<T> *newn = new struct Queuenode<T>;
-
-    newn->data = val;
-    newn->next = NULL;
+    Queuenode<T> *newn = new Queuenode<T>(val);
 
     if ((front == NULL) && (rare == NULL))
     {
@@ -1628,10 +1609,7 @@ int deque<T>::size()
 template <class T>
 void deque<T>::push_front(T val)
 {
-    dequenode<T> *newn = new struct dequenode<T>;
-
-    newn->data = val;
-    newn->next = NULL;
+    dequenode<T> *newn = new dequenode<T>(val);
 
     if ((front == NULL) && (rare == NULL))
     {
@@ -1661,14 +1639,10 @@ void deque<T>::push_front(T val)
 template <class T>
 void deque<T>::push_back(T no)
 {
-    dequenode<T> *newn = new struct dequenode<T>;
-
-    newn->data = no;
-    newn->next = NULL;
+    dequenode<T> *newn = new dequenode<T>(val);
 
     if ((front == NULL) && (rare == NULL))
     {
-        
     }
     else
     {

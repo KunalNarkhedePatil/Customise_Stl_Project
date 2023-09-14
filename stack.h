@@ -1,16 +1,16 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 template <class T>
 class stacknode // class declaration of stack
 {
-    public:
+public:
     T data;
     class stacknode<T> *next;
 
     stacknode(T data)
     {
-        this->data=data;
-        this->next=NULL;
+        this->data = data;
+        this->next = NULL;
     }
 };
 ///////////////////////////////////
@@ -96,7 +96,7 @@ int stack<T>::size()
 template <class T>
 void stack<T>::push(T Val)
 {
-    stacknode<T> *newn = new struct stacknode<T>(Val);
+    stacknode<T> *newn = new stacknode<T>(Val);
 
     newn->data = Val;
     newn->next = NULL;

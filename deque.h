@@ -1,11 +1,17 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 template <class T>
 class dequenode // class declaration of deque(Double Ended Queue)
 {
-    public:
+public:
     T data;
     class dequenode<T> *next;
+
+    dequenode(T data)
+    {
+        this->data=data;
+        this->next=NULL;
+    }
 };
 
 ///////////////////////////////////
@@ -67,7 +73,7 @@ int deque<T>::size()
 template <class T>
 void deque<T>::push_front(T val)
 {
-    dequenode<T> *newn = new struct dequenode<T>;
+    dequenode<T> *newn = new dequenode<T>(val);
 
     newn->data = val;
     newn->next = NULL;
@@ -98,16 +104,15 @@ void deque<T>::push_front(T val)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void deque<T>::push_back(T no)
+void deque<T>::push_back(T val)
 {
-    dequenode<T> *newn = new struct dequenode<T>;
+    dequenode<T> *newn = new dequenode<T>(val);
 
     newn->data = no;
     newn->next = NULL;
 
     if ((front == NULL) && (rare == NULL))
     {
-        
     }
     else
     {
@@ -222,4 +227,3 @@ int deque<T>::back()
 {
     return rare->data;
 }
-

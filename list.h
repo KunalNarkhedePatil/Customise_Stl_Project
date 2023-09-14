@@ -38,8 +38,8 @@ public:
     void deletenode(int ipos);
     T front();
     T back();
-    node1<T>* begin();
-    node1<T>* end();
+    node1<T> *begin();
+    node1<T> *end();
 };
 
 template <class T>
@@ -348,11 +348,10 @@ T list<T>::back()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-node1<T> * list<T>::begin()
+node1<T> *list<T>::begin()
 {
     return first;
 }
-
 
 ////////////////////////////////////////////////////////////////////
 //
@@ -365,7 +364,7 @@ node1<T> * list<T>::begin()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-node1<T> * list<T>::end()
+node1<T> *list<T>::end()
 {
     return last;
 }
