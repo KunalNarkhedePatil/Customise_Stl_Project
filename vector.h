@@ -69,7 +69,6 @@ void vector<T>::push_back(T data)
         }
         // deleting previous array
         delete[] Arr;
-
         iCapacity = iCapacity * 2;
         Arr = temp;
     }

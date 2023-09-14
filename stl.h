@@ -920,13 +920,26 @@ void doublyllist<T>::deleteatpos(int ipos)
         temp->next->prev = temp;
     }
 }
-
+template <class T>
+class node1 // class declaration of doubly linked list
+{
+public:
+    T data;
+    class node1 *next;
+    class node1 *prev;
+    node1(T data)
+    {
+        this->data = data;
+        this->next = NULL;
+        this->prev = NULL;
+    }
+};
 ////////////////////////////////////////
 //     DOUBLY CIRCULAR LINKED LIST    //                                        //
 ////////////////////////////////////////
 
 template <class T>
-class doublyclist
+class list
 {
 private:
     node1<T> *first;
@@ -934,19 +947,23 @@ private:
     int isize;
 
 public:
-    doublyclist();
+    list();
     int size();
     void display();
-    void insertfirst(T val);
-    void insertlast(T val);
-    void insertatpos(T val, int ipos);
-    void deletefirst();
-    void deletelast();
-    void deleteatpos(int ipos);
+    void push_front(T val);
+    void push_back(T val);
+    void insert(T val, int ipos);
+    void pop_front();
+    void pop_back();
+    void deletenode(int ipos);
+    T front();
+    T back();
+    node1<T>* begin();
+    node1<T>* end();
 };
 
 template <class T>
-doublyclist<T>::doublyclist()
+list<T>::list()
 {
     first = NULL;
     last = NULL;
@@ -963,7 +980,7 @@ doublyclist<T>::doublyclist()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int doublyclist<T>::size()
+int list<T>::size()
 {
     return isize;
 }
@@ -978,7 +995,7 @@ int doublyclist<T>::size()
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void doublyclist<T>::display()
+void list<T>::display()
 {
     node1<T> *temp = first;
 
@@ -992,7 +1009,7 @@ void doublyclist<T>::display()
 }
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : insertfirst
+// Function Name : push_front
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
@@ -1001,14 +1018,9 @@ void doublyclist<T>::display()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void doublyclist<T>::insertfirst(T val)
+void list<T>::push_front(T val)
 {
-    node1<T> *newn = new node1<T>;
-
-    newn->data = val;
-    newn->next = NULL;
-    newn->prev = NULL;
-
+    node1<T> *newn = new node1<T>(val);
     if ((first == NULL) && (last == NULL))
     {
         first = newn;
@@ -1028,7 +1040,7 @@ void doublyclist<T>::insertfirst(T val)
 
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : insertlast
+// Function Name : push_back
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
@@ -1036,13 +1048,9 @@ void doublyclist<T>::insertfirst(T val)
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void doublyclist<T>::insertlast(T val)
+void list<T>::push_back(T val)
 {
-    node1<T> *newn = new node1<T>;
-
-    newn->data = val;
-    newn->next = NULL;
-    newn->prev = NULL;
+    node1<T> *newn = new node1<T>(val);
 
     if ((first == NULL) && (last == NULL))
     {
@@ -1063,7 +1071,7 @@ void doublyclist<T>::insertlast(T val)
 
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : insertatpos
+// Function Name : insert
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
@@ -1072,7 +1080,7 @@ void doublyclist<T>::insertlast(T val)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void doublyclist<T>::insertatpos(T val, int ipos)
+void list<T>::insert(T val, int ipos)
 {
     if ((ipos < 1) || (ipos > isize + 1))
     {
@@ -1081,15 +1089,15 @@ void doublyclist<T>::insertatpos(T val, int ipos)
 
     if (ipos == 1)
     {
-        insertfirst(val);
+        push_front(val);
     }
     else if (ipos == isize + 1)
     {
-        insertlast(val);
+        push_back(val);
     }
     else
     {
-        node1<T> *newn = new node1<T>;
+        node1<T> *newn = new node1<T>(val);
 
         newn->data = val;
         newn->next = NULL;
@@ -1111,7 +1119,7 @@ void doublyclist<T>::insertatpos(T val, int ipos)
 }
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : deletefirst
+// Function Name : pop_front
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
@@ -1120,7 +1128,7 @@ void doublyclist<T>::insertatpos(T val, int ipos)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void doublyclist<T>::deletefirst()
+void list<T>::pop_front()
 {
     if ((first == NULL) && (last == NULL))
     {
@@ -1144,7 +1152,7 @@ void doublyclist<T>::deletefirst()
 
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : deletelast
+// Function Name : pop_back
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
@@ -1153,7 +1161,7 @@ void doublyclist<T>::deletefirst()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void doublyclist<T>::deletelast()
+void list<T>::pop_back()
 {
     if ((first == NULL) && (last == NULL))
     {
@@ -1177,7 +1185,7 @@ void doublyclist<T>::deletelast()
 
 ////////////////////////////////////////////////////////////////////
 //
-// Function Name : deleteatpos
+// Function Name : deletenode
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete at perticular position of Linked list
 // Parameter     : Position
@@ -1186,7 +1194,7 @@ void doublyclist<T>::deletelast()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void doublyclist<T>::deleteatpos(int ipos)
+void list<T>::deletenode(int ipos)
 {
     if ((ipos < 1) || (ipos > isize))
     {
@@ -1194,11 +1202,11 @@ void doublyclist<T>::deleteatpos(int ipos)
     }
     if (ipos == 1)
     {
-        deletefirst();
+        pop_front();
     }
     else if (ipos == isize)
     {
-        deletelast();
+        pop_back();
     }
     else
     {
@@ -1215,6 +1223,71 @@ void doublyclist<T>::deleteatpos(int ipos)
 
         isize--;
     }
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : front
+// Description   : It is Doubly Circular Linked list and This function is
+//                 returns the value of the first element in the list.
+// Parameter     :
+// Return Value  : any data
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+T list<T>::front()
+{
+    return first->data;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : back
+// Description   : It is Doubly Circular Linked list and This function is
+//                 returns the value of the last element in the list.
+// Parameter     :
+// Return Value  : any data
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+T list<T>::back()
+{
+    return first->data;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : begin
+// Description   : It is Doubly Circular Linked list and This function is
+//                 returns an iterator pointing to the first element of the list.
+// Parameter     :
+// Return Value  : any data
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+node1<T> * list<T>::begin()
+{
+    return first;
+}
+
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : end
+// Description   : It is Doubly Circular Linked list and This function is
+//                 returns an iterator pointing to the theoretical last element which follows the last element.
+// Parameter     :
+// Return Value  : any data
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+node1<T> * list<T>::end()
+{
+    return last;
 }
 
 ///////////////////////////////////
