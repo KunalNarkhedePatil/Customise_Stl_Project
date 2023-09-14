@@ -6,9 +6,13 @@ class stacknode // class declaration of stack
     public:
     T data;
     class stacknode<T> *next;
+
+    stacknode(T data)
+    {
+        this->data=data;
+        this->next=NULL;
+    }
 };
-
-
 ///////////////////////////////////
 //      STACK DATA STRUCTURE     //
 ///////////////////////////////////
@@ -39,7 +43,7 @@ stack<T>::stack()
 //
 // Function Name : display
 // Description   : It is stack Data Structure and This function is used
-//                 to display the element  of stack
+//                 to display the element of stack
 // Parameter     :
 // Return Value  : void
 //
@@ -68,7 +72,7 @@ void stack<T>::display()
 //
 // Function Name : size
 // Description   : It is stack Data Structure and This function is used
-//                 to size the element  of linked list
+//                 to size the element of linked list
 // Parameter     :
 // Return Value  : int
 //
@@ -92,7 +96,7 @@ int stack<T>::size()
 template <class T>
 void stack<T>::push(T Val)
 {
-    stacknode<T> *newn = new struct stacknode<T>;
+    stacknode<T> *newn = new struct stacknode<T>(Val);
 
     newn->data = Val;
     newn->next = NULL;

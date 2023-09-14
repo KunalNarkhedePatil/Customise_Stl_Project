@@ -6,6 +6,12 @@ class Queuenode // class declaration of queue
     public:
     T data;
     class Queuenode *next;
+
+    Queuenode(T val)
+    {
+        this->data=val;
+        this->next=NULL;
+    }
 };
 
 ///////////////////////////////////
@@ -93,7 +99,7 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    Queuenode<T> *newn = new struct Queuenode<T>;
+    Queuenode<T> *newn = new struct Queuenode<T>(val);
 
     newn->data = val;
     newn->next = NULL;
