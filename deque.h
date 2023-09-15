@@ -13,7 +13,6 @@ public:
         this->next=NULL;
     }
 };
-
 ///////////////////////////////////
 //      DEQUE DATA STRUCTURE     //
 ///////////////////////////////////
@@ -32,10 +31,9 @@ public:
     void push_back(T);
     void pop_front();
     void pop_back();
-    int Front();
+    int front();
     int back();
 };
-
 template <class T>
 deque<T>::deque()
 {
@@ -207,7 +205,7 @@ void deque<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int deque<T>::Front()
+int deque<T>::front()
 {
     return front->data;
 }
