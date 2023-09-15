@@ -1,8 +1,8 @@
-//#include <stl.h>
-//#include"stl.h"
- #include"stack.h"
- #include"queue.h"
- #include"vector.h"
+// #include <stl.h>
+#include "stl.h"
+#include "stack.h"
+#include "queue.h"
+#include "vector.h"
 
 int main()
 {
@@ -29,9 +29,8 @@ int main()
 
     iobj1.display();
 
-
     //////////////////////////////////////
-    cout<<"----------------------------------------------------------------\n";
+    cout << "----------------------------------------------------------------\n";
 
     vector<int> v;
 

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Kunal Narkhede/Desktop/Programming/Marvellous_Infosystem/LB_17-20220211T103006Z-001/LB_17/LB Project/DS Project/STL_Project",
-      "program": "c:/Users/Kunal Narkhede/Desktop/Programming/Marvellous_Infosystem/LB_17-20220211T103006Z-001/LB_17/LB Project/DS Project/STL_Project/build/Debug/outDebug",
+      "cwd": "f:/Customise_Stl_Project",
+      "program": "f:/Customise_Stl_Project/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
