@@ -17,12 +17,12 @@ public:
     void push_back(T data);
     void push_back(T data, int index);
     void pop_back();
-    int at(int index);
+    T at(int index);
     int size();
     void set(int index, T data);
     int capacity();
     void print();
-    int operator[](int i);
+    T operator[](int i);
 };
 // Default constructor to initialise
 // an initial capacity of 1 element and
@@ -57,7 +57,7 @@ void vector<T>::push_back(T data)
 {
     // if the number of elements is equal to the
     // capacity, that means we don't have space to
-    // accommodate more elements. We need to double the
+    // add more elements. We need to double the
     // capacity
     if (iCurrent == iCapacity)
     {
@@ -129,7 +129,7 @@ void vector<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int vector<T>::at(int index)
+T vector<T>::at(int index)
 {
     // if index is within the range
     if (index < iCurrent)
@@ -202,7 +202,7 @@ void vector<T>::print()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int vector<T>::operator[](int i)
+T vector<T>::operator[](int i)
 {
     return Arr[i];
 }
