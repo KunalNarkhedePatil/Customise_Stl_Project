@@ -1765,7 +1765,7 @@ template <class T>
 class vector
 {
 private:
-    int *Arr;
+    T *Arr;
     int iCapacity;
     int iCurrent;
 
@@ -1819,7 +1819,7 @@ void vector<T>::push_back(T data)
     // capacity
     if (iCurrent == iCapacity)
     {
-        int *temp = new int[2 * iCapacity];
+        T *temp = new T[2 * iCapacity];
         // copying old array elements to new array
         for (int i = 0; i < iCapacity; i++)
         {

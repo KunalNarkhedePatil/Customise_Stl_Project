@@ -13,6 +13,11 @@ public:
     const T min(const T Val1, const T Val2);
     const T min(const vector<T> &array);
     void swap(T &Val1, T &Val2);
+    void display(vector<T> &arr);
+    void display(T arr[],int n);
+    int binarysearch(vector<T> &arr, T &key);
+    void sort(vector<T> &arr);
+    void sort(T arr[],int n);
 };
 
 ////////////////////////////////////////////////////////////////////
@@ -189,4 +194,103 @@ void algorithm<T>::swap(T &Val1, T &Val2)
     Val1 = Val1 + Val2;
     Val2 = Val1 - Val2;
     Val1 = Val1 - Val2;
+}
+template <class T>
+void algorithm<T>::display(vector<T> &arr)
+{
+    for (register int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+template <class T>
+void algorithm<T>::display(T arr[],int n)
+{
+    for (register int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+template <class T>
+int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
+{
+    if (Arr.empty())
+    {
+        return -1;
+    }
+    int iStart = 0;
+    int iEnd = Arr.size() - 1;
+    int Mid = iStart + (iEnd - iStart) / 2;
+    // int Mid = iStart + (iEnd - iStart) / 2;
+    // iStart + iEnd / 2 - iStrat / 2;
+    // iStart / 2 + iEnd / 2;
+    // (iStart + iEnd) / 2;
+    int iFlag = -1;
+
+    while (iStart <= iEnd)
+    {
+        if (Arr[Mid] == Key)
+        {
+            iFlag = Mid;
+            break;
+        }
+
+        if (Key > Arr[Mid])
+        {
+            iStart = Mid + 1;
+        }
+        else if (Key < Arr[Mid])
+        {
+            iEnd = Mid - 1;
+        }
+        Mid = iStart + (iStart - iEnd) / 2;
+    }
+    if (iFlag == -1)
+    {
+        return iFlag;
+    }
+    else
+    {
+        return iFlag;
+    }
+}
+template <class T>
+void algorithm<T>::sort(vector<T> &arr)
+{
+    int i = 0, j = 0, temp = 0;
+    int n = arr.size(); // length of array
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+}
+
+template <class T>
+void algorithm<T>::sort(T arr[],int n)
+{
+    int i = 0, j = 0, temp = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 }
