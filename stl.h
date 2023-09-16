@@ -1,5 +1,5 @@
 #include <iostream>
-#include<vector>
+#include <vector>
 using namespace std;
 template <class T>
 class node // class declaration of singly linked list
@@ -1419,6 +1419,10 @@ void stack<T>::pop()
 ///////////////////////////////////
 //      QUEUE DATA STRUCTURE     //
 ///////////////////////////////////
+
+///////////////////////////////////
+//      QUEUE DATA STRUCTURE     //
+///////////////////////////////////
 template <class T>
 class queue
 {
@@ -1503,6 +1507,9 @@ void queue<T>::push(T val) // insertlast
 {
     Queuenode<T> *newn = new Queuenode<T>(val);
 
+    newn->data = val;
+    newn->next = NULL;
+
     if ((front == NULL) && (rare == NULL))
     {
         front = newn;
@@ -1568,10 +1575,9 @@ public:
     void push_back(T);
     void pop_front();
     void pop_back();
-    int Front();
+    int front();
     int back();
 };
-
 template <class T>
 deque<T>::deque()
 {
@@ -1611,6 +1617,9 @@ void deque<T>::push_front(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
+    newn->data = val;
+    newn->next = NULL;
+
     if ((front == NULL) && (rare == NULL))
     {
         front = newn;
@@ -1640,6 +1649,9 @@ template <class T>
 void deque<T>::push_back(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
+
+    newn->data = no;
+    newn->next = NULL;
 
     if ((front == NULL) && (rare == NULL))
     {
@@ -1737,7 +1749,7 @@ void deque<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int deque<T>::Front()
+int deque<T>::front()
 {
     return front->data;
 }
@@ -1758,9 +1770,87 @@ int deque<T>::back()
     return rare->data;
 }
 
-///////////////////////////////////
-//     VECTOR DATA STRUCTURE     //
-///////////////////////////////////
+//////////////////////
+//       MAP        //
+//////////////////////
+template <class K, class V>
+class map
+{
+private:
+    vector<K> keys;
+    vector<V> values;
+
+public:
+    void insert(const K &key, const V &value);
+    V get(const K &key) const;
+    bool contains(const K &key) const;
+};
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : insert
+// Description   : It is map Data Structure and this function is used to inset the
+//                 the data in the form of keys and values.
+// Parameter     : const key(reference),const value(reference)
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class K, class V>
+void map<K, V>::insert(const K &key, const V &value)
+{
+    keys.push_back(key);
+    values.push_back(value);
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : get
+// Description   : It is map Data Structure and this function is used to get the value
+//                 using keys.
+// Parameter     : const key(reference)
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class K, class V>
+V map<K, V>::get(const K &key) const
+{
+    for (register int i = 0; i < keys.size(); i++)
+    {
+        if (keys[i] == key)
+        {
+            return values[i];
+        }
+    }
+    throw out_of_range("Key not found");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : contains
+// Description   : It is map Data Structure and this function is used to check key
+//                 present or not
+// Parameter     : const key(reference)
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class K, class V>
+bool map<K, V>::contains(const K &key) const
+{
+    for (const auto &k : keys)
+    {
+        if (k == key)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+//////////////////////
+//     ALGORITHM    //
+//////////////////////
+
 template <class T>
 class algorithm
 {
@@ -1954,6 +2044,17 @@ void algorithm<T>::swap(T &Val1, T &Val2)
     Val2 = Val1 - Val2;
     Val1 = Val1 - Val2;
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to display
+//                 the content in vector
+// Parameter     :vector arr(reference)
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::display(vector<T> &arr)
 {
@@ -1963,6 +2064,17 @@ void algorithm<T>::display(vector<T> &arr)
     }
     cout << endl;
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to display
+//                 the content in array
+// Parameter     :any type arr,int
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::display(T arr[], int n)
 {
@@ -1972,6 +2084,16 @@ void algorithm<T>::display(T arr[], int n)
     }
     cout << endl;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to search
+//                 the element inside vector
+// Parameter     :any type vector arr(reference),any type key
+// Return Value  : int
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
 {
@@ -2015,6 +2137,17 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
         return iFlag;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : sort
+// Description   : It is algorithm and this function is used to sort
+//                 the element in vector
+// Parameter     :any type vector arr(reference);
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::sort(vector<T> &arr)
 {
@@ -2034,6 +2167,16 @@ void algorithm<T>::sort(vector<T> &arr)
         }
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : sort
+// Description   : It is algorithm and this function is used to sort
+//                 the element in array
+// Parameter     :any type arr,int
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
 
 template <class T>
 void algorithm<T>::sort(T arr[], int n)

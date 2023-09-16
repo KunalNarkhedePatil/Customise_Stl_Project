@@ -195,6 +195,17 @@ void algorithm<T>::swap(T &Val1, T &Val2)
     Val2 = Val1 - Val2;
     Val1 = Val1 - Val2;
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to display
+//                 the content in vector
+// Parameter     :vector arr(reference)
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::display(vector<T> &arr)
 {
@@ -204,6 +215,17 @@ void algorithm<T>::display(vector<T> &arr)
     }
     cout << endl;
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to display
+//                 the content in array
+// Parameter     :any type arr,int
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::display(T arr[],int n)
 {
@@ -213,6 +235,16 @@ void algorithm<T>::display(T arr[],int n)
     }
     cout << endl;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : display
+// Description   : It is algorithm and this function is used to search 
+//                 the element inside vector
+// Parameter     :any type vector arr(reference),any type key
+// Return Value  : int
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
 {
@@ -256,6 +288,17 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
         return iFlag;
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : sort
+// Description   : It is algorithm and this function is used to sort
+//                 the element in vector
+// Parameter     :any type vector arr(reference);
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
 template <class T>
 void algorithm<T>::sort(vector<T> &arr)
 {
@@ -275,6 +318,16 @@ void algorithm<T>::sort(vector<T> &arr)
         }
     }
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : sort
+// Description   : It is algorithm and this function is used to sort
+//                 the element in array
+// Parameter     :any type arr,int
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
 
 template <class T>
 void algorithm<T>::sort(T arr[],int n)

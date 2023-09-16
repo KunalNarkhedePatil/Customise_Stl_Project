@@ -9,8 +9,8 @@ public:
 
     dequenode(T data)
     {
-        this->data=data;
-        this->next=NULL;
+        this->data = data;
+        this->next = NULL;
     }
 };
 ///////////////////////////////////

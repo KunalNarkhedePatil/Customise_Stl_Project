@@ -185,7 +185,7 @@ void vector<T>::print()
 {
     for (int i = 0; i < iCurrent; i++)
     {
-        cout<<Arr[i]<<" ";
+        cout << Arr[i] << " ";
     }
     cout << endl;
 }
