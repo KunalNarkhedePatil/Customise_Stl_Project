@@ -1,4 +1,5 @@
-#include "algorithm.h"
+//#include "algorithm.h"
+#include"stl.h"
 
 int main()
 {
