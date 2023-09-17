@@ -6,12 +6,16 @@
 
 int main()
 {
-    stack<int> iobj;
+    stack<int> iobj(7);
     iobj.push(10);
     iobj.push(20);
     iobj.push(30);
     iobj.push(40);
     iobj.push(50);
+    iobj.push(60);
+    iobj.push(70);
+    iobj.push(80);
+    iobj.display();
     iobj.pop();
 
     iobj.display();

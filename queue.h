@@ -24,21 +24,32 @@ private:
     Queuenode<T> *front;
     Queuenode<T> *rare;
     int isize;
+    int iSize;
 
 public:
     queue();
+    queue(int iSize);
     void display();
     int size();
-    void push(T);
+    void push(T val);
     void pop();
 };
 
 template <class T>
 queue<T>::queue()
 {
-    front = NULL;
-    rare = NULL;
-    isize = 0;
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize=-1;
+}
+template <class T>
+queue<T>::queue(int iSize)
+{
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize=iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -99,10 +110,12 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
+    if(isize==iSize)
+    {
+        cout<<"Queue is full\n";
+        return;
+    }
     Queuenode<T> *newn = new Queuenode<T>(val);
-
-    newn->data = val;
-    newn->next = NULL;
 
     if ((front == NULL) && (rare == NULL))
     {

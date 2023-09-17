@@ -23,22 +23,56 @@ private:
     stacknode<T> *first;
     stacknode<T> *last;
     int isize;
+    int iSize;
 
 public:
     stack();
+    stack(int iSize);
+    bool empty();
     void display();
     int size();
     void push(T);
     void pop();
 };
 template <class T>
+stack<T>::stack(int iSize)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize=iSize;
+}
+template <class T>
 stack<T>::stack()
 {
-    first = NULL;
-    last = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize=-1;
 }
 
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is stack Data Structure and This function is used
+//                 to check stack is empty or not
+// Parameter     :
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool stack<T>::empty()
+{
+    if(first==NULL && last==NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
@@ -53,7 +87,7 @@ void stack<T>::display()
 {
     stacknode<T> *temp = first;
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         return;
     }
@@ -63,9 +97,7 @@ void stack<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-    printf("NULL");
-
-    cout << "\n";
+    cout<<"NULL"<<endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -98,8 +130,11 @@ void stack<T>::push(T Val)
 {
     stacknode<T> *newn = new stacknode<T>(Val);
 
-    newn->data = Val;
-    newn->next = NULL;
+    if(isize==iSize)
+    {
+        cout<<"Stack is full\n";
+        return;
+    }
 
     if ((first == NULL) && (last == NULL))
     {

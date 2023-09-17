@@ -90,6 +90,10 @@ void vector<T>::push_back(T data)
 template <class T>
 void vector<T>::push_back(T data, int index)
 {
+    if (index > iCurrent)
+    {
+        return;
+    }
     // if index is equal to capacity then this
     // function is same as push defined above
     if (index == iCapacity)
@@ -124,7 +128,7 @@ void vector<T>::pop_back()
 // Description   : It is vector Data Structure and This function is
 //                 used to return the element at given index
 // Parameter     : index
-// Return Value  : int
+// Return Value  : any data type
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -136,6 +140,7 @@ T vector<T>::at(int index)
     {
         return Arr[index];
     }
+    throw out_of_range("out of range");
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -197,14 +202,18 @@ void vector<T>::print()
 //                 used to return the element at gievn index and
 //                 this function also overload the [] bracket.
 // Parameter     : data
-// Return Value  : int
+// Return Value  : any data type
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 T vector<T>::operator[](int i)
 {
-    return Arr[i];
+    if (i < iCurrent)
+    {
+        return Arr[i];
+    }
+    throw out_of_range("out of range");
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -221,5 +230,9 @@ T vector<T>::operator[](int i)
 template <class T>
 void vector<T>::set(int index, T data)
 {
-    Arr[index] = data;
+    if (index > iCurrent)
+    {
+        Arr[index] = data;
+        return;
+    }
 }
