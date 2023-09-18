@@ -407,8 +407,8 @@ T list<T>::back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : begin
-// Description   : It is list and This function is
-//                 returns an iterator pointing to the first element of the list.
+// Description   : It is list and This function is used to
+//                 returns used to first node
 // Parameter     :
 // Return value  : any data
 //
@@ -423,8 +423,8 @@ node1<T> *list<T>::begin()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : end
-// Description   : It is list and This function is
-//                 returns an iterator pointing to the theoretical last element which follows the last element.
+// Description   : It is list and This function is used to
+//                 returns last node pointer
 // Parameter     :
 // Return value  : any data
 //

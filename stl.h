@@ -1204,7 +1204,7 @@ void list<T>::push_front(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_back
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
 // Return value  : void
@@ -1239,7 +1239,7 @@ void list<T>::push_back(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : insert
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
 // Return value  : void
@@ -1292,7 +1292,7 @@ void list<T>::insert(T val, int ipos)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_front
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
 // Return value  : void
@@ -1325,7 +1325,7 @@ void list<T>::pop_front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_back
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
 // Return value  : void
@@ -1359,7 +1359,7 @@ void list<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : deletenode
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to Delete at perticular position of Linked list
 // Parameter     : Position
 // Return value  : void
@@ -1401,7 +1401,7 @@ void list<T>::deletenode(int ipos)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : front
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 returns the value of the first element in the list.
 // Parameter     :
 // Return value  : any data
@@ -1417,7 +1417,7 @@ T list<T>::front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 returns the value of the last element in the list.
 // Parameter     :
 // Return value  : any data
@@ -1433,8 +1433,8 @@ T list<T>::back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : begin
-// Description   : It is Doubly Circular Linked list and This function is
-//                 returns an iterator pointing to the first element of the list.
+// Description   : It is list and This function is used to
+//                 returns first node pointer
 // Parameter     :
 // Return value  : any data
 //
@@ -1449,8 +1449,8 @@ node1<T> *list<T>::begin()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : end
-// Description   : It is Doubly Circular Linked list and This function is
-//                 returns an iterator pointing to the theoretical last element which follows the last element.
+// Description   : It is list and This function is used to
+//                 returns last node pointer
 // Parameter     :
 // Return value  : any data
 //
