@@ -6,13 +6,13 @@ template <class T>
 class algorithm
 {
 public:
-    const T max(const T Val1, const T Val2);
-    const T max(const T Val1, const T Val2, const T Val3);
+    const T max(const T val1, const T val2);
+    const T max(const T val1, const T val2, const T val3);
     const T max(const vector<T> &array);
-    const T min(const T Val1, const T Val2, const T Val3);
-    const T min(const T Val1, const T Val2);
+    const T min(const T val1, const T val2, const T val3);
+    const T min(const T val1, const T val2);
     const T min(const vector<T> &array);
-    void swap(T &Val1, T &Val2);
+    void swap(T &val1, T &val2);
     void display(vector<T> &arr);
     void display(T arr[],int n);
     int binarysearch(vector<T> &arr, T &key);
@@ -25,21 +25,21 @@ public:
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T Val1, const T Val2)
+const T algorithm<T>::max(const T val1, const T val2)
 {
-    if (Val1 > Val2)
+    if (val1 > val2)
     {
-        return Val1;
+        return val1;
     }
     else
     {
-        return Val2;
+        return val2;
     }
 }
 
@@ -48,25 +48,25 @@ const T algorithm<T>::max(const T Val1, const T Val2)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among three values
-// Parameter     :const Val1,const Val2,const Val3
-// Return Value  : any data
+// Parameter     :const val1,const val2,const val3
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T Val1, const T Val2, const T Val3)
+const T algorithm<T>::max(const T val1, const T val2, const T val3)
 {
-    if (Val1 > Val2 && Val1 > Val3)
+    if (val1 > val2 && val1 > val3)
     {
-        return Val1;
+        return val1;
     }
-    else if (Val2 > Val3)
+    else if (val2 > val3)
     {
-        return Val2;
+        return val2;
     }
     else
     {
-        return Val3;
+        return val3;
     }
 }
 
@@ -76,7 +76,7 @@ const T algorithm<T>::max(const T Val1, const T Val2, const T Val3)
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
 // Parameter     :const array(reference)
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -88,15 +88,15 @@ const T algorithm<T>::max(const vector<T> &array)
         cout << "container is empty\n";
     }
 
-    T maxVal = array[0];
+    T maxval = array[0];
     for (const T &val : array)
     { // here we use & as a reference
-        if (val > maxVal)
+        if (val > maxval)
         {
-            maxVal = val;
+            maxval = val;
         }
     }
-    return maxVal;
+    return maxval;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -104,21 +104,21 @@ const T algorithm<T>::max(const vector<T> &array)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T Val1, const T Val2)
+const T algorithm<T>::min(const T val1, const T val2)
 {
-    if (Val1 < Val2)
+    if (val1 < val2)
     {
-        return Val1;
+        return val1;
     }
     else
     {
-        return Val2;
+        return val2;
     }
 }
 
@@ -127,25 +127,25 @@ const T algorithm<T>::min(const T Val1, const T Val2)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among three values
-// Parameter     :const Val1,const Val2,const Val3
-// Return Value  : any data
+// Parameter     :const val1,const val2,const val3
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T Val1, const T Val2, const T Val3)
+const T algorithm<T>::min(const T val1, const T val2, const T val3)
 {
-    if (Val1 < Val2 && Val1 < Val3)
+    if (val1 < val2 && val1 < val3)
     {
-        return Val1;
+        return val1;
     }
-    else if (Val2 < Val3)
+    else if (val2 < val3)
     {
-        return Val2;
+        return val2;
     }
     else
     {
-        return Val3;
+        return val3;
     }
 }
 
@@ -155,7 +155,7 @@ const T algorithm<T>::min(const T Val1, const T Val2, const T Val3)
 // Description   : It is algorithm and this function is used find
 //                 minimum in vector elements
 // Parameter     :const array(reference)
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -167,15 +167,15 @@ const T algorithm<T>::min(const vector<T> &array)
         cout << "container is empty\n";
     }
 
-    T minVal = array[0];
+    T minval = array[0];
     for (const T &val : array) // here we use & as a reference
     {
-        if (val < minVal)
+        if (val < minval)
         {
-            minVal = val;
+            minval = val;
         }
     }
-    return minVal;
+    return minval;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -183,17 +183,17 @@ const T algorithm<T>::min(const vector<T> &array)
 // Function Name : swap
 // Description   : It is algorithm and this function is used swap
 //                 two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::swap(T &Val1, T &Val2)
+void algorithm<T>::swap(T &val1, T &val2)
 {
-    Val1 = Val1 + Val2;
-    Val2 = Val1 - Val2;
-    Val1 = Val1 - Val2;
+    val1 = val1 + val2;
+    val2 = val1 - val2;
+    val1 = val1 - val2;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -202,7 +202,7 @@ void algorithm<T>::swap(T &Val1, T &Val2)
 // Description   : It is algorithm and this function is used to display
 //                 the content in vector
 // Parameter     :vector arr(reference)
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -222,7 +222,7 @@ void algorithm<T>::display(vector<T> &arr)
 // Description   : It is algorithm and this function is used to display
 //                 the content in array
 // Parameter     :any type arr,int
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -241,7 +241,7 @@ void algorithm<T>::display(T arr[],int n)
 // Description   : It is algorithm and this function is used to search 
 //                 the element inside vector
 // Parameter     :any type vector arr(reference),any type key
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -295,7 +295,7 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
 // Description   : It is algorithm and this function is used to sort
 //                 the element in vector
 // Parameter     :any type vector arr(reference);
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -325,7 +325,7 @@ void algorithm<T>::sort(vector<T> &arr)
 // Description   : It is algorithm and this function is used to sort
 //                 the element in array
 // Parameter     :any type arr,int
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 

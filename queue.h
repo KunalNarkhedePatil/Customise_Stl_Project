@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 template <class T>
-class Queuenode // class declaration of queue
+class queuenode // class declaration of queue
 {
 public:
     T data;
-    class Queuenode *next;
+    queuenode *next;
 
-    Queuenode(T val)
+    queuenode(T val)
     {
         this->data = val;
         this->next = NULL;
@@ -21,14 +21,15 @@ template <class T>
 class queue
 {
 private:
-    Queuenode<T> *front;
-    Queuenode<T> *rare;
+    queuenode<T> *front;
+    queuenode<T> *rare;
     int isize;
     int iSize;
 
 public:
     queue();
     queue(int iSize);
+    bool empty();
     void display();
     int size();
     void push(T val);
@@ -57,17 +58,18 @@ queue<T>::queue(int iSize)
 // Description   : It is Queue Data Structure and This function is used
 //                 to display the element  of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void queue<T>::display()
 {
-    Queuenode<T> *temp = front;
+    queuenode<T> *temp = front;
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout<<"queue is empty"<<endl;
         return;
     }
 
@@ -80,14 +82,25 @@ void queue<T>::display()
 
     cout << endl;
 }
-
+template <class T>
+bool queue<T>::empty()
+{
+   if(front==NULL && rare==NULL)
+   {
+       return true;
+   }
+   else
+   {
+      return false;
+   }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
 // Description   : It is Queue Data Structure and This function is used
 //                 to size the element  of queue
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -103,7 +116,7 @@ int queue<T>::size()
 // Description   : It is Queue Data Structure and This function is
 //                 used to push(insert) the element into queue
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -115,9 +128,9 @@ void queue<T>::push(T val) // insertlast
         cout << "Queue is full\n";
         return;
     }
-    Queuenode<T> *newn = new Queuenode<T>(val);
+    queuenode<T> *newn = new queuenode<T>(val);
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
         front = newn;
         rare = newn;
@@ -138,15 +151,16 @@ void queue<T>::push(T val) // insertlast
 // Description   : It is Queue Data Structure and This function is
 //                 used to pop(remove) the element into stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void queue<T>::pop() // deletefirst
 {
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout<<"queue is empty"<<endl;
         return;
     }
     else if (front == rare)

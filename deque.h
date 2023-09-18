@@ -29,8 +29,9 @@ public:
     deque();
     deque(int iSize);
     int size();
-    void push_front(T);
-    void push_back(T);
+    bool empty();
+    void push_front(T val);
+    void push_back(T val);
     void pop_front();
     void pop_back();
     int front();
@@ -55,11 +56,33 @@ deque<T>::deque(int iSize)
 
 ////////////////////////////////////////////////////////////////////
 //
+// Function Name : empty
+// Description   : It is deque(Double ended queue) Data Structure and This function is
+//                 used to check deque is empty or not
+// Parameter     :
+// Return value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool deque<T>::empty()
+{
+    if (this->front == NULL && this->rare == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+////////////////////////////////////////////////////////////////////
+//
 // Function Name : size
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to return the size of queue
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -75,7 +98,7 @@ int deque<T>::size()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at front of queue
 // Parameter     : val
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -90,7 +113,7 @@ void deque<T>::push_front(T val)
         return;
     }
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
         front = newn;
         rare = newn;
@@ -111,7 +134,7 @@ void deque<T>::push_front(T val)
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at back of queue
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -125,8 +148,10 @@ void deque<T>::push_back(T val)
     }
     dequenode<T> *newn = new dequenode<T>(val);
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        front = newn;
+        rare = newn;
     }
     else
     {
@@ -144,15 +169,16 @@ void deque<T>::push_back(T val)
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to pop(remove) at front of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void deque<T>::pop_front()
 {
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout << "queue is empty" << endl;
         return;
     }
     else if (front == rare)
@@ -176,7 +202,7 @@ void deque<T>::pop_front()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to pop(remove) at back of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -185,8 +211,9 @@ void deque<T>::pop_back()
 {
     dequenode<T> *temp = front;
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout << "queue is empty" << endl;
         return;
     }
     else if (front == rare)
@@ -216,7 +243,7 @@ void deque<T>::pop_back()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of front of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -232,7 +259,7 @@ int deque<T>::front()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of back of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 

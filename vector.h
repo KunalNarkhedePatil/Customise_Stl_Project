@@ -48,7 +48,7 @@ vector<T>::~vector()
 // Description   : It is vector Data Structure and This function is
 //                 used to push the element at the last index of vector
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -83,7 +83,7 @@ void vector<T>::push_back(T data)
 // Description   : It is vector Data Structure and This function is
 //                 used to push the element at the last index of vector
 // Parameter     : data and index
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -112,7 +112,7 @@ void vector<T>::push_back(T data, int index)
 // Description   : It is vector Data Structure and This function is
 //                 used to pop(delete) the element at the last index of vector
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -128,7 +128,7 @@ void vector<T>::pop_back()
 // Description   : It is vector Data Structure and This function is
 //                 used to return the element at given index
 // Parameter     : index
-// Return Value  : any data type
+// Return value  : any data type
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -149,7 +149,7 @@ T vector<T>::at(int index)
 // Description   : It is vector Data Structure and This function is
 //                 used to return the size of vector
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -165,7 +165,7 @@ int vector<T>::size()
 // Description   : It is vector Data Structure and This function is
 //                 used to return the current capacity of vector
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -181,7 +181,7 @@ int vector<T>::capacity()
 // Description   : It is vector Data Structure and This function is
 //                 used to print the data store in vector
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -202,7 +202,7 @@ void vector<T>::print()
 //                 used to return the element at gievn index and
 //                 this function also overload the [] bracket.
 // Parameter     : data
-// Return Value  : any data type
+// Return value  : any data type
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -223,7 +223,7 @@ T vector<T>::operator[](int i)
 //                 used to set or update the data on given index
 //                 the data
 // Parameter     : index and data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 

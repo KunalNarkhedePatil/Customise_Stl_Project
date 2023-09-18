@@ -5,7 +5,7 @@ class stacknode // class declaration of stack
 {
 public:
     T data;
-    class stacknode<T> *next;
+    stacknode<T> *next;
 
     stacknode(T data)
     {
@@ -32,7 +32,7 @@ public:
     T top();
     void display();
     int size();
-    void push(T Val);
+    void push(T val);
     void pop();
 };
 template <class T>
@@ -58,7 +58,7 @@ stack<T>::stack()
 // Description   : It is stack Data Structure and This function is used
 //                 to check stack is empty or not
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -80,7 +80,7 @@ bool stack<T>::empty()
 // Description   : It is stack Data Structure and This function is used
 //                 to display the element of stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -90,6 +90,7 @@ void stack<T>::display()
 
     if (empty())
     {
+        cout<<"stack is empty"<<endl;
         return;
     }
 
@@ -106,7 +107,7 @@ void stack<T>::display()
 // Description   : It is stack Data Structure and This function is used
 //                 to return the top element in stack
 // Parameter     :
-// Return Value  : any datatype
+// Return value  : any datatype
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -115,7 +116,7 @@ T stack<T>::top()
 {
     if(empty())
     {
-        cout<<"stack is empty\n";
+        cout<<"stack is empty"<<endl;
         return -1;
     }
     return last->data;
@@ -126,7 +127,7 @@ T stack<T>::top()
 // Description   : It is stack Data Structure and This function is used
 //                 to size the element of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -142,13 +143,13 @@ int stack<T>::size()
 // Description   : It is stack Data Structure and This function is
 //                 used to push(insert) the element into stack
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void stack<T>::push(T Val)
+void stack<T>::push(T val)
 {
-    stacknode<T> *newn = new stacknode<T>(Val);
+    stacknode<T> *newn = new stacknode<T>(val);
 
     if(isize==iSize)
     {
@@ -177,7 +178,7 @@ void stack<T>::push(T Val)
 // Description   : It is stack Data Structure and This function is
 //                 used to pop(remove) the element into stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -187,6 +188,7 @@ void stack<T>::pop()
 
     if (empty())
     {
+        cout<<"stack is empty"<<endl;
         return;
     }
     else if (first == last)

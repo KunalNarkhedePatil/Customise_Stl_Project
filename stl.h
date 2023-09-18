@@ -43,20 +43,20 @@ public:
         this->next = NULL;
     }
 };
-
 template <class T>
-class Queuenode // class declaration of queue
+class queuenode // class declaration of queue
 {
 public:
     T data;
-    class Queuenode *next;
+    queuenode *next;
 
-    Queuenode(T val)
+    queuenode(T val)
     {
         this->data = val;
         this->next = NULL;
     }
 };
+
 template <class T>
 class dequenode // class declaration of deque(Double Ended Queue)
 {
@@ -117,7 +117,7 @@ singlyllist<T>::singlyllist(int iSize)
 // Description   : It is Singly Linear Linked list and This function is used
 //                 to check the linked list is empty or not
 // Parameter     :
-// Return Value  : bool
+// Return value  : bool
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -139,7 +139,7 @@ bool singlyllist<T>::empty()
 // Description   : It is Singly Linear Linked list and This function is used
 //                 to display the element of linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -166,7 +166,7 @@ void singlyllist<T>::display()
 // Description   : It is Singly Linear Linked list and This function is used
 //                 to size the element of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -182,7 +182,7 @@ int singlyllist<T>::size()
 // Description   : It is Singly Linear Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -214,7 +214,7 @@ void singlyllist<T>::insertfirst(T val)
 // Description   : It is Singly Linear Linked list and This function is
 //                 used to insert at last position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -251,7 +251,7 @@ void singlyllist<T>::insertlast(T val)
 // Description   : It is Singly Linear Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -297,7 +297,7 @@ void singlyllist<T>::insertatpos(T val, int ipos)
 // Description   : It is Singly linear Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -325,7 +325,7 @@ void singlyllist<T>::deletefirst()
 // Description   : It is Singly Linear Linked list and This function is
 //                 used to Delete the node  at last position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -362,7 +362,7 @@ void singlyllist<T>::deletelast()
 // Description   : It is Singly Liear Linked list and This function is
 //                 used to Delete the node  at perticular position of Linked list
 // Parameter     : Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -447,7 +447,7 @@ singlyclist<T>::singlyclist(int iSize)
 // Description   : It is Singly Circular Linked list and This function is used
 //                 to check the linked list is empty or not
 // Parameter     :
-// Return Value  : bool
+// Return value  : bool
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -469,7 +469,7 @@ bool singlyclist<T>::empty()
 // Description   : It is Singly Circular  Linked list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -497,7 +497,7 @@ void singlyclist<T>::display()
 // Description   : It is Singly Circular Linked list and This function is used
 //                 to size the element of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -513,7 +513,7 @@ int singlyclist<T>::size()
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -542,7 +542,7 @@ void singlyclist<T>::insertfirst(T val)
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to insert at last position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -572,7 +572,7 @@ void singlyclist<T>::insertlast(T val)
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -614,7 +614,7 @@ void singlyclist<T>::insertatpos(T val, int ipos)
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -648,7 +648,7 @@ void singlyclist<T>::deletefirst()
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -688,7 +688,7 @@ void singlyclist<T>::deletelast()
 // Description   : It is Singly Circular Linked list and This function is
 //                 used to Delete the node at perticular position of Linked list
 // Parameter     : Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -771,7 +771,7 @@ doublyllist<T>::doublyllist(int iSize)
 // Description   : It is Doubly Linear Linked list and This function is used
 //                 to size the elements of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -794,7 +794,7 @@ int doublyllist<T>::size()
 // Description   : It is Doubly Linear Linked list and This function is used
 //                 to check the linked list is empty or not
 // Parameter     :
-// Return Value  : bool
+// Return value  : bool
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -816,7 +816,7 @@ bool doublyllist<T>::empty()
 // Description   : It is Doubly Linear Linked list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -842,7 +842,7 @@ void doublyllist<T>::display()
 // Description   : It is Doubly Linear Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -874,7 +874,7 @@ void doublyllist<T>::insertfirst(T val)
 // Description   : It is Doubly Linear Linked list and This function is
 //                 used to insert at last position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -911,7 +911,7 @@ void doublyllist<T>::insertlast(T val)
 // Description   : It is Doubly Linear Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -960,7 +960,7 @@ void doublyllist<T>::insertatpos(T val, int ipos)
 // Description   : It is Doubly linear Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -993,7 +993,7 @@ void doublyllist<T>::deletefirst()
 // Description   : It is Doubly linear Linked list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1029,7 +1029,7 @@ void doublyllist<T>::deletelast()
 // Description   : It is Doubly Linear Linked list and This function is
 //                 used to Delete the node at perticular position of Linked list
 // Parameter     : Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -1115,7 +1115,7 @@ list<T>::list(int iSize)
 // Description   : It is Doubly Circular Linked list and This function is used
 //                 to size the element  of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1144,7 +1144,7 @@ bool list<T>::empty()
 // Description   : It is Doubly Circular Linked list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -1171,7 +1171,7 @@ void list<T>::display()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1207,7 +1207,7 @@ void list<T>::push_front(T val)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -1242,7 +1242,7 @@ void list<T>::push_back(T val)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1295,7 +1295,7 @@ void list<T>::insert(T val, int ipos)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1328,7 +1328,7 @@ void list<T>::pop_front()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1362,7 +1362,7 @@ void list<T>::pop_back()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete at perticular position of Linked list
 // Parameter     : Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1404,7 +1404,7 @@ void list<T>::deletenode(int ipos)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns the value of the first element in the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1420,7 +1420,7 @@ T list<T>::front()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns the value of the last element in the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1436,7 +1436,7 @@ T list<T>::back()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns an iterator pointing to the first element of the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1452,7 +1452,7 @@ node1<T> *list<T>::begin()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns an iterator pointing to the theoretical last element which follows the last element.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1471,29 +1471,64 @@ private:
     stacknode<T> *first;
     stacknode<T> *last;
     int isize;
+    int iSize;
 
 public:
     stack();
+    stack(int iSize);
+    bool empty();
+    T top();
     void display();
     int size();
-    void push(T);
+    void push(T val);
     void pop();
 };
 template <class T>
+stack<T>::stack(int iSize)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize=iSize;
+}
+template <class T>
 stack<T>::stack()
 {
-    first = NULL;
-    last = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize=-1;
 }
 
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is stack Data Structure and This function is used
+//                 to check stack is empty or not
+// Parameter     :
+// Return value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool stack<T>::empty()
+{
+    if(first==NULL && last==NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
 // Description   : It is stack Data Structure and This function is used
 //                 to display the element of stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -1501,8 +1536,9 @@ void stack<T>::display()
 {
     stacknode<T> *temp = first;
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout<<"stack is empty"<<endl;
         return;
     }
 
@@ -1511,18 +1547,35 @@ void stack<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-    printf("NULL");
-
-    cout << "\n";
+    cout<<"NULL"<<endl;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : top
+// Description   : It is stack Data Structure and This function is used
+//                 to return the top element in stack
+// Parameter     :
+// Return value  : any datatype
+//
+////////////////////////////////////////////////////////////////////
 
+template <class T>
+T stack<T>::top()
+{
+    if(empty())
+    {
+        cout<<"stack is empty"<<endl;
+        return -1;
+    }
+    return last->data;
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
 // Description   : It is stack Data Structure and This function is used
 //                 to size the element of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1538,13 +1591,19 @@ int stack<T>::size()
 // Description   : It is stack Data Structure and This function is
 //                 used to push(insert) the element into stack
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void stack<T>::push(T Val)
+void stack<T>::push(T val)
 {
-    stacknode<T> *newn = new stacknode<T>(Val);
+    stacknode<T> *newn = new stacknode<T>(val);
+
+    if(isize==iSize)
+    {
+        cout<<"Stack is full\n";
+        return;
+    }
 
     if ((first == NULL) && (last == NULL))
     {
@@ -1567,7 +1626,7 @@ void stack<T>::push(T Val)
 // Description   : It is stack Data Structure and This function is
 //                 used to pop(remove) the element into stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -1575,8 +1634,9 @@ void stack<T>::pop()
 {
     stacknode<T> *temp = first;
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout<<"stack is empty"<<endl;
         return;
     }
     else if (first == last)
@@ -1603,32 +1663,40 @@ void stack<T>::pop()
 ///////////////////////////////////
 //      QUEUE DATA STRUCTURE     //
 ///////////////////////////////////
-
-///////////////////////////////////
-//      QUEUE DATA STRUCTURE     //
-///////////////////////////////////
 template <class T>
 class queue
 {
 private:
-    Queuenode<T> *front;
-    Queuenode<T> *rare;
+    queuenode<T> *front;
+    queuenode<T> *rare;
     int isize;
+    int iSize;
 
 public:
     queue();
+    queue(int iSize);
+    bool empty();
     void display();
     int size();
-    void push(T);
+    void push(T val);
     void pop();
 };
 
 template <class T>
 queue<T>::queue()
 {
-    front = NULL;
-    rare = NULL;
-    isize = 0;
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = -1;
+}
+template <class T>
+queue<T>::queue(int iSize)
+{
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1636,17 +1704,18 @@ queue<T>::queue()
 // Description   : It is Queue Data Structure and This function is used
 //                 to display the element  of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void queue<T>::display()
 {
-    Queuenode<T> *temp = front;
+    queuenode<T> *temp = front;
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout<<"queue is empty"<<endl;
         return;
     }
 
@@ -1659,14 +1728,25 @@ void queue<T>::display()
 
     cout << endl;
 }
-
+template <class T>
+bool queue<T>::empty()
+{
+   if(front==NULL && rare==NULL)
+   {
+       return true;
+   }
+   else
+   {
+      return false;
+   }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
 // Description   : It is Queue Data Structure and This function is used
 //                 to size the element  of queue
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1682,19 +1762,21 @@ int queue<T>::size()
 // Description   : It is Queue Data Structure and This function is
 //                 used to push(insert) the element into queue
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    Queuenode<T> *newn = new Queuenode<T>(val);
+    if (isize == iSize)
+    {
+        cout << "Queue is full\n";
+        return;
+    }
+    queuenode<T> *newn = new queuenode<T>(val);
 
-    newn->data = val;
-    newn->next = NULL;
-
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
         front = newn;
         rare = newn;
@@ -1715,15 +1797,16 @@ void queue<T>::push(T val) // insertlast
 // Description   : It is Queue Data Structure and This function is
 //                 used to pop(remove) the element into stack
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 void queue<T>::pop() // deletefirst
 {
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout<<"queue is empty"<<endl;
         return;
     }
     else if (front == rare)
@@ -1740,7 +1823,6 @@ void queue<T>::pop() // deletefirst
     }
     isize--;
 }
-
 ///////////////////////////////////
 //      DEQUE DATA STRUCTURE     //
 ///////////////////////////////////
@@ -1776,7 +1858,7 @@ deque<T>::deque()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to return the size of queue
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1792,7 +1874,7 @@ int deque<T>::size()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at front of queue
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1825,7 +1907,7 @@ void deque<T>::push_front(T val)
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at back of queue
 // Parameter     : data
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1834,11 +1916,10 @@ void deque<T>::push_back(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
-    newn->data = no;
-    newn->next = NULL;
-
     if ((front == NULL) && (rare == NULL))
     {
+        front=newn;
+        rare=newn;
     }
     else
     {
@@ -1856,7 +1937,7 @@ void deque<T>::push_back(T val)
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to pop(remove) at front of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1888,7 +1969,7 @@ void deque<T>::pop_front()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to pop(remove) at back of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1928,7 +2009,7 @@ void deque<T>::pop_back()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of front of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1944,7 +2025,7 @@ int deque<T>::front()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of back of queue
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -1962,13 +2043,13 @@ template <class T>
 class algorithm
 {
 public:
-    const T max(const T Val1, const T Val2);
-    const T max(const T Val1, const T Val2, const T Val3);
+    const T max(const T val1, const T val2);
+    const T max(const T val1, const T val2, const T val3);
     const T max(const vector<T> &array);
-    const T min(const T Val1, const T Val2, const T Val3);
-    const T min(const T Val1, const T Val2);
+    const T min(const T val1, const T val2, const T val3);
+    const T min(const T val1, const T val2);
     const T min(const vector<T> &array);
-    void swap(T &Val1, T &Val2);
+    void swap(T &val1, T &val2);
     void display(vector<T> &arr);
     void display(T arr[], int n);
     int binarysearch(vector<T> &arr, T &key);
@@ -1981,21 +2062,21 @@ public:
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T Val1, const T Val2)
+const T algorithm<T>::max(const T val1, const T val2)
 {
-    if (Val1 > Val2)
+    if (val1 > val2)
     {
-        return Val1;
+        return val1;
     }
     else
     {
-        return Val2;
+        return val2;
     }
 }
 
@@ -2004,25 +2085,25 @@ const T algorithm<T>::max(const T Val1, const T Val2)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among three values
-// Parameter     :const Val1,const Val2,const Val3
-// Return Value  : any data
+// Parameter     :const val1,const val2,const val3
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T Val1, const T Val2, const T Val3)
+const T algorithm<T>::max(const T val1, const T val2, const T val3)
 {
-    if (Val1 > Val2 && Val1 > Val3)
+    if (val1 > val2 && val1 > val3)
     {
-        return Val1;
+        return val1;
     }
-    else if (Val2 > Val3)
+    else if (val2 > val3)
     {
-        return Val2;
+        return val2;
     }
     else
     {
-        return Val3;
+        return val3;
     }
 }
 
@@ -2032,7 +2113,7 @@ const T algorithm<T>::max(const T Val1, const T Val2, const T Val3)
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
 // Parameter     :const array(reference)
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2044,15 +2125,15 @@ const T algorithm<T>::max(const vector<T> &array)
         cout << "container is empty\n";
     }
 
-    T maxVal = array[0];
+    T maxval = array[0];
     for (const T &val : array)
     { // here we use & as a reference
-        if (val > maxVal)
+        if (val > maxval)
         {
-            maxVal = val;
+            maxval = val;
         }
     }
-    return maxVal;
+    return maxval;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -2060,21 +2141,21 @@ const T algorithm<T>::max(const vector<T> &array)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T Val1, const T Val2)
+const T algorithm<T>::min(const T val1, const T val2)
 {
-    if (Val1 < Val2)
+    if (val1 < val2)
     {
-        return Val1;
+        return val1;
     }
     else
     {
-        return Val2;
+        return val2;
     }
 }
 
@@ -2083,25 +2164,25 @@ const T algorithm<T>::min(const T Val1, const T Val2)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among three values
-// Parameter     :const Val1,const Val2,const Val3
-// Return Value  : any data
+// Parameter     :const val1,const val2,const val3
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T Val1, const T Val2, const T Val3)
+const T algorithm<T>::min(const T val1, const T val2, const T val3)
 {
-    if (Val1 < Val2 && Val1 < Val3)
+    if (val1 < val2 && val1 < val3)
     {
-        return Val1;
+        return val1;
     }
-    else if (Val2 < Val3)
+    else if (val2 < val3)
     {
-        return Val2;
+        return val2;
     }
     else
     {
-        return Val3;
+        return val3;
     }
 }
 
@@ -2111,7 +2192,7 @@ const T algorithm<T>::min(const T Val1, const T Val2, const T Val3)
 // Description   : It is algorithm and this function is used find
 //                 minimum in vector elements
 // Parameter     :const array(reference)
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2123,15 +2204,15 @@ const T algorithm<T>::min(const vector<T> &array)
         cout << "container is empty\n";
     }
 
-    T minVal = array[0];
+    T minval = array[0];
     for (const T &val : array) // here we use & as a reference
     {
-        if (val < minVal)
+        if (val < minval)
         {
-            minVal = val;
+            minval = val;
         }
     }
-    return minVal;
+    return minval;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -2139,17 +2220,17 @@ const T algorithm<T>::min(const vector<T> &array)
 // Function Name : swap
 // Description   : It is algorithm and this function is used swap
 //                 two values
-// Parameter     :const Val1,const Val2
-// Return Value  : any data
+// Parameter     :const val1,const val2
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::swap(T &Val1, T &Val2)
+void algorithm<T>::swap(T &val1, T &val2)
 {
-    Val1 = Val1 + Val2;
-    Val2 = Val1 - Val2;
-    Val1 = Val1 - Val2;
+    val1 = val1 + val2;
+    val2 = val1 - val2;
+    val1 = val1 - val2;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -2158,7 +2239,7 @@ void algorithm<T>::swap(T &Val1, T &Val2)
 // Description   : It is algorithm and this function is used to display
 //                 the content in vector
 // Parameter     :vector arr(reference)
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2178,7 +2259,7 @@ void algorithm<T>::display(vector<T> &arr)
 // Description   : It is algorithm and this function is used to display
 //                 the content in array
 // Parameter     :any type arr,int
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2197,7 +2278,7 @@ void algorithm<T>::display(T arr[], int n)
 // Description   : It is algorithm and this function is used to search
 //                 the element inside vector
 // Parameter     :any type vector arr(reference),any type key
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2251,7 +2332,7 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
 // Description   : It is algorithm and this function is used to sort
 //                 the element in vector
 // Parameter     :any type vector arr(reference);
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2281,7 +2362,7 @@ void algorithm<T>::sort(vector<T> &arr)
 // Description   : It is algorithm and this function is used to sort
 //                 the element in array
 // Parameter     :any type arr,int
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 

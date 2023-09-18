@@ -66,7 +66,7 @@ list<T>::list(int iSize)
 // Description   : It is Doubly Circular Linked list and This function is used
 //                 to size the element  of linked list
 // Parameter     :
-// Return Value  : int
+// Return value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -82,7 +82,7 @@ int list<T>::size()
 // Description   : It is Doubly Circular Linked list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -104,7 +104,7 @@ void list<T>::display()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -140,7 +140,7 @@ void list<T>::push_front(T val)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -175,7 +175,7 @@ void list<T>::push_back(T val)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -228,7 +228,7 @@ void list<T>::insert(T val, int ipos)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -261,7 +261,7 @@ void list<T>::pop_front()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -294,7 +294,7 @@ void list<T>::pop_back()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 used to Delete at perticular position of Linked list
 // Parameter     : Position
-// Return Value  : void
+// Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -336,7 +336,7 @@ void list<T>::deletenode(int ipos)
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns the value of the first element in the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -352,7 +352,7 @@ T list<T>::front()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns the value of the last element in the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -368,7 +368,7 @@ T list<T>::back()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns an iterator pointing to the first element of the list.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -384,7 +384,7 @@ node1<T> *list<T>::begin()
 // Description   : It is Doubly Circular Linked list and This function is
 //                 returns an iterator pointing to the theoretical last element which follows the last element.
 // Parameter     :
-// Return Value  : any data
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
