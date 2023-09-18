@@ -29,9 +29,10 @@ public:
     stack();
     stack(int iSize);
     bool empty();
+    T top();
     void display();
     int size();
-    void push(T);
+    void push(T Val);
     void pop();
 };
 template <class T>
@@ -99,7 +100,26 @@ void stack<T>::display()
     } while (temp != last->next);
     cout<<"NULL"<<endl;
 }
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : top
+// Description   : It is stack Data Structure and This function is used
+//                 to return the top element in stack
+// Parameter     :
+// Return Value  : any datatype
+//
+////////////////////////////////////////////////////////////////////
 
+template <class T>
+T stack<T>::top()
+{
+    if(empty())
+    {
+        cout<<"stack is empty\n";
+        return -1;
+    }
+    return last->data;
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
@@ -165,7 +185,7 @@ void stack<T>::pop()
 {
     stacknode<T> *temp = first;
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         return;
     }
