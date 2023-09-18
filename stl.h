@@ -81,10 +81,13 @@ class singlyllist
 private:
     node<T> *first;
     int isize;
+    int iSize;
 
 public:
     singlyllist();
+    singlyllist(int iSize);
     int size();
+    bool empty();
     void display();
     void insertfirst(T val);
     void insertlast(T val);
@@ -96,10 +99,40 @@ public:
 template <class T>
 singlyllist<T>::singlyllist()
 {
-    first = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->isize = 0;
+    this->iSize = -1;
 }
 
+template <class T>
+singlyllist<T>::singlyllist(int iSize)
+{
+    this->first = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
+}
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is Singly Linear Linked list and This function is used
+//                 to check the linked list is empty or not
+// Parameter     :
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool singlyllist<T>::empty()
+{
+    if (first == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
@@ -112,6 +145,11 @@ singlyllist<T>::singlyllist()
 template <class T>
 void singlyllist<T>::display()
 {
+    if (empty())
+    {
+        cout << "linked list is empty\n";
+        return;
+    }
     node<T> *temp = first;
 
     while (temp != NULL)
@@ -119,7 +157,7 @@ void singlyllist<T>::display()
         cout << temp->data << "\t";
         temp = temp->next;
     }
-    cout << "\n";
+    cout << endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -150,10 +188,15 @@ int singlyllist<T>::size()
 template <class T>
 void singlyllist<T>::insertfirst(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "linked list is full\n";
+        return;
+    }
     node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
                                       // Allocate the memory
 
-    if (first == NULL) // Linked list is empty
+    if (empty()) // Linked list is empty
     {
         first = newn;
     }
@@ -177,10 +220,15 @@ void singlyllist<T>::insertfirst(T val)
 template <class T>
 void singlyllist<T>::insertlast(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "linked list is full\n";
+        return;
+    }
     node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
                                       // Allocate the memory
 
-    if (first == NULL)
+    if (empty())
     {
         first = newn;
     }
@@ -209,7 +257,12 @@ void singlyllist<T>::insertlast(T val)
 template <class T>
 void singlyllist<T>::insertatpos(T val, int ipos)
 {
-    if (ipos < 1 || ipos > isize + 1)
+    if (isize == iSize)
+    {
+        cout << "linked list is full\n";
+        return;
+    }
+    if ((ipos < 0) || (ipos > isize + 1))
     {
         cout << "Invalid Position" << endl;
         return;
@@ -250,6 +303,11 @@ void singlyllist<T>::insertatpos(T val, int ipos)
 template <class T>
 void singlyllist<T>::deletefirst()
 {
+    if (empty())
+    {
+        cout << "linked list is empty" << endl;
+        return;
+    }
     node<T> *temp = first;
 
     if (first != NULL)
@@ -275,7 +333,7 @@ void singlyllist<T>::deletelast()
 {
     node<T> *temp = first;
 
-    if (first == NULL)
+    if (empty())
     {
         return;
     }
@@ -311,7 +369,7 @@ template <class T>
 void singlyllist<T>::deleteatpos(int ipos)
 {
 
-    if (ipos < 1 || ipos > isize)
+    if ((ipos < 0) || (ipos > isize))
     {
         cout << "Invalid Position" << endl;
         return;
@@ -337,7 +395,6 @@ void singlyllist<T>::deleteatpos(int ipos)
 
         temp->next = Targated->next;
         delete Targated;
-
         isize--;
     }
 }
@@ -352,10 +409,13 @@ private:
     node<T> *first;
     node<T> *last;
     int isize;
+    int iSize;
 
 public:
     singlyclist();
+    singlyclist(int iSize);
     int size();
+    bool empty();
     void display();
     void insertfirst(T val);
     void insertlast(T val);
@@ -368,11 +428,41 @@ public:
 template <class T>
 singlyclist<T>::singlyclist()
 {
-    first = NULL;
-    last = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = -1;
 }
 
+template <class T>
+singlyclist<T>::singlyclist(int iSize)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = iSize;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is Singly Circular Linked list and This function is used
+//                 to check the linked list is empty or not
+// Parameter     :
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool singlyclist<T>::empty()
+{
+    if (this->first == NULL && this->last == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
@@ -385,13 +475,12 @@ singlyclist<T>::singlyclist()
 template <class T>
 void singlyclist<T>::display()
 {
-    node<T> *temp = first;
-
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout << "linked list is empty\n";
         return;
     }
-
+    node<T> *temp = first;
     do
     {
         cout << "|" << temp->data << "|-> ";
@@ -432,7 +521,7 @@ void singlyclist<T>::insertfirst(T val)
 {
     node<T> *newn = new node<T>(val);
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -462,7 +551,7 @@ void singlyclist<T>::insertlast(T val)
 {
     node<T> *newn = new node<T>(val);
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -489,7 +578,7 @@ void singlyclist<T>::insertlast(T val)
 template <class T>
 void singlyclist<T>::insertatpos(T val, int ipos)
 {
-    if ((ipos < 1) || (ipos > (isize + 1)))
+    if ((ipos < 0) || (ipos > (isize + 1)))
     {
         return;
     }
@@ -532,8 +621,10 @@ void singlyclist<T>::insertatpos(T val, int ipos)
 template <class T>
 void singlyclist<T>::deletefirst()
 {
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+
+        cout<<"linked list is empty"<<endl;
         return;
     }
     else if (first == last)
@@ -565,8 +656,9 @@ void singlyclist<T>::deletelast()
 {
     node<T> *temp = first;
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout<<"linked list is empty"<<endl;
         return;
     }
     else if (first == last)
@@ -604,6 +696,7 @@ void singlyclist<T>::deleteatpos(int ipos)
 {
     if ((ipos < 1) || (ipos > isize))
     {
+        cout<<"Invalid position"<<endl;
         return;
     }
 
@@ -642,10 +735,13 @@ class doublyllist
 private:
     node1<T> *first;
     int isize;
+    int iSize;
 
 public:
     doublyllist();
+    doublyllist(int iSize);
     int size();
+    bool empty();
     void display();
     void insertfirst(T val);
     void insertlast(T val);
@@ -657,10 +753,18 @@ public:
 template <class T>
 doublyllist<T>::doublyllist()
 {
-    first = NULL;
-    isize = 0;
+    thid->first = NULL;
+    this->isize = 0;
+    this->iSize=-1;
 }
-
+template <class T>
+doublyllist<T>::doublyllist(int iSize)
+{
+     
+    thid->first = NULL;
+    this->isize = 0;
+    this->iSize=iSize;
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
@@ -686,6 +790,28 @@ int doublyllist<T>::size()
 
 ////////////////////////////////////////////////////////////////////
 //
+// Function Name : empty
+// Description   : It is Doubly Linear Linked list and This function is used
+//                 to check the linked list is empty or not
+// Parameter     :
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool doublyllist<T>::empty()
+{
+    if(first==NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+////////////////////////////////////////////////////////////////////
+//
 // Function Name : display
 // Description   : It is Doubly Linear Linked list and This function is used
 //                 to display the element  of linked list
@@ -696,6 +822,10 @@ int doublyllist<T>::size()
 template <class T>
 void doublyllist<T>::display()
 {
+    if(empty())
+    {
+        cout<<"linked list is empty"<<endl;
+    }
     node1<T> *temp = first;
 
     while (temp != NULL)
@@ -703,7 +833,7 @@ void doublyllist<T>::display()
         cout << "|" << temp->data << "|->";
         temp = temp->next;
     }
-    printf("NULL\n");
+    cout<<endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -718,9 +848,14 @@ void doublyllist<T>::display()
 template <class T>
 void doublyllist<T>::insertfirst(T val)
 {
+    if(isize==iSize)
+    {
+        cout<<"linked list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
 
-    if (isize == 0)
+    if (empty())   
     {
         first = newn;
     }
@@ -745,16 +880,16 @@ void doublyllist<T>::insertfirst(T val)
 template <class T>
 void doublyllist<T>::insertlast(T val)
 {
+    if(isize==iSize)
+    {
+        cout<<"linked list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
 
     if (isize == 0)
     {
         first = newn;
-    }
-    else if (first->next == NULL)
-    {
-        first->next = newn;
-        first->next->prev = first;
     }
     else
     {
@@ -783,7 +918,12 @@ void doublyllist<T>::insertlast(T val)
 template <class T>
 void doublyllist<T>::insertatpos(T val, int ipos)
 {
-    if (ipos < 1 && ipos > isize + 1)
+    if(isize==iSize)
+    {
+        cout<<"linked list is full\n";
+        return;
+    }
+    if ((ipos < 0) || (ipos > isize + 1))
     {
         return;
     }
@@ -829,7 +969,7 @@ void doublyllist<T>::deletefirst()
 {
     node1<T> *temp = first;
 
-    if (isize == 0)
+    if (empty())
     {
         return;
     }
@@ -862,7 +1002,7 @@ void doublyllist<T>::deletelast()
 {
     node1<T> *temp = first;
 
-    if (isize == 0)
+    if (empty())
     {
         return;
     }
@@ -895,7 +1035,7 @@ void doublyllist<T>::deletelast()
 template <class T>
 void doublyllist<T>::deleteatpos(int ipos)
 {
-    if (ipos < 1 && ipos > isize)
+    if (ipos < 0 || ipos > isize)
     {
         return;
     }
@@ -933,10 +1073,13 @@ private:
     node1<T> *first;
     node1<T> *last;
     int isize;
+    int iSize;
 
 public:
     list();
+    list(int iSize);
     int size();
+    bool empty();
     void display();
     void push_front(T val);
     void push_back(T val);
@@ -953,9 +1096,18 @@ public:
 template <class T>
 list<T>::list()
 {
-    first = NULL;
-    last = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize = -1;
+}
+template <class T>
+list<T>::list(int iSize)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -973,6 +1125,19 @@ int list<T>::size()
     return isize;
 }
 
+template <class T>
+bool list<T>::empty()
+{
+    if(this->first==NULL && this->last==NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
@@ -985,6 +1150,11 @@ int list<T>::size()
 template <class T>
 void list<T>::display()
 {
+    if(empty())
+    {
+        cout<<"linked list is empty\n";
+        return;
+    }
     node1<T> *temp = first;
 
     for (int i = 1; i <= isize; i++)
@@ -1008,8 +1178,13 @@ void list<T>::display()
 template <class T>
 void list<T>::push_front(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -1038,9 +1213,14 @@ void list<T>::push_front(T val)
 template <class T>
 void list<T>::push_back(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -1051,7 +1231,6 @@ void list<T>::push_back(T val)
         newn->prev = last;
         last = newn;
     }
-
     last->next = first;
     first->prev = last;
     isize++;
@@ -1070,11 +1249,16 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-    if ((ipos < 1) || (ipos > isize + 1))
+    if (isize == iSize)
     {
+        cout << "list is full\n";
         return;
     }
-
+    if ((ipos < 0) || (ipos > isize + 1))
+    {
+        cout << "Invalid position\n";
+        return;
+    }
     if (ipos == 1)
     {
         push_front(val);
@@ -1118,7 +1302,7 @@ void list<T>::insert(T val, int ipos)
 template <class T>
 void list<T>::pop_front()
 {
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         return;
     }
@@ -1151,8 +1335,9 @@ void list<T>::pop_front()
 template <class T>
 void list<T>::pop_back()
 {
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout<<"linked list is empty"<<endl;
         return;
     }
     else if (first == last)
@@ -1184,7 +1369,7 @@ void list<T>::pop_back()
 template <class T>
 void list<T>::deletenode(int ipos)
 {
-    if ((ipos < 1) || (ipos > isize))
+    if ((ipos < 0) || (ipos > isize))
     {
         return;
     }
@@ -1276,7 +1461,6 @@ node1<T> *list<T>::end()
 {
     return last;
 }
-
 ///////////////////////////////////
 //      STACK DATA STRUCTURE     //
 ///////////////////////////////////

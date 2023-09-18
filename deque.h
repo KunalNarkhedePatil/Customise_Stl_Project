@@ -23,9 +23,11 @@ private:
     dequenode<T> *front;
     dequenode<T> *rare;
     int isize;
+    int iSize;
 
 public:
     deque();
+    deque(int iSize);
     int size();
     void push_front(T);
     void push_back(T);
@@ -37,9 +39,18 @@ public:
 template <class T>
 deque<T>::deque()
 {
-    front = NULL;
-    rare = NULL;
-    isize = 0;
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = -1;
+}
+template <class T>
+deque<T>::deque(int iSize)
+{
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -63,7 +74,7 @@ int deque<T>::size()
 // Function Name : push_front
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at front of queue
-// Parameter     : data
+// Parameter     : val
 // Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
@@ -73,8 +84,11 @@ void deque<T>::push_front(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
-    newn->data = val;
-    newn->next = NULL;
+    if(isize==iSize)
+    {
+        cout<<"deque is full\n";
+        return;
+    }
 
     if ((front == NULL) && (rare == NULL))
     {
@@ -104,10 +118,12 @@ void deque<T>::push_front(T val)
 template <class T>
 void deque<T>::push_back(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "deque is full\n";
+        return;
+    }
     dequenode<T> *newn = new dequenode<T>(val);
-
-    newn->data = no;
-    newn->next = NULL;
 
     if ((front == NULL) && (rare == NULL))
     {

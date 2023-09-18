@@ -25,9 +25,11 @@ private:
     node1<T> *first;
     node1<T> *last;
     int isize;
+    int iSize;
 
 public:
     list();
+    list(int iSize);
     int size();
     void display();
     void push_front(T val);
@@ -45,9 +47,18 @@ public:
 template <class T>
 list<T>::list()
 {
-    first = NULL;
-    last = NULL;
-    isize = 0;
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize = -1;
+}
+template <class T>
+list<T>::list(int iSize)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -100,6 +111,11 @@ void list<T>::display()
 template <class T>
 void list<T>::push_front(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
     if ((first == NULL) && (last == NULL))
     {
@@ -130,6 +146,11 @@ void list<T>::push_front(T val)
 template <class T>
 void list<T>::push_back(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "list is full\n";
+        return;
+    }
     node1<T> *newn = new node1<T>(val);
 
     if ((first == NULL) && (last == NULL))
@@ -143,7 +164,6 @@ void list<T>::push_back(T val)
         newn->prev = last;
         last = newn;
     }
-
     last->next = first;
     first->prev = last;
     isize++;
@@ -162,11 +182,16 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-    if ((ipos < 1) || (ipos > isize + 1))
+   if (isize == iSize)
     {
+        cout << "list is full\n";
         return;
     }
-
+    if ((ipos < 0) || (ipos > isize + 1))
+    {
+        cout<<"Invalid position\n";
+        return;
+    }
     if (ipos == 1)
     {
         push_front(val);
@@ -276,7 +301,7 @@ void list<T>::pop_back()
 template <class T>
 void list<T>::deletenode(int ipos)
 {
-    if ((ipos < 1) || (ipos > isize))
+    if ((ipos < 0) || (ipos > isize))
     {
         return;
     }
