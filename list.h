@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 template <class T>
-class node1 // class declaration of doubly linked list
+class node1 // class declaration of list
 {
 public:
     T data;
@@ -15,7 +15,7 @@ public:
     }
 };
 ////////////////////////////////////////
-//     DOUBLY CIRCULAR LINKED LIST    //                                        //
+//       LIST DATA STRUCTURE          //                                        
 ////////////////////////////////////////
 
 template <class T>
@@ -30,6 +30,7 @@ private:
 public:
     list();
     list(int iSize);
+    bool empty();
     int size();
     void display();
     void push_front(T val);
@@ -60,10 +61,33 @@ list<T>::list(int iSize)
     this->isize = 0;
     this->iSize = iSize;
 }
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is list and This function is used
+//                 to check list empty or not
+// Parameter     :
+// Return value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool list<T>::empty()
+{
+    if (this->first == NULL && this->last == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
-// Description   : It is Doubly Circular Linked list and This function is used
+// Description   : It is list and This function is used
 //                 to size the element  of linked list
 // Parameter     :
 // Return value  : int
@@ -79,7 +103,7 @@ int list<T>::size()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
-// Description   : It is Doubly Circular Linked list and This function is used
+// Description   : It is list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
 // Return value  : void
@@ -88,6 +112,11 @@ int list<T>::size()
 template <class T>
 void list<T>::display()
 {
+    if (empty())
+    {
+        cout << "list is empty" << endl;
+        return;
+    }
     node1<T> *temp = first;
 
     for (int i = 1; i <= isize; i++)
@@ -101,7 +130,7 @@ void list<T>::display()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_front
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
 // Return value  : void
@@ -117,7 +146,7 @@ void list<T>::push_front(T val)
         return;
     }
     node1<T> *newn = new node1<T>(val);
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -137,7 +166,7 @@ void list<T>::push_front(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_back
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
 // Return value  : void
@@ -153,7 +182,7 @@ void list<T>::push_back(T val)
     }
     node1<T> *newn = new node1<T>(val);
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -172,7 +201,7 @@ void list<T>::push_back(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : insert
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to insert at perticular position of Linked list
 // Parameter     : Data of node and position
 // Return value  : void
@@ -182,14 +211,14 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-   if (isize == iSize)
+    if (isize == iSize)
     {
         cout << "list is full\n";
         return;
     }
     if ((ipos < 0) || (ipos > isize + 1))
     {
-        cout<<"Invalid position\n";
+        cout << "Invalid position\n";
         return;
     }
     if (ipos == 1)
@@ -225,7 +254,7 @@ void list<T>::insert(T val, int ipos)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_front
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to Delete the node at first position of Linked list
 // Parameter     :
 // Return value  : void
@@ -235,8 +264,9 @@ void list<T>::insert(T val, int ipos)
 template <class T>
 void list<T>::pop_front()
 {
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout << "list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -258,7 +288,7 @@ void list<T>::pop_front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_back
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 used to Delete the node at last position of Linked list
 // Parameter     :
 // Return value  : void
@@ -268,8 +298,9 @@ void list<T>::pop_front()
 template <class T>
 void list<T>::pop_back()
 {
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
+        cout << "list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -291,7 +322,7 @@ void list<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : deletenode
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is and This function is
 //                 used to Delete at perticular position of Linked list
 // Parameter     : Position
 // Return value  : void
@@ -303,6 +334,7 @@ void list<T>::deletenode(int ipos)
 {
     if ((ipos < 0) || (ipos > isize))
     {
+        cout<<"Invalid position"<<endl;
         return;
     }
     if (ipos == 1)
@@ -333,7 +365,7 @@ void list<T>::deletenode(int ipos)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : front
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 returns the value of the first element in the list.
 // Parameter     :
 // Return value  : any data
@@ -343,14 +375,19 @@ void list<T>::deletenode(int ipos)
 template <class T>
 T list<T>::front()
 {
+    if(empty())
+    {
+        cout<<"list is empty"<<endl;
+        return -1;
+    }
     return first->data;
 }
 
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is Doubly Circular Linked list and This function is
-//                 returns the value of the last element in the list.
+// Description   : It is list and This function is returns the 
+//                 value of the last element in the list.
 // Parameter     :
 // Return value  : any data
 //
@@ -359,13 +396,18 @@ T list<T>::front()
 template <class T>
 T list<T>::back()
 {
-    return first->data;
+    if(empty())
+    {
+        cout<<"list is empty"<<endl;
+        return -1;
+    }
+    return last->data;
 }
 
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : begin
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 returns an iterator pointing to the first element of the list.
 // Parameter     :
 // Return value  : any data
@@ -381,7 +423,7 @@ node1<T> *list<T>::begin()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : end
-// Description   : It is Doubly Circular Linked list and This function is
+// Description   : It is list and This function is
 //                 returns an iterator pointing to the theoretical last element which follows the last element.
 // Parameter     :
 // Return value  : any data

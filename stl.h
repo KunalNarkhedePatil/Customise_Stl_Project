@@ -1063,7 +1063,7 @@ void doublyllist<T>::deleteatpos(int ipos)
     }
 }
 ////////////////////////////////////////
-//     DOUBLY CIRCULAR LINKED LIST    //                                        //
+//       LIST DATA STRUCTURE          //                                        //
 ////////////////////////////////////////
 
 template <class T>
@@ -1489,7 +1489,7 @@ stack<T>::stack(int iSize)
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize=iSize;
+    this->iSize = iSize;
 }
 template <class T>
 stack<T>::stack()
@@ -1497,7 +1497,7 @@ stack<T>::stack()
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize=-1;
+    this->iSize = -1;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -1513,7 +1513,7 @@ stack<T>::stack()
 template <class T>
 bool stack<T>::empty()
 {
-    if(first==NULL && last==NULL)
+    if (first == NULL && last == NULL)
     {
         return true;
     }
@@ -1538,7 +1538,7 @@ void stack<T>::display()
 
     if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return;
     }
 
@@ -1547,7 +1547,7 @@ void stack<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-    cout<<"NULL"<<endl;
+    cout << "NULL" << endl;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1562,9 +1562,9 @@ void stack<T>::display()
 template <class T>
 T stack<T>::top()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return -1;
     }
     return last->data;
@@ -1599,9 +1599,9 @@ void stack<T>::push(T val)
 {
     stacknode<T> *newn = new stacknode<T>(val);
 
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"Stack is full\n";
+        cout << "Stack is full\n";
         return;
     }
 
@@ -1636,7 +1636,7 @@ void stack<T>::pop()
 
     if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return;
     }
     else if (first == last)
@@ -1715,7 +1715,7 @@ void queue<T>::display()
 
     if (empty())
     {
-        cout<<"queue is empty"<<endl;
+        cout << "queue is empty" << endl;
         return;
     }
 
@@ -1731,14 +1731,14 @@ void queue<T>::display()
 template <class T>
 bool queue<T>::empty()
 {
-   if(front==NULL && rare==NULL)
-   {
-       return true;
-   }
-   else
-   {
-      return false;
-   }
+    if (front == NULL && rare == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1806,7 +1806,7 @@ void queue<T>::pop() // deletefirst
 {
     if (empty())
     {
-        cout<<"queue is empty"<<endl;
+        cout << "queue is empty" << endl;
         return;
     }
     else if (front == rare)
@@ -1918,8 +1918,8 @@ void deque<T>::push_back(T val)
 
     if ((front == NULL) && (rare == NULL))
     {
-        front=newn;
-        rare=newn;
+        front = newn;
+        rare = newn;
     }
     else
     {
