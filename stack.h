@@ -41,7 +41,7 @@ stack<T>::stack(int iSize)
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize=iSize;
+    this->iSize = iSize;
 }
 template <class T>
 stack<T>::stack()
@@ -49,7 +49,7 @@ stack<T>::stack()
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize=-1;
+    this->iSize = -1;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -65,7 +65,7 @@ stack<T>::stack()
 template <class T>
 bool stack<T>::empty()
 {
-    if(first==NULL && last==NULL)
+    if (first == NULL && last == NULL)
     {
         return true;
     }
@@ -90,7 +90,7 @@ void stack<T>::display()
 
     if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return;
     }
 
@@ -99,7 +99,7 @@ void stack<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-    cout<<"NULL"<<endl;
+    cout << "NULL" << endl;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -114,9 +114,9 @@ void stack<T>::display()
 template <class T>
 T stack<T>::top()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return -1;
     }
     return last->data;
@@ -151,9 +151,9 @@ void stack<T>::push(T val)
 {
     stacknode<T> *newn = new stacknode<T>(val);
 
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"Stack is full\n";
+        cout << "Stack is full\n";
         return;
     }
 
@@ -188,7 +188,7 @@ void stack<T>::pop()
 
     if (empty())
     {
-        cout<<"stack is empty"<<endl;
+        cout << "stack is empty" << endl;
         return;
     }
     else if (first == last)

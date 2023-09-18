@@ -466,7 +466,7 @@ bool singlyclist<T>::empty()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
-// Description   : It is Singly Circular  Linked list and This function is used
+// Description   : It is Singly Circular Linked list and This function is used
 //                 to display the element  of linked list
 // Parameter     :
 // Return value  : void
@@ -580,6 +580,7 @@ void singlyclist<T>::insertatpos(T val, int ipos)
 {
     if ((ipos < 0) || (ipos > (isize + 1)))
     {
+        cout << "Invalid position" << endl;
         return;
     }
 
@@ -623,7 +624,6 @@ void singlyclist<T>::deletefirst()
 {
     if (empty())
     {
-
         cout << "linked list is empty" << endl;
         return;
     }
@@ -971,6 +971,7 @@ void doublyllist<T>::deletefirst()
 
     if (empty())
     {
+        cout << "linked list is empty" << endl;
         return;
     }
     else if (isize == 1)
