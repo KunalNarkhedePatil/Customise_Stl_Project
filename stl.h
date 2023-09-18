@@ -624,7 +624,7 @@ void singlyclist<T>::deletefirst()
     if (empty())
     {
 
-        cout<<"linked list is empty"<<endl;
+        cout << "linked list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -658,7 +658,7 @@ void singlyclist<T>::deletelast()
 
     if (empty())
     {
-        cout<<"linked list is empty"<<endl;
+        cout << "linked list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -696,7 +696,7 @@ void singlyclist<T>::deleteatpos(int ipos)
 {
     if ((ipos < 1) || (ipos > isize))
     {
-        cout<<"Invalid position"<<endl;
+        cout << "Invalid position" << endl;
         return;
     }
 
@@ -755,15 +755,15 @@ doublyllist<T>::doublyllist()
 {
     thid->first = NULL;
     this->isize = 0;
-    this->iSize=-1;
+    this->iSize = -1;
 }
 template <class T>
 doublyllist<T>::doublyllist(int iSize)
 {
-     
+
     thid->first = NULL;
     this->isize = 0;
-    this->iSize=iSize;
+    this->iSize = iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -801,7 +801,7 @@ int doublyllist<T>::size()
 template <class T>
 bool doublyllist<T>::empty()
 {
-    if(first==NULL)
+    if (first == NULL)
     {
         return true;
     }
@@ -822,9 +822,9 @@ bool doublyllist<T>::empty()
 template <class T>
 void doublyllist<T>::display()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"linked list is empty"<<endl;
+        cout << "linked list is empty" << endl;
     }
     node1<T> *temp = first;
 
@@ -833,7 +833,7 @@ void doublyllist<T>::display()
         cout << "|" << temp->data << "|->";
         temp = temp->next;
     }
-    cout<<endl;
+    cout << endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -848,14 +848,14 @@ void doublyllist<T>::display()
 template <class T>
 void doublyllist<T>::insertfirst(T val)
 {
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"linked list is full\n";
+        cout << "linked list is full\n";
         return;
     }
     node1<T> *newn = new node1<T>(val);
 
-    if (empty())   
+    if (empty())
     {
         first = newn;
     }
@@ -880,9 +880,9 @@ void doublyllist<T>::insertfirst(T val)
 template <class T>
 void doublyllist<T>::insertlast(T val)
 {
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"linked list is full\n";
+        cout << "linked list is full\n";
         return;
     }
     node1<T> *newn = new node1<T>(val);
@@ -918,9 +918,9 @@ void doublyllist<T>::insertlast(T val)
 template <class T>
 void doublyllist<T>::insertatpos(T val, int ipos)
 {
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"linked list is full\n";
+        cout << "linked list is full\n";
         return;
     }
     if ((ipos < 0) || (ipos > isize + 1))
@@ -1128,7 +1128,7 @@ int list<T>::size()
 template <class T>
 bool list<T>::empty()
 {
-    if(this->first==NULL && this->last==NULL)
+    if (this->first == NULL && this->last == NULL)
     {
         return true;
     }
@@ -1150,9 +1150,9 @@ bool list<T>::empty()
 template <class T>
 void list<T>::display()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"linked list is empty\n";
+        cout << "linked list is empty\n";
         return;
     }
     node1<T> *temp = first;
@@ -1337,7 +1337,7 @@ void list<T>::pop_back()
 {
     if (empty())
     {
-        cout<<"linked list is empty"<<endl;
+        cout << "linked list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -1955,83 +1955,6 @@ int deque<T>::back()
 }
 
 //////////////////////
-//       MAP        //
-//////////////////////
-template <class K, class V>
-class map
-{
-private:
-    vector<K> keys;
-    vector<V> values;
-
-public:
-    void insert(const K &key, const V &value);
-    V get(const K &key) const;
-    bool contains(const K &key) const;
-};
-////////////////////////////////////////////////////////////////////
-//
-// Function Name : insert
-// Description   : It is map Data Structure and this function is used to inset the
-//                 the data in the form of keys and values.
-// Parameter     : const key(reference),const value(reference)
-// Return Value  : void
-//
-////////////////////////////////////////////////////////////////////
-
-template <class K, class V>
-void map<K, V>::insert(const K &key, const V &value)
-{
-    keys.push_back(key);
-    values.push_back(value);
-}
-
-////////////////////////////////////////////////////////////////////
-//
-// Function Name : get
-// Description   : It is map Data Structure and this function is used to get the value
-//                 using keys.
-// Parameter     : const key(reference)
-// Return Value  : void
-//
-////////////////////////////////////////////////////////////////////
-
-template <class K, class V>
-V map<K, V>::get(const K &key) const
-{
-    for (register int i = 0; i < keys.size(); i++)
-    {
-        if (keys[i] == key)
-        {
-            return values[i];
-        }
-    }
-    throw out_of_range("Key not found");
-}
-
-////////////////////////////////////////////////////////////////////
-//
-// Function Name : contains
-// Description   : It is map Data Structure and this function is used to check key
-//                 present or not
-// Parameter     : const key(reference)
-// Return Value  : bool
-//
-////////////////////////////////////////////////////////////////////
-
-template <class K, class V>
-bool map<K, V>::contains(const K &key) const
-{
-    for (const auto &k : keys)
-    {
-        if (k == key)
-        {
-            return true;
-        }
-    }
-    return false;
-}
-//////////////////////
 //     ALGORITHM    //
 //////////////////////
 
@@ -2367,9 +2290,9 @@ void algorithm<T>::sort(T arr[], int n)
 {
     int i = 0, j = 0, temp = 0;
 
-    for (int i = 0; i < n; i++)
+    for (i = 0; i < n; i++)
     {
-        for (int j = 0; j < n - i - 1; j++)
+        for (j = 0; j < n - i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {

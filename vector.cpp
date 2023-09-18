@@ -7,7 +7,6 @@ int main()
     vector<double> d;
     vector<char> c;
 
-
     i.push_back(10);
     i.push_back(20);
     i.push_back(30);

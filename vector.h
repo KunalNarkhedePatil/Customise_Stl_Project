@@ -30,9 +30,9 @@ public:
 template <class T>
 vector<T>::vector()
 {
-    Arr = new T[1];
-    iCapacity = 1;
-    iCurrent = 0;
+    this->Arr = new T[1];
+    this->iCapacity = 1;
+    this->iCurrent = 0;
 }
 // destructor to deallocate storage allocated by dynamic allocation
 // to prevent memory leak
