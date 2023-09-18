@@ -84,9 +84,9 @@ void deque<T>::push_front(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"deque is full\n";
+        cout << "deque is full\n";
         return;
     }
 

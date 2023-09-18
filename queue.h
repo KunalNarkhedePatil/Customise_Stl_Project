@@ -41,7 +41,7 @@ queue<T>::queue()
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize=-1;
+    this->iSize = -1;
 }
 template <class T>
 queue<T>::queue(int iSize)
@@ -49,7 +49,7 @@ queue<T>::queue(int iSize)
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize=iSize;
+    this->iSize = iSize;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -110,9 +110,9 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    if(isize==iSize)
+    if (isize == iSize)
     {
-        cout<<"Queue is full\n";
+        cout << "Queue is full\n";
         return;
     }
     Queuenode<T> *newn = new Queuenode<T>(val);
