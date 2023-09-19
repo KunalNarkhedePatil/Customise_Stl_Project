@@ -6,7 +6,7 @@ class node // class declaration of singly linked list
 {
 public:
     T data;
-    class node<T> *next;
+    node<T> *next;
 
     node(T data)
     {
@@ -20,8 +20,8 @@ class node1 // class declaration of doubly linked list
 {
 public:
     T data;
-    class node1 *next;
-    class node1 *prev;
+    node1<T> *next;
+    node1<T> *prev;
     node1(T data)
     {
         this->data = data;
@@ -35,7 +35,7 @@ class stacknode // class declaration of stack
 {
 public:
     T data;
-    class stacknode<T> *next;
+    stacknode<T> *next;
 
     stacknode(T data)
     {
@@ -48,7 +48,7 @@ class queuenode // class declaration of queue
 {
 public:
     T data;
-    queuenode *next;
+    queuenode<T> *next;
 
     queuenode(T val)
     {
@@ -62,7 +62,7 @@ class dequenode // class declaration of deque(Double Ended Queue)
 {
 public:
     T data;
-    class dequenode<T> *next;
+    dequenode<T> *next;
 
     dequenode(T data)
     {
@@ -359,7 +359,7 @@ void singlyllist<T>::deletelast()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : deleteatpos
-// Description   : It is Singly Liear Linked list and This function is
+// Description   : It is Singly Linear Linked list and This function is
 //                 used to Delete the node  at perticular position of Linked list
 // Parameter     : Position
 // Return value  : void
@@ -635,8 +635,9 @@ void singlyclist<T>::deletefirst()
     }
     else
     {
+        node<T> *temp = first;
         first = first->next;
-        delete last->next;
+        delete temp;
         last->next = first;
     }
     isize--;
@@ -654,7 +655,6 @@ void singlyclist<T>::deletefirst()
 template <class T>
 void singlyclist<T>::deletelast()
 {
-    node<T> *temp = first;
 
     if (empty())
     {
@@ -669,14 +669,13 @@ void singlyclist<T>::deletelast()
     }
     else
     {
+        node<T> *temp = first;
         while (temp->next != last)
         {
             temp = temp->next;
         }
-
         delete last;
         last = temp;
-
         last->next = first;
     }
     isize--;
@@ -1272,10 +1271,6 @@ void list<T>::insert(T val, int ipos)
     {
         node1<T> *newn = new node1<T>(val);
 
-        newn->data = val;
-        newn->next = NULL;
-        newn->prev = NULL;
-
         node1<T> *temp = first;
 
         for (int i = 1; i < ipos - 1; i++)
@@ -1606,7 +1601,7 @@ void stack<T>::push(T val)
         return;
     }
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -1834,12 +1829,15 @@ private:
     dequenode<T> *front;
     dequenode<T> *rare;
     int isize;
+    int iSize;
 
 public:
     deque();
+    deque(int iSize);
     int size();
-    void push_front(T);
-    void push_back(T);
+    bool empty();
+    void push_front(T val);
+    void push_back(T val);
     void pop_front();
     void pop_back();
     int front();
@@ -1848,11 +1846,42 @@ public:
 template <class T>
 deque<T>::deque()
 {
-    front = NULL;
-    rare = NULL;
-    isize = 0;
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = -1;
+}
+template <class T>
+deque<T>::deque(int iSize)
+{
+    this->front = NULL;
+    this->rare = NULL;
+    this->isize = 0;
+    this->iSize = iSize;
 }
 
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is deque(Double ended queue) Data Structure and This function is
+//                 used to check deque is empty or not
+// Parameter     :
+// Return value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool deque<T>::empty()
+{
+    if (this->front == NULL && this->rare == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
@@ -1874,7 +1903,7 @@ int deque<T>::size()
 // Function Name : push_front
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to push(insert) at front of queue
-// Parameter     : data
+// Parameter     : val
 // Return value  : void
 //
 ////////////////////////////////////////////////////////////////////
@@ -1884,10 +1913,13 @@ void deque<T>::push_front(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
-    newn->data = val;
-    newn->next = NULL;
+    if (isize == iSize)
+    {
+        cout << "deque is full\n";
+        return;
+    }
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
         front = newn;
         rare = newn;
@@ -1915,9 +1947,14 @@ void deque<T>::push_front(T val)
 template <class T>
 void deque<T>::push_back(T val)
 {
+    if (isize == iSize)
+    {
+        cout << "deque is full\n";
+        return;
+    }
     dequenode<T> *newn = new dequenode<T>(val);
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
         front = newn;
         rare = newn;
@@ -1945,8 +1982,9 @@ void deque<T>::push_back(T val)
 template <class T>
 void deque<T>::pop_front()
 {
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout << "queue is empty" << endl;
         return;
     }
     else if (front == rare)
@@ -1979,8 +2017,9 @@ void deque<T>::pop_back()
 {
     dequenode<T> *temp = front;
 
-    if ((front == NULL) && (rare == NULL))
+    if (empty())
     {
+        cout << "queue is empty" << endl;
         return;
     }
     else if (front == rare)
@@ -1991,11 +2030,10 @@ void deque<T>::pop_back()
     }
     else
     {
-        while (temp->next != rare)
+        while (temp->next->!= rare)
         {
             temp = temp->next;
         }
-
         delete rare;
         rare = temp;
 
@@ -2044,16 +2082,16 @@ template <class T>
 class algorithm
 {
 public:
-    const T max(const T val1, const T val2);
-    const T max(const T val1, const T val2, const T val3);
-    const T max(const vector<T> &array);
-    const T min(const T val1, const T val2, const T val3);
-    const T min(const T val1, const T val2);
-    const T min(const vector<T> &array);
-    void swap(T &val1, T &val2);
+    T max(T val1, T val2);
+    T max(T val1, T val2, T val3);
+    T max(vector<T> &array);
+    T min(T val1, T val2, T val3);
+    T min(T val1, T val2);
+    T min(vector<T> &array);
+    void swap(const T &val1, const T &val2);
     void display(vector<T> &arr);
     void display(T arr[], int n);
-    int binarysearch(vector<T> &arr, T &key);
+    bool binarysearch(vector<T> &arr, const T &key);
     void sort(vector<T> &arr);
     void sort(T arr[], int n);
 };
@@ -2063,13 +2101,13 @@ public:
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among two values
-// Parameter     :const val1,const val2
+// Parameter     :val1,const val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T val1, const T val2)
+T algorithm<T>::max(T val1, T val2)
 {
     if (val1 > val2)
     {
@@ -2086,13 +2124,13 @@ const T algorithm<T>::max(const T val1, const T val2)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among three values
-// Parameter     :const val1,const val2,const val3
+// Parameter     :val1,val2,val3
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T val1, const T val2, const T val3)
+T algorithm<T>::max(T val1, T val2, T val3)
 {
     if (val1 > val2 && val1 > val3)
     {
@@ -2113,13 +2151,13 @@ const T algorithm<T>::max(const T val1, const T val2, const T val3)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
-// Parameter     :const array(reference)
+// Parameter     :rray(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const vector<T> &array)
+T algorithm<T>::max(vector<T> &array)
 {
     if (array.empty())
     {
@@ -2142,13 +2180,13 @@ const T algorithm<T>::max(const vector<T> &array)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among two values
-// Parameter     :const val1,const val2
+// Parameter     : val1, val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T val1, const T val2)
+T algorithm<T>::min(T val1, T val2)
 {
     if (val1 < val2)
     {
@@ -2165,13 +2203,13 @@ const T algorithm<T>::min(const T val1, const T val2)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among three values
-// Parameter     :const val1,const val2,const val3
+// Parameter     : val1,val2,val3
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T val1, const T val2, const T val3)
+T algorithm<T>::min(T val1, T val2, T val3)
 {
     if (val1 < val2 && val1 < val3)
     {
@@ -2192,13 +2230,13 @@ const T algorithm<T>::min(const T val1, const T val2, const T val3)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum in vector elements
-// Parameter     :const array(reference)
+// Parameter     :array(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const vector<T> &array)
+T algorithm<T>::min(vector<T> &array)
 {
     if (array.empty())
     {
@@ -2221,13 +2259,13 @@ const T algorithm<T>::min(const vector<T> &array)
 // Function Name : swap
 // Description   : It is algorithm and this function is used swap
 //                 two values
-// Parameter     :const val1,const val2
+// Parameter     :val1,val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::swap(T &val1, T &val2)
+void algorithm<T>::swap(const T &val1, const T &val2)
 {
     val1 = val1 + val2;
     val2 = val1 - val2;
@@ -2284,26 +2322,35 @@ void algorithm<T>::display(T arr[], int n)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
+bool algorithm<T>::binarysearch(vector<T> &Arr, const T &Key)
 {
     if (Arr.empty())
     {
-        return -1;
+        cout << "vector is empty\n";
+        return false;
     }
     int iStart = 0;
     int iEnd = Arr.size() - 1;
+    cout << iEnd << endl;
+
+    bool iFlag = false;
+    /*
+    int Mid = (iStart + iEnd) / 2;
+
+    New Formula
+    int Mid=iStart+(iEnd-iStart)/2;
+    iStart+iEnd/2-iStrat/2;
+    iStart/2+iEnd/2;
+    (iStart+iEnd)/2;
+    */
+
     int Mid = iStart + (iEnd - iStart) / 2;
-    // int Mid = iStart + (iEnd - iStart) / 2;
-    // iStart + iEnd / 2 - iStrat / 2;
-    // iStart / 2 + iEnd / 2;
-    // (iStart + iEnd) / 2;
-    int iFlag = -1;
 
     while (iStart <= iEnd)
     {
         if (Arr[Mid] == Key)
         {
-            iFlag = Mid;
+            iFlag = true;
             break;
         }
 
@@ -2315,15 +2362,15 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
         {
             iEnd = Mid - 1;
         }
-        Mid = iStart + (iStart - iEnd) / 2;
+        Mid = iStart + (iEnd - iStart) / 2;
     }
-    if (iFlag == -1)
+    if (iFlag == false)
     {
-        return iFlag;
+        return false;
     }
     else
     {
-        return iFlag;
+        return true;
     }
 }
 
@@ -2372,9 +2419,9 @@ void algorithm<T>::sort(T arr[], int n)
 {
     int i = 0, j = 0, temp = 0;
 
-    for (i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (j = 0; j < n - i - 1; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
             if (arr[j] > arr[j + 1])
             {

@@ -51,7 +51,6 @@ vector<T>::~vector()
 template <class T>
 void vector<T>::push_back(T data)
 {
-
     if (iCurrent == iCapacity)
     {
         T *temp = new T[2 * iCapacity];
@@ -85,6 +84,7 @@ void vector<T>::push_back(T data, int index)
 {
     if (index > iCurrent)
     {
+        cout<<"Invalid index"<<endl;
         return;
     }
     if (index == iCapacity)
@@ -221,7 +221,7 @@ T vector<T>::operator[](int i)
 template <class T>
 void vector<T>::set(int index, T data)
 {
-    if (index > iCurrent)
+    if (index < iCurrent)
     {
         Arr[index] = data;
         return;

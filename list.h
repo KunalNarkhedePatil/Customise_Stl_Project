@@ -5,8 +5,8 @@ class node1 // class declaration of list
 {
 public:
     T data;
-    class node1 *next;
-    class node1 *prev;
+    node1<T> *next;
+    node1<T> *prev;
     node1(T data)
     {
         this->data = data;

@@ -32,7 +32,7 @@ public:
     T top();
     void display();
     int size();
-    void push(T val);
+    void push(T Val);
     void pop();
 };
 template <class T>
@@ -58,7 +58,7 @@ stack<T>::stack()
 // Description   : It is stack Data Structure and This function is used
 //                 to check stack is empty or not
 // Parameter     :
-// Return value  : void
+// Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -80,7 +80,7 @@ bool stack<T>::empty()
 // Description   : It is stack Data Structure and This function is used
 //                 to display the element of stack
 // Parameter     :
-// Return value  : void
+// Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -96,7 +96,7 @@ void stack<T>::display()
 
     do
     {
-        cout << "|" << temp->data << "|-> ";
+        cout << "|" << temp->data << "|->";
         temp = temp->next;
     } while (temp != last->next);
     cout << "NULL" << endl;
@@ -107,7 +107,7 @@ void stack<T>::display()
 // Description   : It is stack Data Structure and This function is used
 //                 to return the top element in stack
 // Parameter     :
-// Return value  : any datatype
+// Return Value  : any datatype
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -116,7 +116,7 @@ T stack<T>::top()
 {
     if (empty())
     {
-        cout << "stack is empty" << endl;
+        cout << "stack is empty\n";
         return -1;
     }
     return last->data;
@@ -127,7 +127,7 @@ T stack<T>::top()
 // Description   : It is stack Data Structure and This function is used
 //                 to size the element of linked list
 // Parameter     :
-// Return value  : int
+// Return Value  : int
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -143,13 +143,13 @@ int stack<T>::size()
 // Description   : It is stack Data Structure and This function is
 //                 used to push(insert) the element into stack
 // Parameter     : data
-// Return value  : void
+// Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void stack<T>::push(T val)
+void stack<T>::push(T Val)
 {
-    stacknode<T> *newn = new stacknode<T>(val);
+    stacknode<T> *newn = new stacknode<T>(Val);
 
     if (isize == iSize)
     {
@@ -178,7 +178,7 @@ void stack<T>::push(T val)
 // Description   : It is stack Data Structure and This function is
 //                 used to pop(remove) the element into stack
 // Parameter     :
-// Return value  : void
+// Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
@@ -188,7 +188,6 @@ void stack<T>::pop()
 
     if (empty())
     {
-        cout << "stack is empty" << endl;
         return;
     }
     else if (first == last)

@@ -5,7 +5,7 @@ class dequenode // class declaration of deque(Double Ended Queue)
 {
 public:
     T data;
-    class dequenode<T> *next;
+    dequenode<T> *next; 
 
     dequenode(T data)
     {
@@ -224,11 +224,10 @@ void deque<T>::pop_back()
     }
     else
     {
-        while (temp->next != rare)
+        while (temp->next-> != rare)
         {
             temp = temp->next;
         }
-
         delete rare;
         rare = temp;
 

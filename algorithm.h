@@ -6,18 +6,18 @@ template <class T>
 class algorithm
 {
 public:
-    const T max(const T val1, const T val2);
-    const T max(const T val1, const T val2, const T val3);
-    const T max(const vector<T> &array);
-    const T min(const T val1, const T val2, const T val3);
-    const T min(const T val1, const T val2);
-    const T min(const vector<T> &array);
-    void swap(T &val1, T &val2);
+    T max(T val1, T val2);
+    T max(T val1, T val2, T val3);
+    T max(vector<T> &array);
+    T min(T val1, T val2, T val3);
+    T min(T val1, T val2);
+    T min(vector<T> &array);
+    void swap(const T &val1, const T &val2);
     void display(vector<T> &arr);
-    void display(T arr[],int n);
-    int binarysearch(vector<T> &arr, T &key);
+    void display(T arr[], int n);
+    bool binarysearch(vector<T> &arr, const T &key);
     void sort(vector<T> &arr);
-    void sort(T arr[],int n);
+    void sort(T arr[], int n);
 };
 
 ////////////////////////////////////////////////////////////////////
@@ -25,13 +25,13 @@ public:
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among two values
-// Parameter     :const val1,const val2
+// Parameter     :val1,const val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T val1, const T val2)
+T algorithm<T>::max(T val1, T val2)
 {
     if (val1 > val2)
     {
@@ -48,13 +48,13 @@ const T algorithm<T>::max(const T val1, const T val2)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum among three values
-// Parameter     :const val1,const val2,const val3
+// Parameter     :val1,val2,val3
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const T val1, const T val2, const T val3)
+T algorithm<T>::max(T val1, T val2, T val3)
 {
     if (val1 > val2 && val1 > val3)
     {
@@ -75,13 +75,13 @@ const T algorithm<T>::max(const T val1, const T val2, const T val3)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
-// Parameter     :const array(reference)
+// Parameter     :rray(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::max(const vector<T> &array)
+T algorithm<T>::max(vector<T> &array)
 {
     if (array.empty())
     {
@@ -104,13 +104,13 @@ const T algorithm<T>::max(const vector<T> &array)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among two values
-// Parameter     :const val1,const val2
+// Parameter     : val1, val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T val1, const T val2)
+T algorithm<T>::min(T val1, T val2)
 {
     if (val1 < val2)
     {
@@ -127,13 +127,13 @@ const T algorithm<T>::min(const T val1, const T val2)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum among three values
-// Parameter     :const val1,const val2,const val3
+// Parameter     : val1,val2,val3
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const T val1, const T val2, const T val3)
+T algorithm<T>::min(T val1, T val2, T val3)
 {
     if (val1 < val2 && val1 < val3)
     {
@@ -154,13 +154,13 @@ const T algorithm<T>::min(const T val1, const T val2, const T val3)
 // Function Name : min
 // Description   : It is algorithm and this function is used find
 //                 minimum in vector elements
-// Parameter     :const array(reference)
+// Parameter     :array(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-const T algorithm<T>::min(const vector<T> &array)
+T algorithm<T>::min(vector<T> &array)
 {
     if (array.empty())
     {
@@ -183,13 +183,13 @@ const T algorithm<T>::min(const vector<T> &array)
 // Function Name : swap
 // Description   : It is algorithm and this function is used swap
 //                 two values
-// Parameter     :const val1,const val2
+// Parameter     :val1,val2
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::swap(T &val1, T &val2)
+void algorithm<T>::swap(const T &val1, const T &val2)
 {
     val1 = val1 + val2;
     val2 = val1 - val2;
@@ -227,7 +227,7 @@ void algorithm<T>::display(vector<T> &arr)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::display(T arr[],int n)
+void algorithm<T>::display(T arr[], int n)
 {
     for (register int i = 0; i < n; i++)
     {
@@ -238,7 +238,7 @@ void algorithm<T>::display(T arr[],int n)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
-// Description   : It is algorithm and this function is used to search 
+// Description   : It is algorithm and this function is used to search
 //                 the element inside vector
 // Parameter     :any type vector arr(reference),any type key
 // Return value  : int
@@ -246,26 +246,35 @@ void algorithm<T>::display(T arr[],int n)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
+bool algorithm<T>::binarysearch(vector<T> &Arr, const T &Key)
 {
     if (Arr.empty())
     {
-        return -1;
+        cout << "vector is empty\n";
+        return false;
     }
     int iStart = 0;
     int iEnd = Arr.size() - 1;
+    cout << iEnd << endl;
+
+    bool iFlag = false;
+    /*
+    int Mid = (iStart + iEnd) / 2;
+
+    New Formula
+    int Mid=iStart+(iEnd-iStart)/2;
+    iStart+iEnd/2-iStrat/2;
+    iStart/2+iEnd/2;
+    (iStart+iEnd)/2;
+    */
+
     int Mid = iStart + (iEnd - iStart) / 2;
-    // int Mid = iStart + (iEnd - iStart) / 2;
-    // iStart + iEnd / 2 - iStrat / 2;
-    // iStart / 2 + iEnd / 2;
-    // (iStart + iEnd) / 2;
-    int iFlag = -1;
 
     while (iStart <= iEnd)
     {
         if (Arr[Mid] == Key)
         {
-            iFlag = Mid;
+            iFlag = true;
             break;
         }
 
@@ -277,15 +286,15 @@ int algorithm<T>::binarysearch(vector<T> &Arr, T &Key)
         {
             iEnd = Mid - 1;
         }
-        Mid = iStart + (iStart - iEnd) / 2;
+        Mid = iStart + (iEnd - iStart) / 2;
     }
-    if (iFlag == -1)
+    if (iFlag == false)
     {
-        return iFlag;
+        return false;
     }
     else
     {
-        return iFlag;
+        return true;
     }
 }
 
@@ -330,7 +339,7 @@ void algorithm<T>::sort(vector<T> &arr)
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-void algorithm<T>::sort(T arr[],int n)
+void algorithm<T>::sort(T arr[], int n)
 {
     int i = 0, j = 0, temp = 0;
 

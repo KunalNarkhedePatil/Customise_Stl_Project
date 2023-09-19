@@ -5,7 +5,7 @@ class queuenode // class declaration of queue
 {
 public:
     T data;
-    queuenode *next;
+    queuenode<T> *next;
 
     queuenode(T val)
     {
