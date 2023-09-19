@@ -23,11 +23,11 @@ private:
     stacknode<T> *first;
     stacknode<T> *last;
     int isize;
-    int iSize;
+    int maxCapacity;
 
 public:
     stack();
-    stack(int iSize);
+    stack(int maxCapacity);
     bool empty();
     T top();
     void display();
@@ -36,12 +36,12 @@ public:
     void pop();
 };
 template <class T>
-stack<T>::stack(int iSize)
+stack<T>::stack(int maxCapacity)
 {
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize = iSize;
+    this->maxCapacity = maxCapacity;
 }
 template <class T>
 stack<T>::stack()
@@ -49,7 +49,7 @@ stack<T>::stack()
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize = -1;
+    this->maxCapacity = -1;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -151,7 +151,7 @@ void stack<T>::push(T Val)
 {
     stacknode<T> *newn = new stacknode<T>(Val);
 
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "Stack is full\n";
         return;

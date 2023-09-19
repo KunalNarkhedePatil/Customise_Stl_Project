@@ -23,11 +23,11 @@ private:
     dequenode<T> *front;
     dequenode<T> *rare;
     int isize;
-    int iSize;
+    int maxCapacity;
 
 public:
     deque();
-    deque(int iSize);
+    deque(int maxCapacity);
     int size();
     bool empty();
     void push_front(T val);
@@ -43,15 +43,15 @@ deque<T>::deque()
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = -1;
+    this->maxCapacity = -1;
 }
 template <class T>
-deque<T>::deque(int iSize)
+deque<T>::deque(int maxCapacity)
 {
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = iSize;
+    this->maxCapacity = maxCapacity;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -107,7 +107,7 @@ void deque<T>::push_front(T val)
 {
     dequenode<T> *newn = new dequenode<T>(val);
 
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "deque is full\n";
         return;
@@ -141,7 +141,7 @@ void deque<T>::push_front(T val)
 template <class T>
 void deque<T>::push_back(T val)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "deque is full\n";
         return;
@@ -224,7 +224,7 @@ void deque<T>::pop_back()
     }
     else
     {
-        while (temp->next-> != rare)
+        while (temp->next != rare)
         {
             temp = temp->next;
         }

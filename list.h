@@ -25,11 +25,11 @@ private:
     node1<T> *first;
     node1<T> *last;
     int isize;
-    int iSize;
+    int maxCapacity;
 
 public:
     list();
-    list(int iSize);
+    list(int maxCapacity);
     bool empty();
     int size();
     void display();
@@ -51,15 +51,15 @@ list<T>::list()
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize = -1;
+    this->maxCapacity = -1;
 }
 template <class T>
-list<T>::list(int iSize)
+list<T>::list(int maxCapacity)
 {
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->iSize = iSize;
+    this->maxCapacity = maxCapacity;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -140,7 +140,7 @@ void list<T>::display()
 template <class T>
 void list<T>::push_front(T val)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "list is full\n";
         return;
@@ -175,7 +175,7 @@ void list<T>::push_front(T val)
 template <class T>
 void list<T>::push_back(T val)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "list is full\n";
         return;
@@ -211,7 +211,7 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "list is full\n";
         return;

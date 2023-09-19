@@ -24,11 +24,11 @@ private:
     queuenode<T> *front;
     queuenode<T> *rare;
     int isize;
-    int iSize;
+    int maxCapacity;
 
 public:
     queue();
-    queue(int iSize);
+    queue(int maxCapacity);
     bool empty();
     void display();
     int size();
@@ -42,15 +42,15 @@ queue<T>::queue()
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = -1;
+    this->maxCapacity = -1;
 }
 template <class T>
-queue<T>::queue(int iSize)
+queue<T>::queue(int maxCapacity)
 {
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = iSize;
+    this->maxCapacity = maxCapacity;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -123,7 +123,7 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "Queue is full\n";
         return;
