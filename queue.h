@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 template <class T>
 class queuenode // class declaration of queue
@@ -125,7 +125,7 @@ void queue<T>::push(T val) // insertlast
 {
     if (isize == maxCapacity)
     {
-        cout << "Queue is full\n";
+        cout << "queue is full\n";
         return;
     }
     queuenode<T> *newn = new queuenode<T>(val);

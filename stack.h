@@ -90,7 +90,7 @@ void stack<T>::display()
 {
     if (empty())
     {
-        cout << "list is empty" << endl;
+        cout << "stack is empty" << endl;
         return;
     }
     stacknode<T> *temp = first;
@@ -153,7 +153,7 @@ void stack<T>::push(T val)
 {
     if (isize == maxCapacity)
     {
-        cout << "list is full\n";
+        cout << "stack is full\n";
         return;
     }
     stacknode<T> *newn = new stacknode<T>(val);
@@ -189,7 +189,7 @@ void stack<T>::pop()
 {
     if (empty())
     {
-        cout << "list is empty" << endl;
+        cout << "stack is empty" << endl;
         return;
     }
     else if (isize == 1)
