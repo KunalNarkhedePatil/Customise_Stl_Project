@@ -1840,8 +1840,8 @@ public:
     void push_back(T val);
     void pop_front();
     void pop_back();
-    int front();
-    int back();
+    T front();
+    T back();
 };
 template <class T>
 deque<T>::deque()
@@ -2030,7 +2030,7 @@ void deque<T>::pop_back()
     }
     else
     {
-        while (temp->next->!= rare)
+        while (temp->next-> != rare)
         {
             temp = temp->next;
         }
@@ -2048,12 +2048,12 @@ void deque<T>::pop_back()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of front of queue
 // Parameter     :
-// Return value  : void
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int deque<T>::front()
+T deque<T>::front()
 {
     return front->data;
 }
@@ -2064,12 +2064,12 @@ int deque<T>::front()
 // Description   : It is deque(Double ended queue) Data Structure and This function is
 //                 used to get the element of back of queue
 // Parameter     :
-// Return value  : void
+// Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-int deque<T>::back()
+T deque<T>::back()
 {
     return rare->data;
 }
