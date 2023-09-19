@@ -2,14 +2,24 @@
 
 int main()
 {
-    stack<int> t;
+    stack<int> s;
 
-    t.push(10);
-    t.push(20);
-    t.push(30);
-    t.push(40);
-    t.push(50);
+    
+    s.push(10);
+    s.push(10);
+    s.push(10);
+    s.push(10);
+    s.push(10);
+    s.push(10);
 
-    t.display();
+    s.display();
+
+    cout<<s.size()<<endl;
+
+    s.pop();
+    s.pop();
+
+    cout<<s.size()<<endl;
+    
     return 0;
 }

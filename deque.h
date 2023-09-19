@@ -5,7 +5,7 @@ class dequenode // class declaration of deque(Double Ended Queue)
 {
 public:
     T data;
-    dequenode<T> *next; 
+    dequenode<T> *next;
 
     dequenode(T data)
     {

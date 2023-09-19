@@ -18,11 +18,12 @@ public:
     void push_back(T data, int index);
     void pop_back();
     T at(int index);
+    bool empty();
     int size();
     void set(int index, T data);
     int capacity();
     void print();
-    T operator[](int i);
+    T operator[](int index);
 };
 
 template <class T>
@@ -38,6 +39,28 @@ vector<T>::~vector()
     delete[] Arr;
 }
 
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is vector Data Structure and This function is
+//                 used to check vector is empty or not
+// Parameter     :
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool vector<T>::empty()
+{
+    if (iCurrent == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_back
@@ -82,10 +105,9 @@ void vector<T>::push_back(T data)
 template <class T>
 void vector<T>::push_back(T data, int index)
 {
-    if (index > iCurrent)
+    if (index < 0 || index > iCurrent)
     {
-        cout<<"Invalid index"<<endl;
-        return;
+        throw out_of_range("invalid index");
     }
     if (index == iCapacity)
     {
@@ -110,7 +132,10 @@ void vector<T>::push_back(T data, int index)
 template <class T>
 void vector<T>::pop_back()
 {
-    iCurrent--;
+    if (iCurrent > 0)
+    {
+        iCurrent--;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -127,7 +152,7 @@ template <class T>
 T vector<T>::at(int index)
 {
     // if index is within the range
-    if (index < iCurrent)
+    if (index >= 0 && index < iCurrent)
     {
         return Arr[index];
     }
@@ -179,6 +204,11 @@ int vector<T>::capacity()
 template <class T>
 void vector<T>::print()
 {
+    if (empty())
+    {
+        cout << "vector is empty" << endl;
+        return;
+    }
     for (register int i = 0; i < iCurrent; i++)
     {
         cout << Arr[i] << " ";
@@ -198,11 +228,11 @@ void vector<T>::print()
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
-T vector<T>::operator[](int i)
+T vector<T>::operator[](int index)
 {
-    if (i < iCurrent)
+    if (index >= 0 && index < iCurrent)
     {
-        return Arr[i];
+        return Arr[index];
     }
     throw out_of_range("out of range");
 }
@@ -221,7 +251,7 @@ T vector<T>::operator[](int i)
 template <class T>
 void vector<T>::set(int index, T data)
 {
-    if (index < iCurrent)
+    if (index >= 0 && index < iCurrent)
     {
         Arr[index] = data;
         return;

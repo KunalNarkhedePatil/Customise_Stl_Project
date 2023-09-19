@@ -69,7 +69,7 @@ void queue<T>::display()
 
     if (empty())
     {
-        cout<<"queue is empty"<<endl;
+        cout << "queue is empty" << endl;
         return;
     }
 
@@ -85,14 +85,14 @@ void queue<T>::display()
 template <class T>
 bool queue<T>::empty()
 {
-   if(front==NULL && rare==NULL)
-   {
-       return true;
-   }
-   else
-   {
-      return false;
-   }
+    if (front == NULL && rare == NULL)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -160,10 +160,10 @@ void queue<T>::pop() // deletefirst
 {
     if (empty())
     {
-        cout<<"queue is empty"<<endl;
+        cout << "queue is empty" << endl;
         return;
     }
-    else if (front == rare)
+    else if (isize == 1)
     {
         delete front;
         front = NULL;

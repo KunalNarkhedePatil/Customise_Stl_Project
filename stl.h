@@ -36,11 +36,12 @@ class stacknode // class declaration of stack
 public:
     T data;
     stacknode<T> *next;
-
+    stacknode<T> *prev;
     stacknode(T data)
     {
         this->data = data;
         this->next = NULL;
+        this->prev = NULL;
     }
 };
 template <class T>
@@ -431,7 +432,7 @@ singlyclist<T>::singlyclist()
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->maxCapacity=-1;
+    this->maxCapacity = -1;
 }
 
 template <class T>
@@ -440,7 +441,7 @@ singlyclist<T>::singlyclist(int maxCapacity)
     this->first = NULL;
     this->last = NULL;
     this->isize = 0;
-    this->maxCapacity=maxCapacity;
+    this->maxCapacity = maxCapacity;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -521,9 +522,9 @@ int singlyclist<T>::size()
 template <class T>
 void singlyclist<T>::insertfirst(T val)
 {
-    if(isize==maxCapacity)
+    if (isize == maxCapacity)
     {
-        cout<<"linked list is full"<<endl;
+        cout << "linked list is full" << endl;
         returnl
     }
     node<T> *newn = new node<T>(val);
@@ -556,10 +557,10 @@ void singlyclist<T>::insertfirst(T val)
 template <class T>
 void singlyclist<T>::insertlast(T val)
 {
-    
-    if(isize==maxCapacity)
+
+    if (isize == maxCapacity)
     {
-        cout<<"linked list is full"<<endl;
+        cout << "linked list is full" << endl;
         returnl
     }
     node<T> *newn = new node<T>(val);
@@ -591,9 +592,9 @@ void singlyclist<T>::insertlast(T val)
 template <class T>
 void singlyclist<T>::insertatpos(T val, int ipos)
 {
-    if(isize==maxCapacity)
+    if (isize == maxCapacity)
     {
-        cout<<"linked list is full"<<endl;
+        cout << "linked list is full" << endl;
         returnl
     }
     if ((ipos < 0) || (ipos > (isize + 1)))
@@ -1082,7 +1083,7 @@ void doublyllist<T>::deleteatpos(int ipos)
 }
 
 ////////////////////////////////////////
-//       LIST DATA STRUCTURE          //                                        
+//       LIST DATA STRUCTURE          //
 ////////////////////////////////////////
 
 template <class T>
@@ -1401,7 +1402,7 @@ void list<T>::deletenode(int ipos)
 {
     if ((ipos < 0) || (ipos > isize))
     {
-        cout<<"Invalid position"<<endl;
+        cout << "Invalid position" << endl;
         return;
     }
     if (ipos == 1)
@@ -1442,9 +1443,9 @@ void list<T>::deletenode(int ipos)
 template <class T>
 T list<T>::front()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"list is empty"<<endl;
+        cout << "list is empty" << endl;
         return -1;
     }
     return first->data;
@@ -1453,7 +1454,7 @@ T list<T>::front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is list and This function is returns the 
+// Description   : It is list and This function is returns the
 //                 value of the last element in the list.
 // Parameter     :
 // Return value  : any data
@@ -1463,9 +1464,9 @@ T list<T>::front()
 template <class T>
 T list<T>::back()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"list is empty"<<endl;
+        cout << "list is empty" << endl;
         return -1;
     }
     return last->data;
@@ -1506,6 +1507,26 @@ node1<T> *list<T>::end()
 ///////////////////////////////////
 //      STACK DATA STRUCTURE     //
 ///////////////////////////////////
+#include <iostream>
+using namespace std;
+
+template <class T>
+class stacknode // class declaration of stack
+{
+public:
+    T data;
+    stacknode<T> *next;
+    stacknode<T> *prev;
+    stacknode(T data)
+    {
+        this->data = data;
+        this->next = NULL;
+        this->prev = NULL;
+    }
+};
+///////////////////////////////////
+//      STACK DATA STRUCTURE     //
+///////////////////////////////////
 template <class T>
 class stack
 {
@@ -1519,20 +1540,12 @@ public:
     stack();
     stack(int maxCapacity);
     bool empty();
+    int size();
     T top();
     void display();
-    int size();
-    void push(T Val);
+    void push(T val);
     void pop();
 };
-template <class T>
-stack<T>::stack(int maxCapacity)
-{
-    this->first = NULL;
-    this->last = NULL;
-    this->isize = 0;
-    this->maxCapacity = maxCapacity;
-}
 template <class T>
 stack<T>::stack()
 {
@@ -1540,6 +1553,14 @@ stack<T>::stack()
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = -1;
+}
+template <class T>
+stack<T>::stack(int maxCapacity)
+{
+    this->first = NULL;
+    this->last = NULL;
+    this->isize = 0;
+    this->maxCapacity = maxCapacity;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -1555,7 +1576,7 @@ stack<T>::stack()
 template <class T>
 bool stack<T>::empty()
 {
-    if (first == NULL && last == NULL)
+    if (this->first == NULL && this->last == NULL)
     {
         return true;
     }
@@ -1576,21 +1597,21 @@ bool stack<T>::empty()
 template <class T>
 void stack<T>::display()
 {
-    stacknode<T> *temp = first;
-
     if (empty())
     {
-        cout << "stack is empty" << endl;
+        cout << "list is empty" << endl;
         return;
     }
+    stacknode<T> *temp = first;
 
-    do
+    for (register int i = 1; i <= isize; i++)
     {
         cout << "|" << temp->data << "|->";
         temp = temp->next;
-    } while (temp != last->next);
-    cout << "NULL" << endl;
+    }
+    cout << endl;
 }
+
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : top
@@ -1615,7 +1636,7 @@ T stack<T>::top()
 //
 // Function Name : size
 // Description   : It is stack Data Structure and This function is used
-//                 to size the element of linked list
+//                 to return the size of stack
 // Parameter     :
 // Return Value  : int
 //
@@ -1637,17 +1658,16 @@ int stack<T>::size()
 //
 ////////////////////////////////////////////////////////////////////
 template <class T>
-void stack<T>::push(T Val)
+void stack<T>::push(T val)
 {
-    stacknode<T> *newn = new stacknode<T>(Val);
-
     if (isize == maxCapacity)
     {
-        cout << "Stack is full\n";
+        cout << "list is full\n";
         return;
     }
+    stacknode<T> *newn = new stacknode<T>(val);
 
-    if ((first == NULL) && (last == NULL))
+    if (empty())
     {
         first = newn;
         last = newn;
@@ -1655,10 +1675,11 @@ void stack<T>::push(T Val)
     else
     {
         last->next = newn;
+        newn->prev = last;
         last = newn;
     }
-
     last->next = first;
+    first->prev = last;
     isize++;
 }
 
@@ -1671,13 +1692,13 @@ void stack<T>::push(T Val)
 // Return Value  : void
 //
 ////////////////////////////////////////////////////////////////////
+
 template <class T>
 void stack<T>::pop()
 {
-    stacknode<T> *temp = first;
-
     if (empty())
     {
+        cout << "list is empty" << endl;
         return;
     }
     else if (first == last)
@@ -1688,18 +1709,14 @@ void stack<T>::pop()
     }
     else
     {
-        while (temp->next != last)
-        {
-            temp = temp->next;
-        }
-
-        delete last;
-        last = temp;
-
+        last = last->prev;
+        delete last->next;
+        first->prev = last;
         last->next = first;
     }
     isize--;
 }
+
 ///////////////////////////////////
 //      QUEUE DATA STRUCTURE     //
 ///////////////////////////////////
@@ -2074,7 +2091,7 @@ void deque<T>::pop_back()
     }
     else
     {
-        while (temp->next-> != rare)
+        while (temp->next->!= rare)
         {
             temp = temp->next;
         }

@@ -15,7 +15,7 @@ public:
     }
 };
 ////////////////////////////////////////
-//       LIST DATA STRUCTURE          //                                        
+//       LIST DATA STRUCTURE          //
 ////////////////////////////////////////
 
 template <class T>
@@ -124,8 +124,7 @@ void list<T>::display()
         cout << "|" << temp->data << "|->";
         temp = temp->next;
     }
-    printf("NULL");
-    cout << "\n";
+    cout << endl;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -233,10 +232,6 @@ void list<T>::insert(T val, int ipos)
     {
         node1<T> *newn = new node1<T>(val);
 
-        newn->data = val;
-        newn->next = NULL;
-        newn->prev = NULL;
-
         node1<T> *temp = first;
 
         for (register int i = 1; i < ipos - 1; i++)
@@ -334,7 +329,7 @@ void list<T>::deletenode(int ipos)
 {
     if ((ipos < 0) || (ipos > isize))
     {
-        cout<<"Invalid position"<<endl;
+        cout << "Invalid position" << endl;
         return;
     }
     if (ipos == 1)
@@ -375,9 +370,9 @@ void list<T>::deletenode(int ipos)
 template <class T>
 T list<T>::front()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"list is empty"<<endl;
+        cout << "list is empty" << endl;
         return -1;
     }
     return first->data;
@@ -386,7 +381,7 @@ T list<T>::front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is list and This function is returns the 
+// Description   : It is list and This function is returns the
 //                 value of the last element in the list.
 // Parameter     :
 // Return value  : any data
@@ -396,9 +391,9 @@ T list<T>::front()
 template <class T>
 T list<T>::back()
 {
-    if(empty())
+    if (empty())
     {
-        cout<<"list is empty"<<endl;
+        cout << "list is empty" << endl;
         return -1;
     }
     return last->data;
