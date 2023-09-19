@@ -281,7 +281,7 @@ void singlyllist<T>::insertatpos(T val, int ipos)
         node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
         node<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -615,7 +615,7 @@ void singlyclist<T>::insertatpos(T val, int ipos)
         node<T> *newn = new node<T>(val);
         node<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -728,7 +728,7 @@ void singlyclist<T>::deleteatpos(int ipos)
     else
     {
         node<T> *temp = first;
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -959,7 +959,7 @@ void doublyllist<T>::insertatpos(T val, int ipos)
 
         node1<T> *newn = new node1<T>(val);
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -1070,7 +1070,7 @@ void doublyllist<T>::deleteatpos(int ipos)
     {
         node1<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -1306,7 +1306,7 @@ void list<T>::insert(T val, int ipos)
 
         node1<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }

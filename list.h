@@ -239,7 +239,7 @@ void list<T>::insert(T val, int ipos)
 
         node1<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -349,7 +349,7 @@ void list<T>::deletenode(int ipos)
     {
         node1<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }

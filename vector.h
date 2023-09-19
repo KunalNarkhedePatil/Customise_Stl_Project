@@ -55,7 +55,7 @@ void vector<T>::push_back(T data)
     {
         T *temp = new T[2 * iCapacity];
 
-        for (int i = 0; i < iCapacity; i++)
+        for (register int i = 0; i < iCapacity; i++)
         {
             temp[i] = Arr[i];
         }
@@ -179,7 +179,7 @@ int vector<T>::capacity()
 template <class T>
 void vector<T>::print()
 {
-    for (int i = 0; i < iCurrent; i++)
+    for (register int i = 0; i < iCurrent; i++)
     {
         cout << Arr[i] << " ";
     }
