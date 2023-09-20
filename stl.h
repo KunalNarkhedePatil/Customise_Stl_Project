@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+// #include <vector>
 using namespace std;
 template <class T>
 class node // class declaration of singly linked list
@@ -1192,8 +1192,7 @@ void list<T>::display()
         cout << "|" << temp->data << "|->";
         temp = temp->next;
     }
-    printf("NULL");
-    cout << "\n";
+    cout << endl;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1300,10 +1299,6 @@ void list<T>::insert(T val, int ipos)
     else
     {
         node1<T> *newn = new node1<T>(val);
-
-        newn->data = val;
-        newn->next = NULL;
-        newn->prev = NULL;
 
         node1<T> *temp = first;
 
@@ -1417,7 +1412,7 @@ void list<T>::deletenode(int ipos)
     {
         node1<T> *temp = first;
 
-        for (int i = 1; i < ipos - 1; i++)
+        for (register int i = 1; i < ipos - 1; i++)
         {
             temp = temp->next;
         }
@@ -1507,26 +1502,6 @@ node1<T> *list<T>::end()
 ///////////////////////////////////
 //      STACK DATA STRUCTURE     //
 ///////////////////////////////////
-#include <iostream>
-using namespace std;
-
-template <class T>
-class stacknode // class declaration of stack
-{
-public:
-    T data;
-    stacknode<T> *next;
-    stacknode<T> *prev;
-    stacknode(T data)
-    {
-        this->data = data;
-        this->next = NULL;
-        this->prev = NULL;
-    }
-};
-///////////////////////////////////
-//      STACK DATA STRUCTURE     //
-///////////////////////////////////
 template <class T>
 class stack
 {
@@ -1599,7 +1574,7 @@ void stack<T>::display()
 {
     if (empty())
     {
-        cout << "list is empty" << endl;
+        cout << "stack is empty" << endl;
         return;
     }
     stacknode<T> *temp = first;
@@ -1662,7 +1637,7 @@ void stack<T>::push(T val)
 {
     if (isize == maxCapacity)
     {
-        cout << "list is full\n";
+        cout << "stack is full\n";
         return;
     }
     stacknode<T> *newn = new stacknode<T>(val);
@@ -1698,10 +1673,10 @@ void stack<T>::pop()
 {
     if (empty())
     {
-        cout << "list is empty" << endl;
+        cout << "stack is empty" << endl;
         return;
     }
-    else if (first == last)
+    else if (isize == 1)
     {
         delete first;
         first = NULL;
@@ -1727,11 +1702,11 @@ private:
     queuenode<T> *front;
     queuenode<T> *rare;
     int isize;
-    int iSize;
+    int maxCapacity;
 
 public:
     queue();
-    queue(int iSize);
+    queue(int maxCapacity);
     bool empty();
     void display();
     int size();
@@ -1745,15 +1720,15 @@ queue<T>::queue()
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = -1;
+    this->maxCapacity = -1;
 }
 template <class T>
-queue<T>::queue(int iSize)
+queue<T>::queue(int maxCapacity)
 {
     this->front = NULL;
     this->rare = NULL;
     this->isize = 0;
-    this->iSize = iSize;
+    this->maxCapacity = maxCapacity;
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1826,9 +1801,9 @@ int queue<T>::size()
 template <class T>
 void queue<T>::push(T val) // insertlast
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
-        cout << "Queue is full\n";
+        cout << "queue is full\n";
         return;
     }
     queuenode<T> *newn = new queuenode<T>(val);
@@ -1866,7 +1841,7 @@ void queue<T>::pop() // deletefirst
         cout << "queue is empty" << endl;
         return;
     }
-    else if (front == rare)
+    else if (isize == 1)
     {
         delete front;
         front = NULL;
@@ -1929,7 +1904,7 @@ deque<T>::deque(int maxCapacity)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : empty
-// Description   : It is list and This function is used
+// Description   : It is deque and This function is used
 //                 to check list empty or not
 // Parameter     :
 // Return value  : bool
@@ -1951,7 +1926,7 @@ bool deque<T>::empty()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : size
-// Description   : It is list and This function is used
+// Description   : It is deque and This function is used
 //                 to size the element  of linked list
 // Parameter     :
 // Return value  : int
@@ -1967,7 +1942,7 @@ int deque<T>::size()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : display
-// Description   : It is list and This function is used
+// Description   : It is deque and This function is used
 //                 to display the element  of linked list
 // Parameter     :
 // Return value  : void
@@ -1993,7 +1968,7 @@ void deque<T>::display()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_front
-// Description   : It is list and This function is
+// Description   : It is deque and This function is
 //                 used to insert at first position of Linked list
 // Parameter     : Data of node
 // Return value  : void
@@ -2029,7 +2004,7 @@ void deque<T>::push_front(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : push_back
-// Description   : It is list and This function is
+// Description   : It is deque and This function is
 //                 used to insert the node at last position of Linked list
 // Parameter     : Data of node
 // Return value  : void
@@ -2064,8 +2039,8 @@ void deque<T>::push_back(T val)
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_front
-// Description   : It is list and This function is
-//                 used to Delete the node at first position of Linked list
+// Description   : It is deque and This function is
+//                 used to delete the node at first position of Linked list
 // Parameter     :
 // Return value  : void
 //
@@ -2098,8 +2073,8 @@ void deque<T>::pop_front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_back
-// Description   : It is list and This function is
-//                 used to Delete the node at last position of Linked list
+// Description   : It is deque and This function is
+//                 used to delete the node at last position of Linked list
 // Parameter     :
 // Return value  : void
 //
@@ -2132,7 +2107,7 @@ void deque<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : front
-// Description   : It is list and This function is
+// Description   : It is deque and This function is
 //                 returns the value of the first element in the list.
 // Parameter     :
 // Return value  : any data
@@ -2153,7 +2128,7 @@ T deque<T>::front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is list and This function is returns the
+// Description   : It is deque and This function is returns the
 //                 value of the last element in the list.
 // Parameter     :
 // Return value  : any data
@@ -2174,7 +2149,7 @@ T deque<T>::back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : begin
-// Description   : It is list and This function is used to
+// Description   : It is deque and This function is used to
 //                 returns used to first node
 // Parameter     :
 // Return value  : any data
@@ -2190,7 +2165,7 @@ dequenode<T> *deque<T>::begin()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : end
-// Description   : It is list and This function is used to
+// Description   : It is deque and This function is used to
 //                 returns last node pointer
 // Parameter     :
 // Return value  : any data
@@ -2201,6 +2176,263 @@ template <class T>
 dequenode<T> *deque<T>::end()
 {
     return rear;
+}
+///////////////////////////////////
+//     VECTOR DATA STRUCTURE     //
+///////////////////////////////////
+template <class T>
+class vector
+{
+private:
+    T *Arr;
+    int iCapacity;
+    int iCurrent;
+
+public:
+    vector();
+    ~vector();
+    void push_back(T data);
+    void push_back(T data, int index);
+    void pop_back();
+    T at(int index);
+    bool empty();
+    int size();
+    void set(int index, T data);
+    int capacity();
+    void print();
+    T operator[](int index);
+};
+
+template <class T>
+vector<T>::vector()
+{
+    this->Arr = new T[1];
+    this->iCapacity = 1;
+    this->iCurrent = 0;
+}
+template <class T>
+vector<T>::~vector()
+{
+    delete[] Arr;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : empty
+// Description   : It is vector Data Structure and This function is
+//                 used to check vector is empty or not
+// Parameter     :
+// Return Value  : bool
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+bool vector<T>::empty()
+{
+    if (iCurrent == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : push_back
+// Description   : It is vector Data Structure and This function is
+//                 used to push the element at the last index of vector
+// Parameter     : data
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+void vector<T>::push_back(T data)
+{
+    if (iCurrent == iCapacity)
+    {
+        T *temp = new T[2 * iCapacity];
+
+        for (register int i = 0; i < iCapacity; i++)
+        {
+            temp[i] = Arr[i];
+        }
+
+        delete[] Arr;
+        iCapacity = iCapacity * 2;
+        Arr = temp;
+    }
+
+    Arr[iCurrent] = data;
+    iCurrent++;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : push_back
+// Description   : It is vector Data Structure and This function is
+//                 used to push the element at the last index of vector
+// Parameter     : data and index
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+void vector<T>::push_back(T data, int index)
+{
+    if (index < 0 || index > iCurrent)
+    {
+        throw out_of_range("invalid index");
+    }
+    if (index == iCapacity)
+    {
+        push_back(data);
+    }
+    else
+    {
+        Arr[index] = data;
+    }
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : pop_back
+// Description   : It is vector Data Structure and This function is
+//                 used to pop(delete) the element at the last index of vector
+// Parameter     : data
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+void vector<T>::pop_back()
+{
+    if (iCurrent > 0)
+    {
+        iCurrent--;
+    }
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : at
+// Description   : It is vector Data Structure and This function is
+//                 used to return the element at given index
+// Parameter     : index
+// Return Value  : any data type
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+T vector<T>::at(int index)
+{
+    // if index is within the range
+    if (index >= 0 && index < iCurrent)
+    {
+        return Arr[index];
+    }
+    throw out_of_range("out of range");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : size
+// Description   : It is vector Data Structure and This function is
+//                 used to return the size of vector
+// Parameter     :
+// Return Value  : int
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+int vector<T>::size()
+{
+    return iCurrent;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : capacity
+// Description   : It is vector Data Structure and This function is
+//                 used to return the current capacity of vector
+// Parameter     :
+// Return Value  : int
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+int vector<T>::capacity()
+{
+    return iCapacity;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : print
+// Description   : It is vector Data Structure and This function is
+//                 used to print the data store in vector
+// Parameter     :
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+void vector<T>::print()
+{
+    if (empty())
+    {
+        cout << "vector is empty" << endl;
+        return;
+    }
+    for (register int i = 0; i < iCurrent; i++)
+    {
+        cout << Arr[i] << " ";
+    }
+    cout << endl;
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : operator
+// Description   : It is vector Data Structure and This function is
+//                 used to return the element at gievn index and
+//                 this function also overload the [] bracket.
+// Parameter     : data
+// Return Value  : any data type
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+T vector<T>::operator[](int index)
+{
+    if (index >= 0 && index < iCurrent)
+    {
+        return Arr[index];
+    }
+    throw out_of_range("out of range");
+}
+
+////////////////////////////////////////////////////////////////////
+//
+// Function Name : set
+// Description   : It is vector Data Structure and This function is
+//                 used to set or update the data on given index
+//                 the data
+// Parameter     : index and data
+// Return Value  : void
+//
+////////////////////////////////////////////////////////////////////
+
+template <class T>
+void vector<T>::set(int index, T data)
+{
+    if (index >= 0 && index < iCurrent)
+    {
+        Arr[index] = data;
+        return;
+    }
 }
 
 //////////////////////
@@ -2280,7 +2512,7 @@ T algorithm<T>::max(T val1, T val2, T val3)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
-// Parameter     :rray(reference)
+// Parameter     :array(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////
