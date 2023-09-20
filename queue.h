@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 template <class T>
 class queuenode // class declaration of queue

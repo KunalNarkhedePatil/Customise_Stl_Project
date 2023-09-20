@@ -75,7 +75,7 @@ T algorithm<T>::max(T val1, T val2, T val3)
 // Function Name : max
 // Description   : It is algorithm and this function is used find
 //                 maximum in vector elements
-// Parameter     :rray(reference)
+// Parameter     :array(reference)
 // Return value  : any data
 //
 ////////////////////////////////////////////////////////////////////

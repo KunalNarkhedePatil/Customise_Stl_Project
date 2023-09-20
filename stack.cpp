@@ -16,22 +16,22 @@ int main()
 
     s.display();
 
-    cout<<"top:"<<s.top()<<endl;
+    cout << "top:" << s.top() << endl;
 
-    cout<<"size:"<<s.size()<<endl;
+    cout << "size:" << s.size() << endl;
 
-    //cout<<s.first<<endl;
-    //cout<<s.last<<endl;
+    // cout<<s.first<<endl;
+    // cout<<s.last<<endl;
 
-    //cout<<s.maxCapacity<<endl;
+    // cout<<s.maxCapacity<<endl;
 
-    if(s.empty())
+    if (s.empty())
     {
-        cout<<"true"<<endl;
+        cout << "true" << endl;
     }
     else
     {
-        cout<<"false"<<endl;
+        cout << "false" << endl;
     }
 
     stack<float> s1(5);
@@ -47,12 +47,6 @@ int main()
     s1.pop();
 
     s1.display();
-
-
-
-
-
-
 
     return 0;
 }
