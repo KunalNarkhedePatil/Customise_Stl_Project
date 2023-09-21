@@ -22,7 +22,7 @@ template <class T>
 class deque  
 {
 private:
-    dequenode<T> *front;
+    dequenode<T> *frontp;
     dequenode<T> *rear;
     int isize;
     int maxCapacity;
@@ -46,7 +46,7 @@ public:
 template <class T>
 deque<T>::deque()
 {
-    this->front = NULL;
+    this->frontp = NULL;
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = -1;
@@ -54,7 +54,7 @@ deque<T>::deque()
 template <class T>
 deque<T>::deque(int maxCapacity)
 {
-    this->front = NULL;
+    this->frontp = NULL;
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
@@ -73,7 +73,7 @@ deque<T>::deque(int maxCapacity)
 template <class T>
 bool deque<T>::empty()
 {
-    if (this->front == NULL && this->rear == NULL)
+    if (this->frontp == NULL && this->rear == NULL)
     {
         return true;
     }
@@ -115,7 +115,7 @@ void deque<T>::display()
         cout << "list is empty" << endl;
         return;
     }
-    dequenode<T> *temp = front;
+    dequenode<T> *temp = frontp;
 
     for (int i = 1; i <= isize; i++)
     {
@@ -145,18 +145,18 @@ void deque<T>::push_front(T val)
     dequenode<T> *newn = new dequenode<T>(val);
     if (empty())
     {
-        front = newn;
+        frontp = newn;
         rear = newn;
     }
     else
     {
-        newn->next = front;
-        front->prev = newn;
-        front = newn;
+        newn->next = frontp;
+        frontp->prev = newn;
+        frontp = newn;
     }
 
-    rear->next = front;
-    front->prev = rear;
+    rear->next = frontp;
+    frontp->prev = rear;
     isize++;
 }
 
@@ -181,7 +181,7 @@ void deque<T>::push_back(T val)
 
     if (empty())
     {
-        front = newn;
+        frontp = newn;
         rear = newn;
     }
     else
@@ -190,8 +190,8 @@ void deque<T>::push_back(T val)
         newn->prev = rear;
         rear = newn;
     }
-    rear->next = front;
-    front->prev = rear;
+    rear->next = frontp;
+    frontp->prev = rear;
     isize++;
 }
 
@@ -215,16 +215,16 @@ void deque<T>::pop_front()
     }
     else if (isize==1)
     {
-        delete front;
-        front = NULL;
+        delete frontp;
+        frontp = NULL;
         rear = NULL;
     }
     else
     {
-        front = front->next;
+        frontp = frontp->next;
         delete rear->next;
-        front->prev = rear;
-        rear->next = front;
+        frontp->prev = rear;
+        rear->next = frontp;
     }
     isize--;
 }
@@ -249,16 +249,16 @@ void deque<T>::pop_back()
     }
     else if (isize==1)
     {
-        delete front;
-        front = NULL;
+        delete frontp;
+        frontp = NULL;
         rear = NULL;
     }
     else
     {
         rear = rear->prev;
         delete rear->next;
-        front->prev = rear;
-        rear->next = front;
+        frontp->prev = rear;
+        rear->next = frontp;
     }
     isize--;
 }
@@ -281,7 +281,7 @@ T deque<T>::front()
         cout << "list is empty" << endl;
         return -1;
     }
-    return front->data;
+    return frontp->data;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -311,14 +311,14 @@ T deque<T>::back()
 // Description   : It is deque and This function is used to
 //                 returns used to first node
 // Parameter     :
-// Return value  : any data
+// Return value  :pointer
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 dequenode<T> *deque<T>::begin()
 {
-    return front;
+    return frontp;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -327,7 +327,7 @@ dequenode<T> *deque<T>::begin()
 // Description   : It is deque and This function is used to
 //                 returns last node pointer
 // Parameter     :
-// Return value  : any data
+// Return value  : pointer
 //
 ////////////////////////////////////////////////////////////////////
 
