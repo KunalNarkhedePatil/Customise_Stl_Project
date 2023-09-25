@@ -866,7 +866,7 @@ void doublyllist<T>::display()
 template <class T>
 void doublyllist<T>::insertfirst(T val)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "linked list is full\n";
         return;
@@ -898,7 +898,7 @@ void doublyllist<T>::insertfirst(T val)
 template <class T>
 void doublyllist<T>::insertlast(T val)
 {
-    if (isize == iSize)
+    if (isize == maxCapacity)
     {
         cout << "linked list is full\n";
         return;

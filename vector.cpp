@@ -3,6 +3,8 @@
 int main()
 {
     vector<int> i;
+
+    cout<<"size of vector is "<<sizeof(i)<<endl;
     vector<float> f;
     vector<double> d;
     vector<char> c;
