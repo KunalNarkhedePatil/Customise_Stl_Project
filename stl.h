@@ -1700,7 +1700,7 @@ class queue
 {
 private:
     queuenode<T> *front;
-    queuenode<T> *rare;
+    queuenode<T> *rear;
     int isize;
     int maxCapacity;
 
@@ -1718,7 +1718,7 @@ template <class T>
 queue<T>::queue()
 {
     this->front = NULL;
-    this->rare = NULL;
+    this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = -1;
 }
@@ -1726,7 +1726,7 @@ template <class T>
 queue<T>::queue(int maxCapacity)
 {
     this->front = NULL;
-    this->rare = NULL;
+    this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
@@ -1755,7 +1755,7 @@ void queue<T>::display()
     {
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
-    } while (temp != rare->next);
+    } while (temp != rear->next);
     cout << "NULL" << endl;
 
     cout << endl;
@@ -1763,7 +1763,7 @@ void queue<T>::display()
 template <class T>
 bool queue<T>::empty()
 {
-    if (front == NULL && rare == NULL)
+    if (front == NULL && rear == NULL)
     {
         return true;
     }
@@ -1811,15 +1811,15 @@ void queue<T>::push(T val) // insertlast
     if (empty())
     {
         front = newn;
-        rare = newn;
+        rear = newn;
     }
     else
     {
-        rare->next = newn;
-        rare = newn;
+        rear->next = newn;
+        rear = newn;
     }
 
-    rare->next = front;
+    rear->next = front;
     isize++;
 }
 
@@ -1845,13 +1845,13 @@ void queue<T>::pop() // deletefirst
     {
         delete front;
         front = NULL;
-        rare = NULL;
+        rear = NULL;
     }
     else
     {
         front = front->next;
-        delete rare->next;
-        rare->next = front;
+        delete rear->next;
+        rear->next = front;
     }
     isize--;
 }

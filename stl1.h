@@ -1,0 +1,5 @@
+#include"list.h"
+#include"stack.h"
+#include"queue.h"
+#include"deque.h"
+#include"algorithm.h"
