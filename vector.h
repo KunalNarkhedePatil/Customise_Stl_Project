@@ -26,6 +26,17 @@ public:
     T operator[](int index);
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of vector class and This function is automatically
+//                 called when object of class is created.this function usedto initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 vector<T>::vector()
 {
@@ -33,6 +44,18 @@ vector<T>::vector()
     this->iCapacity = 1;
     this->iCurrent = 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of vector class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 vector<T>::~vector()
 {

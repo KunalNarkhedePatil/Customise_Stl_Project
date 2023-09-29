@@ -8,7 +8,7 @@ public:
     T data;
     node<T> *next;
 
-    node(T data)
+    node(T data)  //constructor
     {
         this->data = data;
         this->next = NULL;
@@ -22,7 +22,7 @@ public:
     T data;
     node1<T> *next;
     node1<T> *prev;
-    node1(T data)
+    node1(T data) //constructor
     {
         this->data = data;
         this->next = NULL;
@@ -37,7 +37,7 @@ public:
     T data;
     stacknode<T> *next;
     stacknode<T> *prev;
-    stacknode(T data)
+    stacknode(T data)    //constructor
     {
         this->data = data;
         this->next = NULL;
@@ -51,7 +51,7 @@ public:
     T data;
     queuenode<T> *next;
 
-    queuenode(T val)
+    queuenode(T val)   //constructor
     {
         this->data = val;
         this->next = NULL;
@@ -65,7 +65,7 @@ public:
     dequenode<T> *next;
     dequenode<T> *prev;
 
-    dequenode(T data)
+    dequenode(T data)   //constructor
     {
         this->data = data;
         this->next = NULL;
@@ -98,6 +98,17 @@ public:
     void deletelast();
     void deleteatpos(int ipos);
 };
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of singlyllist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyllist<T>::singlyllist()
 {
@@ -106,6 +117,17 @@ singlyllist<T>::singlyllist()
     this->maxCapacity = -1;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of singlyllist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyllist<T>::singlyllist(int maxCapacity)
 {
@@ -113,6 +135,17 @@ singlyllist<T>::singlyllist(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of singlyllist class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyllist<T>::~singlyllist()
 {
@@ -410,7 +443,7 @@ void singlyllist<T>::deleteatpos(int ipos)
 }
 
 ////////////////////////////////////////
-//     SINGLY CIRCULAR LINKED LIST    //                                        //
+//     SINGLY CIRCULAR LINKED LIST    //                                       
 ////////////////////////////////////////
 template <class T>
 class singlyclist
@@ -436,6 +469,17 @@ public:
     void deleteatpos(int ipos);
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of singlyclist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyclist<T>::singlyclist()
 {
@@ -445,6 +489,17 @@ singlyclist<T>::singlyclist()
     this->maxCapacity = -1;
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of singlyclist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyclist<T>::singlyclist(int maxCapacity)
 {
@@ -453,6 +508,18 @@ singlyclist<T>::singlyclist(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of singlyclist class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 singlyclist<T>::~singlyclist()
 {
@@ -787,6 +854,18 @@ public:
     void deletelast();
     void deleteatpos(int ipos);
 };
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of doublyllist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 doublyllist<T>::doublyllist()
 {
@@ -794,6 +873,18 @@ doublyllist<T>::doublyllist()
     this->isize = 0;
     this->maxCapacity = -1;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of doublyllist class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 doublyllist<T>::doublyllist(int maxCapacity)
 {
@@ -802,6 +893,18 @@ doublyllist<T>::doublyllist(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of doublyllist class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 doublyllist<T>::~doublyllist()
 {
@@ -1141,6 +1244,17 @@ public:
     node1<T> *end();
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of list class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 list<T>::list()
 {
@@ -1149,6 +1263,19 @@ list<T>::list()
     this->isize = 0;
     this->maxCapacity = -1;
 }
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of list class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 list<T>::list(int maxCapacity)
 {
@@ -1157,6 +1284,18 @@ list<T>::list(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of stack class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 list<T>::~list()
 {
@@ -1557,6 +1696,18 @@ public:
     void push(T val);
     void pop();
 };
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of stack class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 stack<T>::stack()
 {
@@ -1565,6 +1716,18 @@ stack<T>::stack()
     this->isize = 0;
     this->maxCapacity = -1;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of stack class and This function is automatically
+//                 called when object of class is created.this function used to initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 stack<T>::stack(int maxCapacity)
 {
@@ -1573,6 +1736,18 @@ stack<T>::stack(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of stack class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 stack<T>::~stack()
 {
@@ -1929,6 +2104,17 @@ public:
     dequenode<T> *end();
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of deque class and This function is automatically
+//                 called when object of class is created.this function used to initialise
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::deque()
 {
@@ -1937,6 +2123,18 @@ deque<T>::deque()
     this->isize = 0;
     this->maxCapacity = -1;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of deque class and This function is automatically
+//                 called when object of class is created.this function used to initialise
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::deque(int maxCapacity)
 {
@@ -1945,6 +2143,18 @@ deque<T>::deque(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of deque class and This function is automatically
+//                 called before deallocating the object of class.this function used to
+//                 deallocate the resources.
+// Parameter     :
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::~deque()
 {
@@ -2257,6 +2467,17 @@ public:
     T operator[](int index);
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of vector class and This function is automatically
+//                 called when object of class is created.this function usedto initialise 
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 vector<T>::vector()
 {
@@ -2264,6 +2485,18 @@ vector<T>::vector()
     this->iCapacity = 1;
     this->iCurrent = 0;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of vector class and This function is automatically
+//                 called before deallocating the object of class.this function used to 
+//                 deallocate the resources.
+// Parameter     : 
+// Return value  : 
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 vector<T>::~vector()
 {

@@ -44,6 +44,17 @@ public:
     dequenode<T> *end();
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : default constructor
+// Description   : It is constructor of deque class and This function is automatically
+//                 called when object of class is created.this function used to initialise
+//                 the characterstics and allocate the resoures.
+// Parameter     :
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::deque()
 {
@@ -52,6 +63,18 @@ deque<T>::deque()
     this->isize = 0;
     this->maxCapacity = -1;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : parameterized constructor
+// Description   : It is constructor of deque class and This function is automatically
+//                 called when object of class is created.this function used to initialise
+//                 the characterstics and allocate the resoures.
+// Parameter     : integer
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::deque(int maxCapacity)
 {
@@ -60,6 +83,18 @@ deque<T>::deque(int maxCapacity)
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////
+//
+// Function Name : destructor
+// Description   : It is destructor of deque class and This function is automatically
+//                 called before deallocating the object of class.this function used to
+//                 deallocate the resources.
+// Parameter     :
+// Return value  :
+//
+////////////////////////////////////////////////////////////////////////////////////////////
+
 template <class T>
 deque<T>::~deque()
 {
