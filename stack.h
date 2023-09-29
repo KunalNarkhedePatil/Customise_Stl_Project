@@ -30,6 +30,7 @@ private:
 public:
     stack();
     stack(int maxCapacity);
+    ~stack();
     bool empty();
     int size();
     T top();
@@ -52,6 +53,14 @@ stack<T>::stack(int maxCapacity)
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+stack<T>::~stack()
+{
+    while (!empty())
+    {
+        pop();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////

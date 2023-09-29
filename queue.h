@@ -29,6 +29,7 @@ private:
 public:
     queue();
     queue(int maxCapacity);
+    ~queue();
     bool empty();
     void display();
     int size();
@@ -51,6 +52,14 @@ queue<T>::queue(int maxCapacity)
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+queue<T>::~queue()
+{
+    while (!empty())
+    {
+        pop();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////

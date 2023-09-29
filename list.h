@@ -30,6 +30,7 @@ private:
 public:
     list();
     list(int maxCapacity);
+    ~list();
     bool empty();
     int size();
     void display();
@@ -60,6 +61,14 @@ list<T>::list(int maxCapacity)
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+list<T>::~list()
+{
+    while (!empty())
+    {
+        pop_front();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////

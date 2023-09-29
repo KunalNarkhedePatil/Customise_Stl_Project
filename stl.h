@@ -87,6 +87,7 @@ private:
 public:
     singlyllist();
     singlyllist(int maxCapacity);
+    ~singlyllist();
     int size();
     bool empty();
     void display();
@@ -111,6 +112,14 @@ singlyllist<T>::singlyllist(int maxCapacity)
     this->first = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+singlyllist<T>::~singlyllist()
+{
+    while(!empty())
+    {
+        deletefirst();
+    }
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -415,6 +424,7 @@ private:
 public:
     singlyclist();
     singlyclist(int maxCapacity);
+    ~singlyclist();
     int size();
     bool empty();
     void display();
@@ -442,6 +452,14 @@ singlyclist<T>::singlyclist(int maxCapacity)
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+singlyclist<T>::~singlyclist()
+{
+    while(!empty())
+    {
+        deletefirst();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -758,6 +776,7 @@ private:
 public:
     doublyllist();
     doublyllist(int maxCapacity);
+    ~doublyllist();
     int size();
     bool empty();
     void display();
@@ -782,6 +801,14 @@ doublyllist<T>::doublyllist(int maxCapacity)
     thid->first = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+doublyllist<T>::~doublyllist()
+{
+    while(!empty())
+    {
+        deletefirst();
+    }
 }
 ////////////////////////////////////////////////////////////////////
 //
@@ -1098,6 +1125,7 @@ private:
 public:
     list();
     list(int maxCapacity);
+    ~list();
     bool empty();
     int size();
     void display();
@@ -1128,6 +1156,14 @@ list<T>::list(int maxCapacity)
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+list<T>::~list()
+{
+    while (!empty())
+    {
+        pop_front();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -1498,7 +1534,6 @@ node1<T> *list<T>::end()
 {
     return last;
 }
-
 ///////////////////////////////////
 //      STACK DATA STRUCTURE     //
 ///////////////////////////////////
@@ -1514,6 +1549,7 @@ private:
 public:
     stack();
     stack(int maxCapacity);
+    ~stack();
     bool empty();
     int size();
     T top();
@@ -1536,6 +1572,14 @@ stack<T>::stack(int maxCapacity)
     this->last = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+stack<T>::~stack()
+{
+    while (!empty())
+    {
+        pop();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -1863,7 +1907,7 @@ template <class T>
 class deque
 {
 private:
-    dequenode<T> *front;
+    dequenode<T> *frontp;
     dequenode<T> *rear;
     int isize;
     int maxCapacity;
@@ -1871,6 +1915,7 @@ private:
 public:
     deque();
     deque(int maxCapacity);
+    ~deque();
     bool empty();
     int size();
     void display();
@@ -1887,7 +1932,7 @@ public:
 template <class T>
 deque<T>::deque()
 {
-    this->front = NULL;
+    this->frontp = NULL;
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = -1;
@@ -1895,10 +1940,18 @@ deque<T>::deque()
 template <class T>
 deque<T>::deque(int maxCapacity)
 {
-    this->front = NULL;
+    this->frontp = NULL;
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+deque<T>::~deque()
+{
+    while (!empty())
+    {
+        pop_front();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -1914,7 +1967,7 @@ deque<T>::deque(int maxCapacity)
 template <class T>
 bool deque<T>::empty()
 {
-    if (this->front == NULL && this->rear == NULL)
+    if (this->frontp == NULL && this->rear == NULL)
     {
         return true;
     }
@@ -1956,7 +2009,7 @@ void deque<T>::display()
         cout << "list is empty" << endl;
         return;
     }
-    dequenode<T> *temp = front;
+    dequenode<T> *temp = frontp;
 
     for (int i = 1; i <= isize; i++)
     {
@@ -1986,18 +2039,18 @@ void deque<T>::push_front(T val)
     dequenode<T> *newn = new dequenode<T>(val);
     if (empty())
     {
-        front = newn;
+        frontp = newn;
         rear = newn;
     }
     else
     {
-        newn->next = front;
-        front->prev = newn;
-        front = newn;
+        newn->next = frontp;
+        frontp->prev = newn;
+        frontp = newn;
     }
 
-    rear->next = front;
-    front->prev = rear;
+    rear->next = frontp;
+    frontp->prev = rear;
     isize++;
 }
 
@@ -2022,7 +2075,7 @@ void deque<T>::push_back(T val)
 
     if (empty())
     {
-        front = newn;
+        frontp = newn;
         rear = newn;
     }
     else
@@ -2031,8 +2084,8 @@ void deque<T>::push_back(T val)
         newn->prev = rear;
         rear = newn;
     }
-    rear->next = front;
-    front->prev = rear;
+    rear->next = frontp;
+    frontp->prev = rear;
     isize++;
 }
 
@@ -2056,16 +2109,16 @@ void deque<T>::pop_front()
     }
     else if (isize == 1)
     {
-        delete front;
-        front = NULL;
+        delete frontp;
+        frontp = NULL;
         rear = NULL;
     }
     else
     {
-        front = front->next;
+        frontp = frontp->next;
         delete rear->next;
-        front->prev = rear;
-        rear->next = front;
+        frontp->prev = rear;
+        rear->next = frontp;
     }
     isize--;
 }
@@ -2090,16 +2143,16 @@ void deque<T>::pop_back()
     }
     else if (isize == 1)
     {
-        delete front;
-        front = NULL;
+        delete frontp;
+        frontp = NULL;
         rear = NULL;
     }
     else
     {
         rear = rear->prev;
         delete rear->next;
-        front->prev = rear;
-        rear->next = front;
+        frontp->prev = rear;
+        rear->next = frontp;
     }
     isize--;
 }
@@ -2122,7 +2175,7 @@ T deque<T>::front()
         cout << "list is empty" << endl;
         return -1;
     }
-    return front->data;
+    return frontp->data;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -2152,14 +2205,14 @@ T deque<T>::back()
 // Description   : It is deque and This function is used to
 //                 returns used to first node
 // Parameter     :
-// Return value  : any data
+// Return value  :pointer
 //
 ////////////////////////////////////////////////////////////////////
 
 template <class T>
 dequenode<T> *deque<T>::begin()
 {
-    return front;
+    return frontp;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -2168,7 +2221,7 @@ dequenode<T> *deque<T>::begin()
 // Description   : It is deque and This function is used to
 //                 returns last node pointer
 // Parameter     :
-// Return value  : any data
+// Return value  : pointer
 //
 ////////////////////////////////////////////////////////////////////
 
@@ -2177,6 +2230,7 @@ dequenode<T> *deque<T>::end()
 {
     return rear;
 }
+
 ///////////////////////////////////
 //     VECTOR DATA STRUCTURE     //
 ///////////////////////////////////
@@ -2751,7 +2805,7 @@ void algorithm<T>::sort(vector<T> &arr)
     int i = 0, j = 0, temp = 0;
     int n = arr.size(); // length of array
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n-1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
@@ -2780,7 +2834,7 @@ void algorithm<T>::sort(T arr[], int n)
 {
     int i = 0, j = 0, temp = 0;
 
-    for (int i = 0; i < n; i++)
+    for (int i = 0; i < n-1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {

@@ -19,7 +19,7 @@ public:
 ////////////////////////////////////////
 
 template <class T>
-class deque  
+class deque
 {
 private:
     dequenode<T> *frontp;
@@ -30,6 +30,7 @@ private:
 public:
     deque();
     deque(int maxCapacity);
+    ~deque();
     bool empty();
     int size();
     void display();
@@ -58,6 +59,14 @@ deque<T>::deque(int maxCapacity)
     this->rear = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
+}
+template <class T>
+deque<T>::~deque()
+{
+    while (!empty())
+    {
+        pop_front();
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -213,7 +222,7 @@ void deque<T>::pop_front()
         cout << "list is empty" << endl;
         return;
     }
-    else if (isize==1)
+    else if (isize == 1)
     {
         delete frontp;
         frontp = NULL;
@@ -247,7 +256,7 @@ void deque<T>::pop_back()
         cout << "list is empty" << endl;
         return;
     }
-    else if (isize==1)
+    else if (isize == 1)
     {
         delete frontp;
         frontp = NULL;
