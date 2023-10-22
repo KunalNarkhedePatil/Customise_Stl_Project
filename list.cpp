@@ -10,6 +10,8 @@ int main()
     fobj.push_back(10.50);
     fobj.push_back(10.60);
 
+    fobj.insert(10.44,9);
+
     fobj.display();
 
 

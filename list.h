@@ -7,7 +7,7 @@ public:
     T data;
     node1<T> *next;
     node1<T> *prev;
-    node1(T data)
+    node1(T data) // paremeterised constructor node1 class
     {
         this->data = data;
         this->next = NULL;
@@ -21,7 +21,7 @@ public:
 template <class T>
 class list
 {
-  private:
+private:
     node1<T> *first;
     node1<T> *last;
     int isize;
@@ -50,15 +50,15 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of list class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
-list<T>::list()
+list<T>::list() // default constructor list class
 {
     this->first = NULL;
     this->last = NULL;
@@ -66,15 +66,14 @@ list<T>::list()
     this->maxCapacity = -1;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of list class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -91,10 +90,10 @@ list<T>::list(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of stack class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -255,47 +254,54 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-    if (isize == maxCapacity)
+    try
     {
-        cout << "list is full\n";
-        return;
-    }
-    if ((ipos < 0) || (ipos > isize + 1))
-    {
-        cout << "Invalid position\n";
-        return;
-    }
-    if (ipos == 1)
-    {
-        push_front(val);
-    }
-    else if (ipos == isize + 1)
-    {
-        push_back(val);
-    }
-    else
-    {
-        node1<T> *newn = new node1<T>(val);
-
-        node1<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (isize == maxCapacity)
         {
-            temp = temp->next;
+            cout << "list is full\n";
+            return;
         }
 
-        newn->next = temp->next;
-        newn->next->prev = newn;
-        temp->next = newn;
-        newn->prev = temp;
-        isize++;
+        if ((ipos < 0) || (ipos > isize + 1))
+        {
+            throw ipos;
+        }
+        if (ipos == 1)
+        {
+            push_front(val);
+        }
+        else if (ipos == isize + 1)
+        {
+            push_back(val);
+        }
+        else
+        {
+            node1<T> *newn = new node1<T>(val);
+
+            node1<T> *temp = first;
+
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+
+            newn->next = temp->next;
+            newn->next->prev = newn;
+            temp->next = newn;
+            newn->prev = temp;
+            isize++;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : pop_front
 // Description   : It is list and This function is
-//                 used to Delete the node at first position of Linked list
+//                 used to delete the node at first position of Linked list
 // Parameter     :
 // Return value  : void
 //
@@ -362,8 +368,8 @@ void list<T>::pop_back()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : deletenode
-// Description   : It is and This function is
-//                 used to Delete at perticular position of Linked list
+// Description   : It is list and this function is
+//                 used to delete at perticular position of Linked list
 // Parameter     : Position
 // Return value  : void
 //
@@ -372,40 +378,46 @@ void list<T>::pop_back()
 template <class T>
 void list<T>::deletenode(int ipos)
 {
-    if ((ipos < 0) || (ipos > isize))
+    try
     {
-        cout << "Invalid position" << endl;
-        return;
-    }
-    if (ipos == 1)
-    {
-        pop_front();
-    }
-    else if (ipos == isize)
-    {
-        pop_back();
-    }
-    else
-    {
-        node1<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if ((ipos < 0) || (ipos > isize))
         {
-            temp = temp->next;
+            throw ipos;
         }
+        if (ipos == 1)
+        {
+            pop_front();
+        }
+        else if (ipos == isize)
+        {
+            pop_back();
+        }
+        else
+        {
+            node1<T> *temp = first;
 
-        temp->next = temp->next->next;
-        delete temp->next->prev;
-        temp->next->prev = temp;
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
 
-        isize--;
+            temp->next = temp->next->next;
+            delete temp->next->prev;
+            temp->next->prev = temp;
+
+            isize--;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception <<endl;
     }
 }
 
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : front
-// Description   : It is list and This function is
+// Description   : It is list and this function is
 //                 returns the value of the first element in the list.
 // Parameter     :
 // Return value  : any data
@@ -426,7 +438,7 @@ T list<T>::front()
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : back
-// Description   : It is list and This function is returns the
+// Description   : It is list and this function is returns the
 //                 value of the last element in the list.
 // Parameter     :
 // Return value  : any data

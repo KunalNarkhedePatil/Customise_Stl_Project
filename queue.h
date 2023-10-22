@@ -40,10 +40,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of queue class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -60,10 +60,10 @@ queue<T>::queue()
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of queue class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -80,10 +80,10 @@ queue<T>::queue(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of queue class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 

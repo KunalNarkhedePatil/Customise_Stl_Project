@@ -13,6 +13,8 @@ int main()
     i.push_back(20);
     i.push_back(30);
 
+    cout<<"element is "<<i[7]<<endl;
+
     i.print();
 
 

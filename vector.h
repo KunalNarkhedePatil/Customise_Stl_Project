@@ -30,10 +30,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of vector class and This function is automatically
-//                 called when object of class is created.this function usedto initialise 
+//                 called when object of class is created.this function usedto initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -49,10 +49,10 @@ vector<T>::vector()
 //
 // Function Name : destructor
 // Description   : It is destructor of vector class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -128,17 +128,24 @@ void vector<T>::push_back(T data)
 template <class T>
 void vector<T>::push_back(T data, int index)
 {
-    if (index < 0 || index > iCurrent)
+    try
     {
-        throw out_of_range("invalid index");
+        if (index < 0 || index > iCurrent)
+        {
+            throw index;
+        }
+        if (index == iCapacity)
+        {
+            push_back(data);
+        }
+        else
+        {
+            Arr[index] = data;
+        }
     }
-    if (index == iCapacity)
+    catch (int index)
     {
-        push_back(data);
-    }
-    else
-    {
-        Arr[index] = data;
+        cout << "Exception:invalid index " << index << endl;
     }
 }
 
@@ -174,12 +181,21 @@ void vector<T>::pop_back()
 template <class T>
 T vector<T>::at(int index)
 {
-    // if index is within the range
-    if (index >= 0 && index < iCurrent)
+    try
     {
-        return Arr[index];
+        if (index < 0 || index > iCurrent)
+        {
+            throw index;
+        }
+        else
+        {
+            return Arr[index];
+        }
     }
-    throw out_of_range("out of range");
+    catch (int index)
+    {
+        cout << "Exception:invalid index " << index << endl;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -253,11 +269,21 @@ void vector<T>::print()
 template <class T>
 T vector<T>::operator[](int index)
 {
-    if (index >= 0 && index < iCurrent)
+    try
     {
-        return Arr[index];
+        if (index < 0 || index > iCurrent)
+        {
+            throw index;
+        }
+        else
+        {
+            return Arr[index];
+        }
     }
-    throw out_of_range("out of range");
+    catch (int index)
+    {
+        cout << "Exception:invalid index " << index << endl;
+    }
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -274,9 +300,19 @@ T vector<T>::operator[](int index)
 template <class T>
 void vector<T>::set(int index, T data)
 {
-    if (index >= 0 && index < iCurrent)
+    try
     {
-        Arr[index] = data;
-        return;
+        if (index < 0 || index > iCurrent)
+        {
+            throw index;
+        }
+        else
+        {
+            Arr[index] = data;
+        }
+    }
+    catch (int index)
+    {
+        cout << "Exception:invalid index " << index << endl;
     }
 }

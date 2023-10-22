@@ -8,7 +8,7 @@ public:
     T data;
     node<T> *next;
 
-    node(T data)  //constructor
+    node(T data) // constructor
     {
         this->data = data;
         this->next = NULL;
@@ -22,7 +22,7 @@ public:
     T data;
     node1<T> *next;
     node1<T> *prev;
-    node1(T data) //constructor
+    node1(T data) // constructor
     {
         this->data = data;
         this->next = NULL;
@@ -37,7 +37,7 @@ public:
     T data;
     stacknode<T> *next;
     stacknode<T> *prev;
-    stacknode(T data)    //constructor
+    stacknode(T data) // constructor
     {
         this->data = data;
         this->next = NULL;
@@ -51,7 +51,7 @@ public:
     T data;
     queuenode<T> *next;
 
-    queuenode(T val)   //constructor
+    queuenode(T val) // constructor
     {
         this->data = val;
         this->next = NULL;
@@ -65,7 +65,7 @@ public:
     dequenode<T> *next;
     dequenode<T> *prev;
 
-    dequenode(T data)   //constructor
+    dequenode(T data) // constructor
     {
         this->data = data;
         this->next = NULL;
@@ -102,10 +102,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of singlyllist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -121,10 +121,10 @@ singlyllist<T>::singlyllist()
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of singlyllist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -139,17 +139,17 @@ singlyllist<T>::singlyllist(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of singlyllist class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
 singlyllist<T>::~singlyllist()
 {
-    while(!empty())
+    while (!empty())
     {
         deletefirst();
     }
@@ -200,7 +200,7 @@ void singlyllist<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     }
-    cout<<"NULL"<<endl;
+    cout << "NULL" << endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -300,37 +300,43 @@ void singlyllist<T>::insertlast(T val)
 template <class T>
 void singlyllist<T>::insertatpos(T val, int ipos)
 {
-    if (isize == maxCapacity)
+    try
     {
-        cout << "linked list is full\n";
-        return;
-    }
-    if ((ipos < 0) || (ipos > isize + 1))
-    {
-        cout << "Invalid Position" << endl;
-        return;
-    }
-
-    if (ipos == 1)
-    {
-        insertfirst(val);
-    }
-    else if (ipos == isize + 1)
-    {
-        insertlast(val);
-    }
-    else
-    {
-        node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
-        node<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (isize == maxCapacity)
         {
-            temp = temp->next;
+            cout << "linked list is full\n";
+            return;
         }
-        newn->next = temp->next;
-        temp->next = newn;
-        isize++;
+        if ((ipos < 0) || (ipos > isize + 1))
+        {
+            throw ipos;
+        }
+
+        if (ipos == 1)
+        {
+            insertfirst(val);
+        }
+        else if (ipos == isize + 1)
+        {
+            insertlast(val);
+        }
+        else
+        {
+            node<T> *newn = new node<T>(val); // newn = (PNODE)malloc(sizeof(NODE))
+            node<T> *temp = first;
+
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+            newn->next = temp->next;
+            temp->next = newn;
+            isize++;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -411,39 +417,44 @@ void singlyllist<T>::deletelast()
 template <class T>
 void singlyllist<T>::deleteatpos(int ipos)
 {
-
-    if ((ipos < 0) || (ipos > isize))
+    try
     {
-        cout << "Invalid Position" << endl;
-        return;
-    }
-
-    if (ipos == 1)
-    {
-        deletefirst();
-    }
-    else if (ipos == isize)
-    {
-        deletelast();
-    }
-    else
-    {
-        node<T> *temp = first;
-        node<T> *Targated = NULL;
-        for (int i = 1; i < ipos - 1; i++)
+        if ((ipos < 0) || (ipos > isize))
         {
-            temp = temp->next;
+            throw ipos;
         }
-        Targated = temp->next;
 
-        temp->next = Targated->next;
-        delete Targated;
-        isize--;
+        if (ipos == 1)
+        {
+            deletefirst();
+        }
+        else if (ipos == isize)
+        {
+            deletelast();
+        }
+        else
+        {
+            node<T> *temp = first;
+            node<T> *Targated = NULL;
+            for (int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+            Targated = temp->next;
+
+            temp->next = Targated->next;
+            delete Targated;
+            isize--;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
 ////////////////////////////////////////
-//     SINGLY CIRCULAR LINKED LIST    //                                       
+//     SINGLY CIRCULAR LINKED LIST    //
 ////////////////////////////////////////
 template <class T>
 class singlyclist
@@ -473,10 +484,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of singlyclist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -493,10 +504,10 @@ singlyclist<T>::singlyclist()
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of singlyclist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -513,17 +524,17 @@ singlyclist<T>::singlyclist(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of singlyclist class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
 singlyclist<T>::~singlyclist()
 {
-    while(!empty())
+    while (!empty())
     {
         deletefirst();
     }
@@ -574,7 +585,7 @@ void singlyclist<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-   cout<<endl;
+    cout << endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -675,39 +686,45 @@ void singlyclist<T>::insertlast(T val)
 template <class T>
 void singlyclist<T>::insertatpos(T val, int ipos)
 {
-    if (isize == maxCapacity)
+    try
     {
-        cout << "linked list is full" << endl;
-        return;
-    }
-    if ((ipos < 0) || (ipos > (isize + 1)))
-    {
-        cout << "Invalid position" << endl;
-        return;
-    }
-
-    if (ipos == 1)
-    {
-        insertfirst(val);
-    }
-    else if (ipos == isize + 1)
-    {
-        insertlast(val);
-    }
-    else
-    {
-        node<T> *newn = new node<T>(val);
-        node<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (isize == maxCapacity)
         {
-            temp = temp->next;
+            cout << "linked list is full" << endl;
+            return;
+        }
+        if ((ipos < 0) || (ipos > (isize + 1)))
+        {
+            throw ipos;
         }
 
-        newn->next = temp->next;
-        temp->next = newn;
+        if (ipos == 1)
+        {
+            insertfirst(val);
+        }
+        else if (ipos == isize + 1)
+        {
+            insertlast(val);
+        }
+        else
+        {
+            node<T> *newn = new node<T>(val);
+            node<T> *temp = first;
 
-        isize++;
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+
+            newn->next = temp->next;
+            temp->next = newn;
+
+            isize++;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -795,34 +812,41 @@ void singlyclist<T>::deletelast()
 template <class T>
 void singlyclist<T>::deleteatpos(int ipos)
 {
-    if ((ipos < 1) || (ipos > isize))
-    {
-        cout << "Invalid position" << endl;
-        return;
-    }
 
-    if (ipos == 1)
+    try
     {
-        deletefirst();
-    }
-    else if (ipos == isize)
-    {
-        deletelast();
-    }
-    else
-    {
-        node<T> *temp = first;
-        for (register int i = 1; i < ipos - 1; i++)
+        if ((ipos < 1) || (ipos > isize))
         {
-            temp = temp->next;
+            throw ipos;
         }
 
-        node<T> *Targated = temp->next;
+        if (ipos == 1)
+        {
+            deletefirst();
+        }
+        else if (ipos == isize)
+        {
+            deletelast();
+        }
+        else
+        {
+            node<T> *temp = first;
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
 
-        temp->next = Targated->next; // temp->next = temp->next->next;
-        delete Targated;
+            node<T> *Targated = temp->next;
 
-        isize--;
+            temp->next = Targated->next; // temp->next = temp->next->next;
+            delete Targated;
+
+            isize--;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -857,10 +881,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of doublyllist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -876,10 +900,10 @@ doublyllist<T>::doublyllist()
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of doublyllist class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -896,17 +920,17 @@ doublyllist<T>::doublyllist(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of doublyllist class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 template <class T>
 doublyllist<T>::~doublyllist()
 {
-    while(!empty())
+    while (!empty())
     {
         deletefirst();
     }
@@ -979,7 +1003,7 @@ void doublyllist<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     }
-    cout<<"NULL"<<endl;
+    cout << "NULL" << endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -996,7 +1020,7 @@ void doublyllist<T>::insertfirst(T val)
 {
     if (isize == maxCapacity)
     {
-        cout << "linked list is full"<<endl;
+        cout << "linked list is full" << endl;
         return;
     }
     node1<T> *newn = new node1<T>(val);
@@ -1064,39 +1088,46 @@ void doublyllist<T>::insertlast(T val)
 template <class T>
 void doublyllist<T>::insertatpos(T val, int ipos)
 {
-    if (isize == maxCapacity)
+    try
     {
-        cout << "linked list is full\n";
-        return;
-    }
-    if ((ipos < 0) || (ipos > isize + 1))
-    {
-        return;
-    }
-
-    if (ipos == 1)
-    {
-        insertfirst(val);
-    }
-    else if (ipos == size + 1)
-    {
-        insertlast(val);
-    }
-    else
-    {
-        node1<T> *temp = first;
-
-        node1<T> *newn = new node1<T>(val);
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (isize == maxCapacity)
         {
-            temp = temp->next;
+            cout << "linked list is full\n";
+            return;
         }
-        newn->next = temp->next;
-        newn->next->prev = newn;
-        temp->next = newn;
-        newn->prev = temp;
-        isize++;
+        if ((ipos < 0) || (ipos > isize + 1))
+        {
+            throw ipos;
+        }
+
+        if (ipos == 1)
+        {
+            insertfirst(val);
+        }
+        else if (ipos == size + 1)
+        {
+            insertlast(val);
+        }
+        else
+        {
+            node1<T> *temp = first;
+
+            node1<T> *newn = new node1<T>(val);
+
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+            newn->next = temp->next;
+            newn->next->prev = newn;
+            temp->next = newn;
+            newn->prev = temp;
+            isize++;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -1182,31 +1213,38 @@ void doublyllist<T>::deletelast()
 template <class T>
 void doublyllist<T>::deleteatpos(int ipos)
 {
-    if (ipos < 0 || ipos > isize)
+    try
     {
-        return;
-    }
-
-    if (ipos == 1)
-    {
-        deletefirst();
-    }
-    else if (ipos == isize)
-    {
-        deletelast();
-    }
-    else
-    {
-        node1<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (ipos < 0 || ipos > isize)
         {
-            temp = temp->next;
+            throw ipos;
         }
-        node<T> *Targated = temp->next;
-        temp->next = Targated->next;
-        delete Targated;
-        temp->next->prev = temp;
+
+        if (ipos == 1)
+        {
+            deletefirst();
+        }
+        else if (ipos == isize)
+        {
+            deletelast();
+        }
+        else
+        {
+            node1<T> *temp = first;
+
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+            node<T> *Targated = temp->next;
+            temp->next = Targated->next;
+            delete Targated;
+            temp->next->prev = temp;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -1246,10 +1284,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of list class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1262,15 +1300,14 @@ list<T>::list()
     this->maxCapacity = -1;
 }
 
-
 ///////////////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of list class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1287,10 +1324,10 @@ list<T>::list(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of stack class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1451,40 +1488,46 @@ void list<T>::push_back(T val)
 template <class T>
 void list<T>::insert(T val, int ipos)
 {
-    if (isize == maxCapacity)
+    try
     {
-        cout << "list is full\n";
-        return;
-    }
-    if ((ipos < 0) || (ipos > isize + 1))
-    {
-        cout << "Invalid position\n";
-        return;
-    }
-    if (ipos == 1)
-    {
-        push_front(val);
-    }
-    else if (ipos == isize + 1)
-    {
-        push_back(val);
-    }
-    else
-    {
-        node1<T> *newn = new node1<T>(val);
-
-        node1<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if (isize == maxCapacity)
         {
-            temp = temp->next;
+            cout << "list is full\n";
+            return;
         }
+        if ((ipos < 0) || (ipos > isize + 1))
+        {
+            throw ipos;
+        }
+        if (ipos == 1)
+        {
+            push_front(val);
+        }
+        else if (ipos == isize + 1)
+        {
+            push_back(val);
+        }
+        else
+        {
+            node1<T> *newn = new node1<T>(val);
 
-        newn->next = temp->next;
-        newn->next->prev = newn;
-        temp->next = newn;
-        newn->prev = temp;
-        isize++;
+            node1<T> *temp = first;
+
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
+
+            newn->next = temp->next;
+            newn->next->prev = newn;
+            temp->next = newn;
+            newn->prev = temp;
+            isize++;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 ////////////////////////////////////////////////////////////////////
@@ -1568,33 +1611,39 @@ void list<T>::pop_back()
 template <class T>
 void list<T>::deletenode(int ipos)
 {
-    if ((ipos < 0) || (ipos > isize))
+    try
     {
-        cout << "Invalid position" << endl;
-        return;
-    }
-    if (ipos == 1)
-    {
-        pop_front();
-    }
-    else if (ipos == isize)
-    {
-        pop_back();
-    }
-    else
-    {
-        node1<T> *temp = first;
-
-        for (register int i = 1; i < ipos - 1; i++)
+        if ((ipos < 0) || (ipos > isize))
         {
-            temp = temp->next;
+            throw ipos;
         }
+        if (ipos == 1)
+        {
+            pop_front();
+        }
+        else if (ipos == isize)
+        {
+            pop_back();
+        }
+        else
+        {
+            node1<T> *temp = first;
 
-        temp->next = temp->next->next;
-        delete temp->next->prev;
-        temp->next->prev = temp;
+            for (register int i = 1; i < ipos - 1; i++)
+            {
+                temp = temp->next;
+            }
 
-        isize--;
+            temp->next = temp->next->next;
+            delete temp->next->prev;
+            temp->next->prev = temp;
+
+            isize--;
+        }
+    }
+    catch (int pos_exception)
+    {
+        cout << "Exception:invalid position " << pos_exception << endl;
     }
 }
 
@@ -1699,10 +1748,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of stack class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1719,10 +1768,10 @@ stack<T>::stack()
 //
 // Function Name : parameterized constructor
 // Description   : It is constructor of stack class and This function is automatically
-//                 called when object of class is created.this function used to initialise 
+//                 called when object of class is created.this function used to initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     : integer
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1739,10 +1788,10 @@ stack<T>::stack(int maxCapacity)
 //
 // Function Name : destructor
 // Description   : It is destructor of stack class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2469,10 +2518,10 @@ public:
 //
 // Function Name : default constructor
 // Description   : It is constructor of vector class and This function is automatically
-//                 called when object of class is created.this function usedto initialise 
+//                 called when object of class is created.this function usedto initialise
 //                 the characterstics and allocate the resoures.
 // Parameter     :
-// Return value  : 
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -2488,10 +2537,10 @@ vector<T>::vector()
 //
 // Function Name : destructor
 // Description   : It is destructor of vector class and This function is automatically
-//                 called before deallocating the object of class.this function used to 
+//                 called before deallocating the object of class.this function used to
 //                 deallocate the resources.
-// Parameter     : 
-// Return value  : 
+// Parameter     :
+// Return value  :
 //
 ////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -3036,7 +3085,7 @@ void algorithm<T>::sort(vector<T> &arr)
     int i = 0, j = 0, temp = 0;
     int n = arr.size(); // length of array
 
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
@@ -3065,7 +3114,7 @@ void algorithm<T>::sort(T arr[], int n)
 {
     int i = 0, j = 0, temp = 0;
 
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         for (int j = 0; j < n - i - 1; j++)
         {
