@@ -1,16 +1,21 @@
-#include "stl1.h"
+#include "stl.h"
 
 int main()
 {
-    stack<int> s;
+    singlyllist<int> obj;
 
-    s.push(10);
-    s.push(10);
-    s.push(10);
-    s.push(10);
-    s.push(10);
+    obj.insertlast(10);
+    obj.insertlast(20);
+    obj.insertlast(30);
+    obj.insertlast(40);
+    obj.insertlast(50);
+    obj.insertlast(60);
 
-    s.display();
+    obj.display();
 
+    obj.deletelast();
+
+    obj.display();
+   
     return 0;
 }

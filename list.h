@@ -21,7 +21,7 @@ public:
 template <class T>
 class list
 {
-private:
+  private:
     node1<T> *first;
     node1<T> *last;
     int isize;

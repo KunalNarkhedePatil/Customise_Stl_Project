@@ -197,10 +197,10 @@ void singlyllist<T>::display()
 
     while (temp != NULL)
     {
-        cout << temp->data << "\t";
+        cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     }
-    cout << endl;
+    cout<<"NULL"<<endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -574,9 +574,7 @@ void singlyclist<T>::display()
         cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     } while (temp != last->next);
-    printf("NULL");
-
-    cout << "\n";
+   cout<<endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -610,7 +608,7 @@ void singlyclist<T>::insertfirst(T val)
     if (isize == maxCapacity)
     {
         cout << "linked list is full" << endl;
-        returnl
+        return;
     }
     node<T> *newn = new node<T>(val);
 
@@ -646,7 +644,7 @@ void singlyclist<T>::insertlast(T val)
     if (isize == maxCapacity)
     {
         cout << "linked list is full" << endl;
-        returnl
+        return;
     }
     node<T> *newn = new node<T>(val);
 
@@ -680,7 +678,7 @@ void singlyclist<T>::insertatpos(T val, int ipos)
     if (isize == maxCapacity)
     {
         cout << "linked list is full" << endl;
-        returnl
+        return;
     }
     if ((ipos < 0) || (ipos > (isize + 1)))
     {
@@ -869,7 +867,7 @@ public:
 template <class T>
 doublyllist<T>::doublyllist()
 {
-    thid->first = NULL;
+    this->first = NULL;
     this->isize = 0;
     this->maxCapacity = -1;
 }
@@ -889,7 +887,7 @@ template <class T>
 doublyllist<T>::doublyllist(int maxCapacity)
 {
 
-    thid->first = NULL;
+    this->first = NULL;
     this->isize = 0;
     this->maxCapacity = maxCapacity;
 }
@@ -978,10 +976,10 @@ void doublyllist<T>::display()
 
     while (temp != NULL)
     {
-        cout << "|" << temp->data << "|->";
+        cout << "|" << temp->data << "|-> ";
         temp = temp->next;
     }
-    cout << endl;
+    cout<<"NULL"<<endl;
 }
 
 ////////////////////////////////////////////////////////////////////
@@ -998,7 +996,7 @@ void doublyllist<T>::insertfirst(T val)
 {
     if (isize == maxCapacity)
     {
-        cout << "linked list is full\n";
+        cout << "linked list is full"<<endl;
         return;
     }
     node1<T> *newn = new node1<T>(val);

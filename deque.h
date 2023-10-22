@@ -15,7 +15,7 @@ public:
     }
 };
 ////////////////////////////////////////
-//       DEQUE DATA STRUCTURE          //
+//       DEQUE DATA STRUCTURE         //
 ////////////////////////////////////////
 
 template <class T>

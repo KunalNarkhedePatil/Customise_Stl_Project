@@ -2,40 +2,53 @@
 
 int main()
 {
-    list<int> lobj;
+    list<float> fobj;
+    fobj.push_back(10.10);
+    fobj.push_back(10.20);
+    fobj.push_back(10.30);
+    fobj.push_back(10.40);
+    fobj.push_back(10.50);
+    fobj.push_back(10.60);
 
-    lobj.push_back(10);
-    lobj.push_back(20);
-    lobj.push_back(30);
+    fobj.display();
 
-    lobj.display();
 
-    lobj.push_front(5);
 
-    lobj.display();
-    cout<<"size is "<<lobj.size()<<endl;
+    // list<int> lobj;
 
-    lobj.insert(25,3);
-    lobj.display();
+    // lobj.push_back(10);
+    // lobj.push_back(20);
+    // lobj.push_back(30);
 
-    lobj.deletenode(3);
 
-    lobj.display();
+    // lobj.display();
 
-    if(lobj.empty())
-    {
-        cout<<"true"<<endl;
-    }
-    else
-    {
-        cout<<"false"<<endl;
-    }
+    // lobj.push_front(5);
 
-    cout<<lobj.front()<<endl;
-    cout<<lobj.back()<<endl;
+    // lobj.display();
+    // cout<<"size is "<<lobj.size()<<endl;
 
-    cout<<lobj.begin()<<endl;
-    cout<<lobj.end()<<endl;
+    // lobj.insert(25,3);
+    // lobj.display();
+
+    // lobj.deletenode(3);
+
+    // lobj.display();
+
+    // if(lobj.empty())
+    // {
+    //     cout<<"true"<<endl;
+    // }
+    // else
+    // {
+    //     cout<<"false"<<endl;
+    // }
+
+    // cout<<lobj.front()<<endl;
+    // cout<<lobj.back()<<endl;
+
+    // cout<<lobj.begin()<<endl;
+    // cout<<lobj.end()<<endl;
 
     //cout<<lobj.maxCapacity<<endl;
     // cout<<lobj.first<<endl;
