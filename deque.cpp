@@ -1,4 +1,4 @@
-#include"deque.h"
+#include "deque.h"
 
 int main()
 {
@@ -11,27 +11,27 @@ int main()
     obj.push_back(50);
     obj.push_back(60);
     obj.push_back(70);
-cout<<"size :"<<obj.size()<<endl;
+    cout << "size :" << obj.size() << endl;
 
     obj.push_front(2);
     obj.pop_back();
     obj.pop_front();
-    cout<<"front :"<<obj.front()<<endl;
-    cout<<"back :"<<obj.back()<<endl;
+    cout << "front :" << obj.front() << endl;
+    cout << "back :" << obj.back() << endl;
     obj.pop_back();
-    cout<<"size :"<<obj.size()<<endl;
+    cout << "size :" << obj.size() << endl;
 
-    cout<<"begin "<<obj.begin()<<endl;
-    cout<<"end "<<obj.end()<<endl;
+    cout << "begin " << obj.begin() << endl;
+    cout << "end " << obj.end() << endl;
     obj.display();
 
-    if(obj.empty())
+    if (obj.empty())
     {
-        cout<<"true"<<endl;
+        cout << "true" << endl;
     }
     else
     {
-        cout<<"false"<<endl;
+        cout << "false" << endl;
     }
 
     return 0;
