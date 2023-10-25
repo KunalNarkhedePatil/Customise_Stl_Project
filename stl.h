@@ -3069,6 +3069,8 @@ bool algorithm<T>::binarysearch(vector<T> &Arr, const T &Key)
     }
 }
 
+//In future we can use efficient sort now we are using very basic sort like bubble sort.
+
 ////////////////////////////////////////////////////////////////////
 //
 // Function Name : sort
