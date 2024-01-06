@@ -1,21 +1,21 @@
-#include "stl.h"
+#include "singlylinearlinkedlist.h"
 
 int main()
 {
-    singlyllist<int> obj;
+    singlyllist<int> sobj;
 
-    obj.insertlast(10);
-    obj.insertlast(20);
-    obj.insertlast(30);
-    obj.insertlast(40);
-    obj.insertlast(50);
-    obj.insertlast(60);
+    sobj.insertlast(10);
+    sobj.insertlast(20);
+    sobj.insertlast(30);
+    sobj.insertlast(40);
+    sobj.insertlast(50);
 
-    obj.display();
+    sobj.display();
 
-    obj.deletelast();
-
-    obj.display();
-   
-    return 0;
 }
+
+/*
+Output:-
+|10|-> |20|-> |30|-> |40|-> |50|-> NULL
+*/
+
