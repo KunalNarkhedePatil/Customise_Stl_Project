@@ -1236,7 +1236,7 @@ void doublyllist<T>::deleteatpos(int ipos)
             {
                 temp = temp->next;
             }
-            node<T> *Targated = temp->next;
+            node1<T> *Targated = temp->next;
             temp->next = Targated->next;
             delete Targated;
             temp->next->prev = temp;
