@@ -13,11 +13,11 @@ int main()
     s.display();
 
     s.pop();
+    s.pop();
 
     s.display();
 
     cout << "top:" << s.top() << endl;
-
     cout << "size:" << s.size() << endl;
 
     // cout<<s.first<<endl;
@@ -34,6 +34,8 @@ int main()
         cout << "false" << endl;
     }
 
+    //creating a stack for float 
+
     stack<float> s1(5);
 
     s1.push(1.1);
@@ -44,6 +46,8 @@ int main()
 
     s1.display();
 
+    s1.pop();
+    s1.pop();
     s1.pop();
 
     s1.display();
