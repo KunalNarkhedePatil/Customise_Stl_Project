@@ -11,6 +11,8 @@ int main()
     obj.push_back(50);
     obj.push_back(60);
     obj.push_back(70);
+
+    obj.display();
     cout << "size :" << obj.size() << endl;
 
     obj.push_front(2);
