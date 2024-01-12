@@ -12,7 +12,7 @@ int main()
 
     c.display();
 
-    cout << c.size() << endl;
+    cout << "size of queue is "<<c.size() <<endl;
 
     c.pop();
     c.display();
