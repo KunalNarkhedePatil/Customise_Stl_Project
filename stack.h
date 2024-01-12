@@ -106,7 +106,7 @@ stack<T>::~stack()
 // Description   : It is stack Data Structure and This function is used
 //                 to check stack is empty or not
 // Parameter     :
-// Return Value  : void
+// Return Value  : bool
 //
 ///////////////////////////////////////////////////////////////////////////////////////////
 

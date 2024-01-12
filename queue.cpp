@@ -17,13 +17,15 @@ int main()
     c.pop();
     c.display();
 
+    cout<<"Check whether the queue is empty or not"<<endl;
+
     if (c.empty())
     {
-        cout << "true" << endl;
+        cout << "queue is empty" << endl;
     }
     else
     {
-        cout << "false" << endl;
+        cout << "queue is not empty" << endl;
     }
 
     return 0;
