@@ -1,0 +1,15 @@
+Purpose:
+
+The primary purpose of the Custom STL project is educational. It is meant to deepen the understanding of C++ templates, data structures, algorithms, and memory management. By creating a custom STL, developers can gain hands-on experience in designing generic libraries and learn how to create flexible and efficient code.
+
+Usage:
+
+Developers can use the Custom STL as a learning resource to study the inner workings of container classes, algorithms, and template metaprogramming in C++. While not intended as a drop-in replacement for the official C++ STL, this custom implementation can be a valuable tool for experimentation and education.
+
+Contributions:
+
+Contributions to the Custom STL project are welcome. Developers can extend the library by adding new container classes, algorithms, or improvements to existing code. Contributions should align with the project's educational goals and adhere to established coding standards.
+
+Disclaimer:
+
+Please note that the Custom STL is not a production-ready library and may not offer the same level of performance, stability, or features as the official C++ STL. It is intended primarily for educational purposes and as a platform for experimentation and learning. Users are encouraged to use the official STL in production code.
